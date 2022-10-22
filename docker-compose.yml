@@ -1,0 +1,39 @@
+version: "3"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./docker/api/Dockerfile
+    container_name: api
+    working_dir: /var/www
+    tty: true
+    volumes:
+      - ./api:/var/www
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - 80:80
+      - 3000:3000
+    depends_on: # コンテナ間の依存関係(先に起動するコンテナのサービス名) PHP->Nginxの順でコンテナを起動
+      - api
+    volumes:
+      - ./api:/var/www
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    platform: linux/x86_64 # M1 mac用
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: game_release_db
+      MYSQL_USER: game_release
+      MYSQL_PASSWORD: game_release_pass
+      MYSQL_ROOT_PASSWORD: root
+      TZ: "Asia/Tokyo"
+    volumes:
+      - game_release:/var/lib/mysql
+volumes:
+  game_release:
