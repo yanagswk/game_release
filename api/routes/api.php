@@ -20,10 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/getTest', [GameController::class, 'getTest']);
-
 Route::get('/games/before_release', [GamesController::class, 'getBeforeReleaseGames']);
 
 Route::post('/register/device', [AuthController::class, 'registerDeviceInfo']);
 
-Route::post('/games/favorite', [GamesController::class, 'addFavoriteGame']);
+Route::post('/games/add/favorite', [GamesController::class, 'addFavoriteGame']);
+
+Route::post('/games/remove/favorite', [GamesController::class, 'removeFavoriteGame']);

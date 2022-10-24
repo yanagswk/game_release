@@ -13,6 +13,7 @@ class FavoriteGames extends Model
 
     protected $fillable = [
         'games_id',
-        'user_id'
+        'user_id',
+        'is_disabled'
     ];
 }
