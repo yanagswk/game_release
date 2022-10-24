@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GamesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::get('/getTest', [GameController::class, 'getTest']);
 
 Route::get('/games/before_release', [GamesController::class, 'getBeforeReleaseGames']);
+
+Route::post('/register/device', [AuthController::class, 'registerDeviceInfo']);
+
+Route::post('/games/favorite', [GamesController::class, 'addFavoriteGame']);

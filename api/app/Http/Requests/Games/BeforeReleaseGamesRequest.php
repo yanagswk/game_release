@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Games;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
@@ -29,7 +29,7 @@ class BeforeReleaseGamesRequest extends FormRequest
         return [
             'hardware'  => 'required',
             'limit'     => 'numeric|nullable',
-            'offset'     => 'numeric|nullable',
+            'offset'    => 'numeric|nullable',
         ];
     }
 
