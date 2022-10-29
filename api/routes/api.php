@@ -20,10 +20,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// ゲーム一覧取得
 Route::get('/games/before_release', [GamesController::class, 'getBeforeReleaseGames']);
 
+// ゲーム詳細取得
+Route::get('/games/detail', [GamesController::class, 'getGamesDetail']);
+
+// デバイス登録
 Route::post('/register/device', [AuthController::class, 'registerDeviceInfo']);
 
+// ゲームお気に入り登録
 Route::post('/games/add/favorite', [GamesController::class, 'addFavoriteGame']);
 
+// ゲームお気に入り解除
 Route::post('/games/remove/favorite', [GamesController::class, 'removeFavoriteGame']);

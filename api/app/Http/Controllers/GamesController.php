@@ -50,6 +50,59 @@ class GamesController extends Controller
 
 
     /**
+     * ゲームの詳細情報
+     *
+     * @param AddFavoriteGameRequest $request
+     * @return void
+     */
+    public function getGamesDetail(AddFavoriteGameRequest $request)
+    {
+        $device_id = $request->input('device_id');
+        $game_id = $request->input('game_id');
+
+        // ユーザーid取得
+        $user_id = UserInfo::where('device_id', $device_id)
+            ->pluck('id')
+            ->first();
+
+        // ゲームidが存在するか
+        $games = Games::where('id', $game_id)->first();
+            // リレーション先のfavorite_gamesテーブルを絞り込む
+            // ->with(['favorite' => function ($query) use ($user_id) {
+            //     $query->where('user_id', $user_id);
+            // }])
+            // リレーション先のavorite_gamesテーブルで、Gamesテーブルを絞り込む場合
+            // ->whereHas('favorite', function ($query) use ($user_id) {
+            //     $query->where('user_id', $user_id);
+            // });
+        if (!$games) {
+            return response()->json([
+                'message'   => 'game does not exist'
+            ], 400);
+        }
+
+        // ゲームがお気に入り済みか
+        $favorite_game = FavoriteGames::where([
+            ['user_id', $user_id],
+            ['games_id', $game_id],
+        ])->first();
+
+        // nullの場合と無効の場合はfalseへ
+        if (!$favorite_game || $favorite_game->is_disabled) {
+            $games['is_favorite'] = false;
+        } else {
+            $games['is_favorite'] = true;
+        }
+
+        return response()->json([
+            'message'   => 'success',
+            'data'      => $games
+        ], 200);
+
+    }
+
+
+    /**
      * ゲームをお気に入り登録する
      *
      * @param Request $request

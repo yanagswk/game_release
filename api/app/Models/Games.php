@@ -31,5 +31,12 @@ class Games extends Model
     ];
 
 
+    public function favorite()
+    {
+        // return $this->hasOne('App\Models\FavoriteGames', 'games_id', 'id');
+        return $this->hasMany('App\Models\FavoriteGames', 'games_id', 'id');
+    }
+
+
 
 }
