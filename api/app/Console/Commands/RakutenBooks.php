@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Games;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 
 use function PHPSTORM_META\map;
 
@@ -46,26 +47,22 @@ class RakutenBooks extends Command
                 'applicationId' => '1092593678658310389',
                 'booksGenreId' => '006',
                 // 'title' => '$title',
-                'hardware' => 'PS4',
+                'hardware' => 'PS5',
                 'sort' => '-releaseDate',
                 'hits' => '30',
-                'page' => '5',
+                'page' => '6',
             ]]
         );
         $data = json_decode($response->getBody(), true);
         $data_items = $data['Items'];
 
         $game_list = array_map(function($item) {
-            // 日付変換
-            $sales_date = Carbon::createFromFormat(
-                'Y年m月d日',
-                $item['Item']['salesDate']
-            );
+
             return [
                 'title' => $item['Item']['title'],
                 'hardware' => $item['Item']['hardware'],
                 'price' => $item['Item']['itemPrice'],
-                'sales_date' => $sales_date,
+                'sales_date' => $item['Item']['salesDate'],
                 'large_image_url' => $item['Item']['largeImageUrl'],
                 'item_url' => $item['Item']['itemUrl'],
                 'label' => $item['Item']['label'],
@@ -77,8 +74,12 @@ class RakutenBooks extends Command
             ];
         }, $data_items);
 
-        // 追加
+        // \Log::debug($game_list);
+
+        // ゲームデータ追加
         Games::insert($game_list);
+
+        echo("取得完了\n");
 
         return true;
     }
