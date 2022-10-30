@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\DeviceInfoRequest;
 use App\Http\Requests\Games\AddFavoriteGameRequest;
-use App\Http\Requests\Games\BeforeReleaseGamesRequest;
+use App\Http\Requests\Games\ReleaseGamesRequest;
 use App\Models\FavoriteGames;
 use App\Models\Games;
 use App\Models\UserInfo;
@@ -16,16 +16,19 @@ class GamesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('deviceCheck', ['except' => ['getBeforeReleaseGames']]);
+        $this->middleware('deviceCheck', ['except' => [
+            'getBeforeReleaseGames',
+            'getReleasedGames'
+        ]]);
     }
 
     /**
      * 発売前のゲーム一覧取得
      *
-     * @param BeforeReleaseGamesRequest $request
+     * @param ReleaseGamesRequest $request
      * @return void
      */
-    public function getBeforeReleaseGames(BeforeReleaseGamesRequest $request)
+    public function getBeforeReleaseGames(ReleaseGamesRequest $request)
     {
         // \Log::debug('');
         // \Log::debug('----------------------------デバック開始----------------------------');
@@ -39,6 +42,34 @@ class GamesController extends Controller
         $games = Games::where('hardware', $hardware)
             ->whereDate('sales_date', '>=', $today)     // 今日以降に発売されたゲームを取得
             ->orderBy('sales_date', 'asc')
+            ->limit($limit)
+            ->offset($offset)
+            ->get();
+
+        return response()->json([
+            'message'   => 'success',
+            'games'     => $games
+        ], 200);
+    }
+
+
+    /**
+     * 発売済みのゲーム一覧取得
+     *
+     * @param ReleaseGamesRequest $request
+     * @return void
+     */
+    public function getReleasedGames(ReleaseGamesRequest $request)
+    {
+        $hardware = $request->input('hardware');
+        $limit = $request->input('limit');
+        $offset = $request->input('offset');
+
+        $today = Carbon::today();
+
+        $games = Games::where('hardware', $hardware)
+            ->whereDate('sales_date', '<=', $today)     // 今日以前に発売されたゲームを取得
+            ->orderBy('sales_date', 'desc')
             ->limit($limit)
             ->offset($offset)
             ->get();
