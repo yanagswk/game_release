@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\DeviceInfoRequest;
 use App\Http\Requests\Games\AddFavoriteGameRequest;
 use App\Http\Requests\Games\BeforeReleaseGamesRequest;
 use App\Models\FavoriteGames;
@@ -98,7 +99,39 @@ class GamesController extends Controller
             'message'   => 'success',
             'data'      => $games
         ], 200);
+    }
 
+
+    /**
+     * お気に入りのゲーム一覧取得
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function getFavoriteGameList(DeviceInfoRequest $request)
+    {
+        $device_id = $request->input('device_id');
+
+        // ユーザーid取得
+        $user_id = UserInfo::userId($device_id);
+
+        // お気に入りゲーム一覧取得
+        $favorite_games = FavoriteGames::with('games')
+            ->active()
+            ->where('user_id', $user_id)
+            ->orderBy('updated_at', 'DESC')
+            ->get()
+            ->toArray();
+
+        // ゲーム情報のみにする
+        $games_info = array_map(function($game) {
+            return $game['games'];
+        }, $favorite_games);
+
+        return response()->json([
+            'message'   => 'success',
+            'data'      => $games_info
+        ], 200);
     }
 
 

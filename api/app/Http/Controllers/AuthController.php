@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Auth\RegisterDeviceInfoRequest;
+use App\Http\Requests\Auth\DeviceInfoRequest;
 use App\Models\UserInfo;
 use Illuminate\Http\Request;
 
@@ -11,10 +11,10 @@ class AuthController extends Controller
     /**
      * デバイスIDが登録されていなければ、登録
      *
-     * @param RegisterDeviceInfoRequest $request
+     * @param DeviceInfoRequest $request
      * @return void
      */
-    public function registerDeviceInfo(RegisterDeviceInfoRequest $request)
+    public function registerDeviceInfo(DeviceInfoRequest $request)
     {
         $device_id = $request->input('device_id');
         $message = null;

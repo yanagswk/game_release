@@ -16,4 +16,19 @@ class FavoriteGames extends Model
         'user_id',
         'is_disabled'
     ];
+
+    public function games()
+    {
+        return $this->belongsTo('App\Models\Games', 'games_id', 'id');
+    }
+
+    /**
+     * 有効なレコードのみ取得
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('is_disabled', false);
+    }
+
+
 }

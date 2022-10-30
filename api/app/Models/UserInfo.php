@@ -15,4 +15,18 @@ class UserInfo extends Model
         'device_id',
         'nickname'
     ];
+
+    /**
+     * ユーザーid取得
+     *
+     * @param [type] $query
+     * @param [type] $device_id
+     * @return void
+     */
+    public function scopeUserId($query, string $device_id)
+    {
+        return $query->where('device_id', $device_id)
+            ->pluck('id')
+            ->first();
+    }
 }
