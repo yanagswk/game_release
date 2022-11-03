@@ -11,8 +11,12 @@ use App\Models\UserInfo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+use App\Services\GamesServices;
+
+
 class GamesController extends Controller
 {
+    private $gamesServices;
 
     public function __construct()
     {
@@ -20,6 +24,8 @@ class GamesController extends Controller
             'getBeforeReleaseGames',
             'getReleasedGames'
         ]]);
+
+        $this->gamesServices = new GamesServices();
     }
 
     /**
@@ -38,13 +44,21 @@ class GamesController extends Controller
         $offset = $request->input('offset');
 
         $today = Carbon::today();
+        $today_format = $today->format('Ymd');
 
-        $games = Games::where('hardware', $hardware)
-            ->whereDate('sales_date', '>=', $today)     // 今日以降に発売されたゲームを取得
+        $games = Games::where('sales_date', '>=', $today_format)     // 今日以降に発売されたゲームを取得
             ->orderBy('sales_date', 'asc')
             ->limit($limit)
-            ->offset($offset)
-            ->get();
+            ->offset($offset);
+
+        if ($hardware !== 'All') {
+            $games->where('hardware', $hardware);
+        }
+
+        $games = $games->get();
+
+        // 日付フォーマット
+        $games = $this->gamesServices->formatSalesDate($games);
 
         return response()->json([
             'message'   => 'success',
@@ -66,13 +80,22 @@ class GamesController extends Controller
         $offset = $request->input('offset');
 
         $today = Carbon::today();
+        $today_format = $today->format('Ymd');
 
-        $games = Games::where('hardware', $hardware)
-            ->whereDate('sales_date', '<=', $today)     // 今日以前に発売されたゲームを取得
+        $games = Games::where('sales_date', '<=', $today_format)     // 今日以前に発売されたゲームを取得
             ->orderBy('sales_date', 'desc')
             ->limit($limit)
-            ->offset($offset)
-            ->get();
+            ->offset($offset);
+
+        // ハードウェアが選択されている場合
+        if ($hardware !== 'All' ) {
+            $games->where('hardware', $hardware);
+        }
+
+        $games = $games->get();
+
+        // 日付フォーマット
+        $games = $this->gamesServices->formatSalesDate($games);
 
         return response()->json([
             'message'   => 'success',

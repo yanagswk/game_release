@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Games;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
@@ -19,7 +20,7 @@ class RakutenBooks extends Command
      *
      * @var string
      */
-    protected $signature = 'command:rakuten';
+    protected $signature = 'command:rakuten {hardware} {page}';
 
     /**
      * The console command description.
@@ -36,6 +37,9 @@ class RakutenBooks extends Command
     public function handle()
     {
 
+        $hardware = $this->argument('hardware');
+        $page = $this->argument('page');
+
         $client = new \GuzzleHttp\Client();
 
         // api実行
@@ -46,11 +50,10 @@ class RakutenBooks extends Command
                 'format' => 'json',
                 'applicationId' => '1092593678658310389',
                 'booksGenreId' => '006',
-                // 'title' => '$title',
-                'hardware' => 'PS5',
+                'hardware' => $hardware,
                 'sort' => '-releaseDate',
                 'hits' => '30',
-                'page' => '6',
+                'page' => $page,
             ]]
         );
         $data = json_decode($response->getBody(), true);
@@ -58,11 +61,25 @@ class RakutenBooks extends Command
 
         $game_list = array_map(function($item) {
 
+            // Nintendo Switchの場合、ハードウェア名変更
+            $hardware = $item['Item']['hardware'] === 'Nintendo Switch' ? 'Switch' : $item['Item']['hardware'];
+
+            // 数字のみにする
+            $sales_date_number = preg_replace('/[^0-9]/', '', $item['Item']['salesDate']);
+
+            // 6文字未満の場合
+            if (mb_strlen($sales_date_number) < 6) {
+                throw new Exception("発売日エラー: {$item['Item']['salesDate']}");
+            }
+
+            // 8桁になるように0埋め
+            $sales_date = str_pad($sales_date_number, 8, 0, STR_PAD_RIGHT);
+
             return [
                 'title' => $item['Item']['title'],
-                'hardware' => $item['Item']['hardware'],
+                'hardware' => $hardware,
                 'price' => $item['Item']['itemPrice'],
-                'sales_date' => $item['Item']['salesDate'],
+                'sales_date' => $sales_date,
                 'large_image_url' => $item['Item']['largeImageUrl'],
                 'item_url' => $item['Item']['itemUrl'],
                 'label' => $item['Item']['label'],
