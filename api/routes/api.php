@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GamesController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,3 +41,6 @@ Route::post('/games/add/favorite', [GamesController::class, 'addFavoriteGame']);
 
 // ゲームお気に入り解除
 Route::post('/games/remove/favorite', [GamesController::class, 'removeFavoriteGame']);
+
+// ゲームお気に入り解除
+Route::post('/contact/message', [MessageController::class, 'sendContactForm']);

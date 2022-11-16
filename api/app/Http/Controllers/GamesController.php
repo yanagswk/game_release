@@ -240,7 +240,7 @@ class GamesController extends Controller
         }
 
         // お気に入りテーブルに存在しないか
-        // TODO: 「存在しなければ登録、存在すれば更新」のメソッド使いたい
+        // TODO: 「存在しなければ登録、存在すれば更新」のメソッド使いたい　updateOrCreateかな？？
         $favorite_games = FavoriteGames::where([
             ['user_id', $user_id],
             ['games_id', $game_id],
