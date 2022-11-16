@@ -11,6 +11,8 @@ use App\Models\UserInfo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+use Ramsey\Uuid\Uuid;
+
 use App\Services\GamesServices;
 
 
@@ -21,7 +23,7 @@ class GamesController extends Controller
     public function __construct()
     {
         $this->middleware('deviceCheck', ['except' => [
-            'getBeforeReleaseGames',
+            // 'getBeforeReleaseGames',
             'getReleasedGames'
         ]]);
 
@@ -34,35 +36,60 @@ class GamesController extends Controller
      * @param ReleaseGamesRequest $request
      * @return void
      */
-    public function getBeforeReleaseGames(ReleaseGamesRequest $request)
+    public function getGamesInfo(ReleaseGamesRequest $request)
     {
         // \Log::debug('');
         // \Log::debug('----------------------------デバック開始----------------------------');
 
+        $user_id = $request->input('user_id');
         $hardware = $request->input('hardware');
         $limit = $request->input('limit');
         $offset = $request->input('offset');
+        $is_released = $request->input('is_released');
 
         $today = Carbon::today();
         $today_format = $today->format('Ymd');
 
-        $games = Games::where('sales_date', '>=', $today_format)     // 今日以降に発売されたゲームを取得
-            ->orderBy('sales_date', 'asc')
-            ->limit($limit)
-            ->offset($offset);
+        $games = Games::with(['favorite' => function ($query) use ($user_id) {
+                // リレーション先をユーザーで絞り込む
+                $query->where('user_id', $user_id);
+                $query->where('is_disabled', false);
+            }]);
 
         if ($hardware !== 'All') {
             $games->where('hardware', $hardware);
         }
 
-        $games = $games->get();
+        if ($is_released) {
+            // 発売前
+            $games->where('sales_date', '<=', $today_format);   // 今日以前に発売されたゲームを取得
+            $games->orderBy('sales_date', 'desc');
+        } else {
+            // 発売後
+            $games->where('sales_date', '>=', $today_format);   // 今日以降に発売されたゲームを取得
+            $games->orderBy('sales_date', 'asc');
+        }
 
-        // 日付フォーマット
-        $games = $this->gamesServices->formatSalesDate($games);
+        // 対象の総数を取得するために、limit・offsetする前にコピーする
+        $game_copy = clone $games;
+        $game_count = count($game_copy->get());
+
+        $games->limit($limit)->offset($offset);
+        $games = $games->get()->toArray();
+
+        foreach ($games as $index => $game) {
+            // 日付フォーマット
+            $games[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
+            // お気に入りにしているか(空の場合はfalse)
+            $games[$index]['is_favorite'] = !empty($game['favorite']) ? true : false;
+            // お気に入りのリレーションを削除
+            unset($games[$index]['favorite']);
+        }
 
         return response()->json([
-            'message'   => 'success',
-            'games'     => $games
+            'message'       => 'success',
+            'games'         => $games,
+            'game_count'    => $game_count
         ], 200);
     }
 
@@ -94,8 +121,10 @@ class GamesController extends Controller
 
         $games = $games->get();
 
-        // 日付フォーマット
-        $games = $this->gamesServices->formatSalesDate($games);
+        foreach ($games as $index => $game) {
+            // 日付フォーマット
+            $games[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
+        }
 
         return response()->json([
             'message'   => 'success',
@@ -112,16 +141,11 @@ class GamesController extends Controller
      */
     public function getGamesDetail(AddFavoriteGameRequest $request)
     {
-        $device_id = $request->input('device_id');
+        $user_id = $request->input('user_id');
         $game_id = $request->input('game_id');
 
-        // ユーザーid取得
-        $user_id = UserInfo::where('device_id', $device_id)
-            ->pluck('id')
-            ->first();
-
         // ゲームidが存在するか
-        $games = Games::where('id', $game_id)->first();
+        $game = Games::where('id', $game_id)->first();
             // リレーション先のfavorite_gamesテーブルを絞り込む
             // ->with(['favorite' => function ($query) use ($user_id) {
             //     $query->where('user_id', $user_id);
@@ -130,7 +154,7 @@ class GamesController extends Controller
             // ->whereHas('favorite', function ($query) use ($user_id) {
             //     $query->where('user_id', $user_id);
             // });
-        if (!$games) {
+        if (!$game) {
             return response()->json([
                 'message'   => 'game does not exist'
             ], 400);
@@ -144,14 +168,17 @@ class GamesController extends Controller
 
         // nullの場合と無効の場合はfalseへ
         if (!$favorite_game || $favorite_game->is_disabled) {
-            $games['is_favorite'] = false;
+            $game['is_favorite'] = false;
         } else {
-            $games['is_favorite'] = true;
+            $game['is_favorite'] = true;
         }
+
+        // 日付フォーマット
+        $game['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
 
         return response()->json([
             'message'   => 'success',
-            'data'      => $games
+            'data'      => $game
         ], 200);
     }
 
@@ -164,10 +191,7 @@ class GamesController extends Controller
      */
     public function getFavoriteGameList(DeviceInfoRequest $request)
     {
-        $device_id = $request->input('device_id');
-
-        // ユーザーid取得
-        $user_id = UserInfo::userId($device_id);
+        $user_id = $request->input('user_id');
 
         // お気に入りゲーム一覧取得
         $favorite_games = FavoriteGames::with('games')
@@ -181,6 +205,13 @@ class GamesController extends Controller
         $games_info = array_map(function($game) {
             return $game['games'];
         }, $favorite_games);
+
+        foreach ($games_info as $index => $game) {
+            // 日付フォーマット
+            $games_info[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
+            // お気に入り
+            $games_info[$index]['is_favorite'] = true;
+        }
 
         return response()->json([
             'message'   => 'success',
@@ -197,13 +228,8 @@ class GamesController extends Controller
      */
     public function addFavoriteGame(AddFavoriteGameRequest $request)
     {
-        $device_id = $request->input('device_id');
+        $user_id = $request->input('user_id');
         $game_id = $request->input('game_id');
-
-        // ユーザーid取得
-        $user_id = UserInfo::where('device_id', $device_id)
-            ->pluck('id')
-            ->first();
 
         // ゲームidが存在するか
         $games = Games::where('id', $game_id);
@@ -214,6 +240,7 @@ class GamesController extends Controller
         }
 
         // お気に入りテーブルに存在しないか
+        // TODO: 「存在しなければ登録、存在すれば更新」のメソッド使いたい
         $favorite_games = FavoriteGames::where([
             ['user_id', $user_id],
             ['games_id', $game_id],
@@ -249,18 +276,13 @@ class GamesController extends Controller
     /**
      * ゲームのお気に入り解除
      *
-     * @param AddFavoriteGameRequest $request
+     * @param $request
      * @return void
      */
     public function removeFavoriteGame(AddFavoriteGameRequest $request)
     {
-        $device_id = $request->input('device_id');
+        $user_id = $request->input('user_id');
         $game_id = $request->input('game_id');
-
-        // ユーザーid取得
-        $user_id = UserInfo::where('device_id', $device_id)
-            ->pluck('id')
-            ->first();
 
         // ゲームidが存在するか
         $games = Games::where('id', $game_id);

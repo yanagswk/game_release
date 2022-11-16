@@ -21,10 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // 発売前のゲーム一覧取得
-Route::get('/games/before_release', [GamesController::class, 'getBeforeReleaseGames']);
+Route::get('/games/info', [GamesController::class, 'getGamesInfo']);
 
 // 発売済みのゲーム一覧取得
-Route::get('/games/released', [GamesController::class, 'getReleasedGames']);
+// Route::get('/games/released', [GamesController::class, 'getReleasedGames']);
 
 // ゲームお気に入り一覧取得
 Route::get('/games/favorite', [GamesController::class, 'getFavoriteGameList']);

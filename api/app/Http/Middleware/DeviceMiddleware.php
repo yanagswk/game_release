@@ -23,12 +23,18 @@ class DeviceMiddleware
         $device_id = $request->input('device_id');
 
         // デバイスIDが存在するか
-        $user_id = UserInfo::where('device_id', $device_id)->first();
+        $user_id = UserInfo::where('device_id', $device_id)
+            ->pluck('id')
+            ->first();
         if (!$user_id) {
             return response()->json([
                 'message'   => 'user not found'
             ], 400);
         }
+        $request->merge([
+            // ユーザーidをコントローラーで使えるように
+            'user_id' => $user_id
+        ]);
         return $next($request);
     }
 }

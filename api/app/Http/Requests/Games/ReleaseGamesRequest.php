@@ -30,6 +30,7 @@ class ReleaseGamesRequest extends FormRequest
             'hardware'  => 'nullable|in:All,PS4,PS5,Switch',
             'limit'     => 'numeric|nullable',
             'offset'    => 'numeric|nullable',
+            'is_released'   => 'required|boolean'
         ];
     }
 
