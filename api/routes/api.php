@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NoticeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -44,3 +45,6 @@ Route::post('/games/remove/favorite', [GamesController::class, 'removeFavoriteGa
 
 // ゲームお気に入り解除
 Route::post('/contact/message', [MessageController::class, 'sendContactForm']);
+
+// お知らせ取得
+Route::get('/notice', [NoticeController::class, 'getNoticeList']);

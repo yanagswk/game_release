@@ -10,9 +10,6 @@ use App\Models\Games;
 use App\Models\UserInfo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
-use Ramsey\Uuid\Uuid;
-
 use App\Services\GamesServices;
 
 
@@ -194,10 +191,9 @@ class GamesController extends Controller
         $user_id = $request->input('user_id');
 
         // お気に入りゲーム一覧取得
-        $favorite_games = FavoriteGames::with('games')
+        $favorite_games = FavoriteGames::with('games') // TODO: games.sales_dateで並べ替えしたい
             ->active()
             ->where('user_id', $user_id)
-            ->orderBy('updated_at', 'DESC')
             ->get()
             ->toArray();
 
@@ -205,6 +201,9 @@ class GamesController extends Controller
         $games_info = array_map(function($game) {
             return $game['games'];
         }, $favorite_games);
+
+        $sales_date_list = array_column($games_info, 'sales_date');
+        array_multisort($sales_date_list, SORT_DESC, $games_info);
 
         foreach ($games_info as $index => $game) {
             // 日付フォーマット
