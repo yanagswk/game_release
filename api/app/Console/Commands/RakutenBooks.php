@@ -91,8 +91,6 @@ class RakutenBooks extends Command
             ];
         }, $data_items);
 
-        // \Log::debug($game_list);
-
         // ゲームデータ追加
         Games::insert($game_list);
 

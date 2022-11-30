@@ -35,5 +35,16 @@ services:
       TZ: "Asia/Tokyo"
     volumes:
       - game_release:/var/lib/mysql
+  py:
+    # restart: always
+    build:
+      context: .
+      dockerfile: ./docker/py/Dockerfile
+    container_name: 'py'
+    working_dir: '/var/www/python'
+    tty: true
+    volumes:
+      - ./:/var/www/python
+
 volumes:
   game_release:
