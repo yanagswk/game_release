@@ -1,2 +1,2 @@
 - 楽天apiコマンド
-`php artisan command:rakuten`
+`php artisan command:rakuten "PS4" 1`

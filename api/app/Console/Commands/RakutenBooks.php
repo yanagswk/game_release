@@ -91,8 +91,11 @@ class RakutenBooks extends Command
             ];
         }, $data_items);
 
-        // ゲームデータ追加
-        Games::insert($game_list);
+        // 存在しなければ、更新・新規作成
+        Games::upsert(
+            $game_list,
+            ['title', 'hardware'] // ユニークなカラム
+        );
 
         echo("取得完了\n");
 
