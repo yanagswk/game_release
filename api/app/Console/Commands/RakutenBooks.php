@@ -68,9 +68,9 @@ class RakutenBooks extends Command
             $sales_date_number = preg_replace('/[^0-9]/', '', $item['Item']['salesDate']);
 
             // 6文字未満の場合
-            if (mb_strlen($sales_date_number) < 6) {
-                throw new Exception("発売日エラー: {$item['Item']['salesDate']}");
-            }
+            // if (mb_strlen($sales_date_number) < 6) {
+            //     throw new Exception("発売日エラー: {$item['Item']['salesDate']} {$item['Item']['itemPrice']}");
+            // }
 
             // 8桁になるように0埋め
             $sales_date = str_pad($sales_date_number, 8, 0, STR_PAD_RIGHT);
