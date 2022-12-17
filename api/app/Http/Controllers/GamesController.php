@@ -47,11 +47,17 @@ class GamesController extends Controller
         $today = Carbon::today();
         $today_format = $today->format('Ymd');
 
-        $games = Games::with(['favorite' => function ($query) use ($user_id) {
+        $games = Games::with([
+            'favorite' => function ($query) use ($user_id) {
                 // リレーション先をユーザーで絞り込む
                 $query->where('user_id', $user_id);
                 $query->where('is_disabled', false);
-            }]);
+            },
+            'notification' => function ($query) use ($user_id) {
+                $query->where('user_id', $user_id);
+                $query->where('is_disabled', false);
+            }
+        ]);
 
         if ($hardware !== 'All') {
             $games->where('hardware', $hardware);
@@ -79,8 +85,13 @@ class GamesController extends Controller
             $games[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
             // お気に入りにしているか(空の場合はfalse)
             $games[$index]['is_favorite'] = !empty($game['favorite']) ? true : false;
+            // 通知登録しているか(nullの場合はfalse)
+            $games[$index]['is_notification'] = !is_null($game['notification']) ? true : false;
+            // 通知id
+            $games[$index]['notification_id'] = !is_null($game['notification']) ? $game['notification']['id'] : null;
             // お気に入りのリレーションを削除
             unset($games[$index]['favorite']);
+            unset($games[$index]['notification']);
         }
 
         return response()->json([
@@ -191,7 +202,14 @@ class GamesController extends Controller
         $user_id = $request->input('user_id');
 
         // お気に入りゲーム一覧取得
-        $favorite_games = FavoriteGames::with('games') // TODO: games.sales_dateで並べ替えしたい
+        // $favorite_games = FavoriteGames::with('games') // TODO: games.sales_dateで並べ替えしたい
+        // TODO: games.sales_dateで並べ替えしたい
+        $favorite_games = FavoriteGames::with(['games' => function ($query) use ($user_id) {
+                $query->with(['notification' => function ($query2) use ($user_id) {
+                    $query2->where('user_id', $user_id);
+                    $query2->where('is_disabled', false);
+                }]);
+            }])
             ->active()
             ->where('user_id', $user_id)
             ->get()
@@ -210,6 +228,8 @@ class GamesController extends Controller
             $games_info[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
             // お気に入り
             $games_info[$index]['is_favorite'] = true;
+            // 通知設定
+            $games_info[$index]['is_notification'] = !is_null($game['notification']) ? true : false;
         }
 
         return response()->json([

@@ -31,11 +31,17 @@ class Games extends Model
     ];
 
 
+    // お気に入りテーブルとのリレーション
     public function favorite()
     {
         return $this->hasMany('App\Models\FavoriteGames', 'games_id', 'id');
     }
 
+    // 通知テーブルとのリレーション
+    public function notification()
+    {
+        return $this->hasOne('App\Models\Notification', 'game_id', 'id');
+    }
 
 
 }

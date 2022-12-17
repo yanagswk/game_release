@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\NotificationControllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -48,3 +49,6 @@ Route::post('/contact/message', [MessageController::class, 'sendContactForm']);
 
 // お知らせ取得
 Route::get('/notice', [NoticeController::class, 'getNoticeList']);
+
+// 通知登録
+Route::post('/notification/register', [NotificationControllers::class, 'register']);
