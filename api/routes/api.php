@@ -52,3 +52,5 @@ Route::get('/notice', [NoticeController::class, 'getNoticeList']);
 
 // 通知登録
 Route::post('/notification/register', [NotificationControllers::class, 'register']);
+// 通知キャンセル
+Route::post('/notification/cancel', [NotificationControllers::class, 'cancel']);

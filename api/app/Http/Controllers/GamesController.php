@@ -230,6 +230,9 @@ class GamesController extends Controller
             $games_info[$index]['is_favorite'] = true;
             // 通知設定
             $games_info[$index]['is_notification'] = !is_null($game['notification']) ? true : false;
+            // 通知id
+            $games_info[$index]['notification_id'] = !is_null($game['notification']) ? $game['notification']['id'] : null;
+            unset($games_info[$index]['notification']);
         }
 
         return response()->json([
