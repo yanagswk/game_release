@@ -195,6 +195,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Providers\GameServiceProvider::class,
+
     ],
 
     /*
@@ -210,6 +212,13 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'GameLibrary'   => \App\Facades\GameLibrary::class
     ])->toArray(),
+
+
+    'img_dir'  => 'public/img',
+    'main_img_name'  => 'main_img.jpg',
+
+    // 'GameLibrary' => App\Library\GameLibrary::class,
 
 ];

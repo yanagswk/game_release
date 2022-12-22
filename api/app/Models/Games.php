@@ -43,5 +43,10 @@ class Games extends Model
         return $this->hasOne('App\Models\Notification', 'game_id', 'id');
     }
 
+    // 通知テーブルとのリレーション
+    public function game_image()
+    {
+        return $this->hasMany('App\Models\GameImage', 'game_id', 'id');
+    }
 
 }
