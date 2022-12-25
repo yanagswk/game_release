@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/games/info', [GamesController::class, 'getGamesInfo']);
 
 // 発売済みのゲーム一覧取得
-// Route::get('/games/released', [GamesController::class, 'getReleasedGames']);
+Route::get('/games/search', [GamesController::class, 'getSearchGames']);
 
 // ゲームお気に入り一覧取得
 Route::get('/games/favorite', [GamesController::class, 'getFavoriteGameList']);

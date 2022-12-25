@@ -45,6 +45,7 @@ class GamesController extends Controller
         $limit = $request->input('limit');
         $offset = $request->input('offset');
         $is_released = $request->input('is_released');
+        $search_word = $request->input('search_word');
 
         $today = Carbon::today();
         $today_format = $today->format('Ymd');
@@ -68,7 +69,10 @@ class GamesController extends Controller
             $games->where('hardware', $hardware);
         }
 
-        if ($is_released) {
+        // 検索ワードを指定している場合は、発売前・発売後関係なしに全期間
+        if ($search_word) {
+            $games->where('title','like','%'.$search_word.'%');
+        } else if ($is_released) {
             // 発売前
             $games->where('sales_date', '<=', $today_format);   // 今日以前に発売されたゲームを取得
             $games->orderBy('sales_date', 'desc');
@@ -109,9 +113,6 @@ class GamesController extends Controller
             unset($games[$index]['notification']);
             unset($games[$index]['game_image']);
         }
-
-        // logger($games);
-
         return response()->json([
             'message'       => 'success',
             'games'         => $games,
@@ -121,36 +122,69 @@ class GamesController extends Controller
 
 
     /**
-     * 発売済みのゲーム一覧取得
+     * ゲーム検索
      *
      * @param ReleaseGamesRequest $request
      * @return void
      */
-    public function getReleasedGames(ReleaseGamesRequest $request)
+    public function getSearchGames(Request $request)
     {
-        $hardware = $request->input('hardware');
+        $user_id = $request->input('user_id');
+        $search_word = $request->input('search_word');
         $limit = $request->input('limit');
         $offset = $request->input('offset');
 
-        $today = Carbon::today();
-        $today_format = $today->format('Ymd');
+        $games = Games::with([
+            'favorite' => function ($query) use ($user_id) {
+                // リレーション先をユーザーで絞り込む
+                $query->where('user_id', $user_id);
+                $query->where('is_disabled', false);
+            },
+            'notification' => function ($query) use ($user_id) {
+                $query->where('user_id', $user_id);
+                $query->where('is_disabled', false);
+            },
+            'game_image' => function ($query) {
+                $query->where('image_type', GameImage::MAIN_IMG);   // メイン画像
+            }
+            ])
+            ->where('title','like','%'.$search_word.'%')
+            ->orderBy('sales_date', 'desc');
 
-        $games = Games::where('sales_date', '<=', $today_format)     // 今日以前に発売されたゲームを取得
-            ->orderBy('sales_date', 'desc')
-            ->limit($limit)
-            ->offset($offset);
+        // 対象の総数を取得するために、limit・offsetする前にコピーする
+        $game_copy = clone $games;
+        $game_count = count($game_copy->get());
 
-        // ハードウェアが選択されている場合
-        if ($hardware !== 'All' ) {
-            $games->where('hardware', $hardware);
-        }
+        $games->limit($limit)->offset($offset);
+        $games = $games->get()->toArray();
 
-        $games = $games->get();
 
         foreach ($games as $index => $game) {
+            if (count($game['game_image'])) {
+                $main_img_url = $game['game_image'][0]['img_url'];
+                // http://localhost/storage/img/1288/main_img.jpg
+                $full_url = "http://localhost/storage/img/{$main_img_url}";
+            } else {
+                $full_url = "";
+            }
+
             // 日付フォーマット
             $games[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
+            // お気に入りにしているか(空の場合はfalse)
+            $games[$index]['is_favorite'] = !empty($game['favorite']) ? true : false;
+            // 通知登録しているか(nullの場合はfalse)
+            $games[$index]['is_notification'] = !is_null($game['notification']) ? true : false;
+            // 通知id
+            $games[$index]['notification_id'] = !is_null($game['notification']) ? $game['notification']['id'] : null;
+            // メイン画像
+            $games[$index]['main_img'] = $full_url;
+            // お気に入りのリレーションを削除
+            unset($games[$index]['favorite']);
+            unset($games[$index]['notification']);
+            unset($games[$index]['game_image']);
         }
+
+
 
         return response()->json([
             'message'   => 'success',
@@ -244,8 +278,6 @@ class GamesController extends Controller
         $games_info = array_map(function($game) {
             return $game['games'];
         }, $favorite_games);
-
-        // logger($games_info);
 
         $sales_date_list = array_column($games_info, 'sales_date');
         array_multisort($sales_date_list, SORT_DESC, $games_info);

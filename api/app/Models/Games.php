@@ -18,6 +18,7 @@ class Games extends Model
         'sales_date',
         'large_image_url',
         'item_url',
+        'affiliate_url',
         'label',
         'item_caption',
         'review_count',

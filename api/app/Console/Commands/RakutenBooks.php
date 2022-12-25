@@ -47,13 +47,14 @@ class RakutenBooks extends Command
             'GET',
             'https://app.rakuten.co.jp/services/api/BooksGame/Search/20170404',
             ['query' => [
-                'format' => 'json',
+                'format'        => 'json',
                 'applicationId' => '1092593678658310389',
-                'booksGenreId' => '006',
-                'hardware' => $hardware,
-                'sort' => '-releaseDate',
-                'hits' => '30',
-                'page' => $page,
+                'affiliateId'   => '2c1ecae8.486864ad.2c1ecae9.2490d2f1',
+                'booksGenreId'  => '006',
+                'hardware'      => $hardware,
+                'sort'          => '-releaseDate',
+                'hits'          => '30',
+                'page'          => $page,
             ]]
         );
         $data = json_decode($response->getBody(), true);
@@ -82,6 +83,7 @@ class RakutenBooks extends Command
                 'sales_date' => $sales_date,
                 'large_image_url' => $item['Item']['largeImageUrl'],
                 'item_url' => $item['Item']['itemUrl'],
+                'affiliate_url' => $item['Item']['affiliateUrl'],
                 'label' => $item['Item']['label'],
                 'item_caption' => $item['Item']['itemCaption'],
                 'review_count' => $item['Item']['reviewCount'],

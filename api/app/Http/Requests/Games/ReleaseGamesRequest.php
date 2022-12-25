@@ -28,9 +28,9 @@ class ReleaseGamesRequest extends FormRequest
     {
         return [
             'hardware'  => 'nullable|in:All,PS4,PS5,Switch',
-            'limit'     => 'numeric|nullable',
-            'offset'    => 'numeric|nullable',
-            'is_released'   => 'required|boolean'
+            'limit'     => 'numeric|required',
+            'offset'    => 'numeric|required',
+            'is_released'   => 'nullable|boolean'
         ];
     }
 
