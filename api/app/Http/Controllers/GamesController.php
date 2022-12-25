@@ -92,8 +92,8 @@ class GamesController extends Controller
         foreach ($games as $index => $game) {
             if (count($game['game_image'])) {
                 $main_img_url = $game['game_image'][0]['img_url'];
-                // http://localhost/storage/img/1288/main_img.jpg
-                $full_url = "http://localhost/storage/img/{$main_img_url}";
+                // $full_url = "http://localhost/storage/img/{$main_img_url}";
+                $full_url = "https://yurubo0.com/storage/img/{$main_img_url}";
             } else {
                 $full_url = "";
             }
@@ -162,8 +162,8 @@ class GamesController extends Controller
         foreach ($games as $index => $game) {
             if (count($game['game_image'])) {
                 $main_img_url = $game['game_image'][0]['img_url'];
-                // http://localhost/storage/img/1288/main_img.jpg
-                $full_url = "http://localhost/storage/img/{$main_img_url}";
+                // $full_url = "http://localhost/storage/img/{$main_img_url}";
+                $full_url = "https://yurubo0.com/storage/img/{$main_img_url}";
             } else {
                 $full_url = "";
             }
@@ -286,7 +286,8 @@ class GamesController extends Controller
             if (count($game['game_image'])) {
                 $main_img_url = $game['game_image'][0]['img_url'];
                 // http://localhost/storage/img/1288/main_img.jpg
-                $full_url = "http://localhost/storage/img/{$main_img_url}";
+                // $full_url = "http://localhost/storage/img/{$main_img_url}";
+                $full_url = "https://yurubo0.com/storage/img/{$main_img_url}";
             } else {
                 $full_url = "";
             }
