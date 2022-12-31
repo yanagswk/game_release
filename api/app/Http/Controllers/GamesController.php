@@ -46,6 +46,9 @@ class GamesController extends Controller
         $offset = $request->input('offset');
         $is_released = $request->input('is_released');
         $search_word = $request->input('search_word');
+        $search_year = $request->input('search_year');
+        $search_month = $request->input('search_month');
+        $sort = $request->input('sort');
 
         $today = Carbon::today();
         $today_format = $today->format('Ymd');
@@ -69,14 +72,30 @@ class GamesController extends Controller
             $games->where('hardware', $hardware);
         }
 
+        // 発売日の年で絞る
+        if ($search_year && !is_null($search_year)) {
+            logger("nullであれ！");
+            logger($search_year);
+            $year_month = $search_year . $search_month;
+            $games->where('sales_date', 'like', $year_month.'%');  // 前方一致
+            logger($games->get()->toArray());
+        }
+
+        // 照準
+        if ($sort == "asc") {
+            $games->orderBy('sales_date', 'asc');
+        }
+
         // 検索ワードを指定している場合は、発売前・発売後関係なしに全期間
         if ($search_word) {
             $games->where('title','like','%'.$search_word.'%');
-        } else if ($is_released) {
+        }
+
+        if ($is_released == 1) {
             // 発売前
             $games->where('sales_date', '<=', $today_format);   // 今日以前に発売されたゲームを取得
             $games->orderBy('sales_date', 'desc');
-        } else {
+        } else if ($is_released == 2) {
             // 発売後
             $games->where('sales_date', '>', $today_format);   // 今日以降に発売されたゲームを取得
             $games->orderBy('sales_date', 'asc');

@@ -16,3 +16,9 @@ barryvdh/laravel-ide-helper
 参考: https://chigusa-web.com/blog/laravel-ide-helper/ . 
 自作ファザード作成時に、コード補完するために以下のコマンド実行 
 `php artisan ide-helper:generate`
+
+
+
+app/public/img
+
+https://yurubo0.com/storage/app/public/img/117/main_img.jpg
