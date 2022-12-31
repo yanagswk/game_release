@@ -2,14 +2,14 @@ import time
 
 from playwright.sync_api import Playwright, sync_playwright, Page
 
-from models.local_docker_base_model import LocalDockerBaseModel
+# from models.local_docker_base_model import LocalDockerBaseModel
 from modules.my_chrome import get_my_chrome
 from modules.common import print_log
 
 
 def run(playwright: Playwright) -> int:
     
-    model = LocalDockerBaseModel()
+    # model = LocalDockerBaseModel()
 
     with get_my_chrome(playwright) as chrome:
 

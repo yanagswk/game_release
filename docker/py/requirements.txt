@@ -1,5 +1,5 @@
 greenlet==1.1.2
 mysqlclient==2.1.1
-playwright==1.23.1
+playwright==1.17.0  # 1.23.1だとplaywrite実行時にエラーになる
 pyee==8.1.0
 websockets==10.1
