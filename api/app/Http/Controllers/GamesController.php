@@ -37,9 +37,7 @@ class GamesController extends Controller
      */
     public function getGamesInfo(ReleaseGamesRequest $request)
     {
-
         // $hoge = \GameLibrary::fuga();
-
         $user_id = $request->input('user_id');
         $hardware = $request->input('hardware');
         $limit = $request->input('limit');
@@ -48,12 +46,14 @@ class GamesController extends Controller
         $search_word = $request->input('search_word');
         $search_year = $request->input('search_year');
         $search_month = $request->input('search_month');
+        $genre = $request->input('genre');
         $sort = $request->input('sort');
 
         $today = Carbon::today();
         $today_format = $today->format('Ymd');
 
         $games = Games::with([
+            'game_image',
             'favorite' => function ($query) use ($user_id) {
                 // リレーション先をユーザーで絞り込む
                 $query->where('user_id', $user_id);
@@ -63,9 +63,6 @@ class GamesController extends Controller
                 $query->where('user_id', $user_id);
                 $query->where('is_disabled', false);
             },
-            'game_image' => function ($query) {
-                $query->where('image_type', GameImage::MAIN_IMG);   // メイン画像
-            }
         ]);
 
         if ($hardware !== 'All') {
@@ -101,6 +98,11 @@ class GamesController extends Controller
             $games->orderBy('sales_date', 'asc');
         }
 
+        // ジャンル
+        if ($genre) {
+            $games->where('genre', $genre);
+        }
+
         // 対象の総数を取得するために、limit・offsetする前にコピーする
         $game_copy = clone $games;
         $game_count = count($game_copy->get());
@@ -109,12 +111,13 @@ class GamesController extends Controller
         $games = $games->get()->toArray();
 
         foreach ($games as $index => $game) {
-            if (count($game['game_image'])) {
-                $main_img_url = $game['game_image'][0]['img_url'];
-                // $full_url = "http://localhost/storage/img/{$main_img_url}";
-                $full_url = "https://yurubo0.com/storage/img/{$main_img_url}";
+            if ($game["game_image"]) {
+                // 画像urlだけの配列にする
+                $games[$index]['image_list'] = array_map(function($image) {
+                    return $image["img_url"];
+                }, $game["game_image"]);
             } else {
-                $full_url = "";
+                $games[$index]['image_list'] = array($games[$index]['large_image_url']);
             }
 
             // 日付フォーマット
@@ -125,8 +128,6 @@ class GamesController extends Controller
             $games[$index]['is_notification'] = !is_null($game['notification']) ? true : false;
             // 通知id
             $games[$index]['notification_id'] = !is_null($game['notification']) ? $game['notification']['id'] : null;
-            // メイン画像
-            $games[$index]['main_img'] = $full_url;
             // お気に入りのリレーションを削除
             unset($games[$index]['favorite']);
             unset($games[$index]['notification']);
@@ -154,6 +155,7 @@ class GamesController extends Controller
         $offset = $request->input('offset');
 
         $games = Games::with([
+            'game_image',
             'favorite' => function ($query) use ($user_id) {
                 // リレーション先をユーザーで絞り込む
                 $query->where('user_id', $user_id);
@@ -163,9 +165,6 @@ class GamesController extends Controller
                 $query->where('user_id', $user_id);
                 $query->where('is_disabled', false);
             },
-            'game_image' => function ($query) {
-                $query->where('image_type', GameImage::MAIN_IMG);   // メイン画像
-            }
             ])
             ->where('title','like','%'.$search_word.'%')
             ->orderBy('sales_date', 'desc');
@@ -177,15 +176,11 @@ class GamesController extends Controller
         $games->limit($limit)->offset($offset);
         $games = $games->get()->toArray();
 
-
         foreach ($games as $index => $game) {
-            if (count($game['game_image'])) {
-                $main_img_url = $game['game_image'][0]['img_url'];
-                // $full_url = "http://localhost/storage/img/{$main_img_url}";
-                $full_url = "https://yurubo0.com/storage/img/{$main_img_url}";
-            } else {
-                $full_url = "";
-            }
+            // 画像urlだけの配列にする
+            $games[$index]['image_list'] = array_map(function($image) {
+                return $image["img_url"];
+            }, $game["game_image"]);
 
             // 日付フォーマット
             $games[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
@@ -195,15 +190,11 @@ class GamesController extends Controller
             $games[$index]['is_notification'] = !is_null($game['notification']) ? true : false;
             // 通知id
             $games[$index]['notification_id'] = !is_null($game['notification']) ? $game['notification']['id'] : null;
-            // メイン画像
-            $games[$index]['main_img'] = $full_url;
             // お気に入りのリレーションを削除
             unset($games[$index]['favorite']);
             unset($games[$index]['notification']);
             unset($games[$index]['game_image']);
         }
-
-
 
         return response()->json([
             'message'   => 'success',
@@ -278,13 +269,11 @@ class GamesController extends Controller
         $favorite_games = FavoriteGames::with([
             'games' => function ($query) use ($user_id) {
                 $query->with([
+                    'game_image',
                     'notification' => function ($query2) use ($user_id) {
                         $query2->where('user_id', $user_id);
                         $query2->where('is_disabled', false);
                     },
-                    'game_image' => function ($query) {
-                        $query->where('image_type', GameImage::MAIN_IMG);   // メイン画像
-                    }
                 ]);
             },
             ])
@@ -301,15 +290,20 @@ class GamesController extends Controller
         $sales_date_list = array_column($games_info, 'sales_date');
         array_multisort($sales_date_list, SORT_DESC, $games_info);
 
+
         foreach ($games_info as $index => $game) {
-            if (count($game['game_image'])) {
-                $main_img_url = $game['game_image'][0]['img_url'];
-                // http://localhost/storage/img/1288/main_img.jpg
-                // $full_url = "http://localhost/storage/img/{$main_img_url}";
-                $full_url = "https://yurubo0.com/storage/img/{$main_img_url}";
-            } else {
-                $full_url = "";
-            }
+            // if (count($game['game_image'])) {
+            //     $main_img_url = $game['game_image'][0]['img_url'];
+            //     // http://localhost/storage/img/1288/main_img.jpg
+            //     // $full_url = "http://localhost/storage/img/{$main_img_url}";
+            //     $full_url = "https://yurubo0.com/storage/img/{$main_img_url}";
+            // } else {
+            //     $full_url = "";
+            // }
+            // 画像urlだけの配列にする
+            $games_info[$index]['image_list'] = array_map(function($image) {
+                return $image["img_url"];
+            }, $game["game_image"]);
 
             // 日付フォーマット
             $games_info[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
@@ -319,8 +313,6 @@ class GamesController extends Controller
             $games_info[$index]['is_notification'] = !is_null($game['notification']) ? true : false;
             // 通知id
             $games_info[$index]['notification_id'] = !is_null($game['notification']) ? $game['notification']['id'] : null;
-            // メイン画像
-            $games_info[$index]['main_img'] = $full_url;
 
             unset($games_info[$index]['notification']);
             unset($games_info[$index]['game_image']);
