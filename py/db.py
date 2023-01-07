@@ -12,7 +12,11 @@ class LocalDockerBaseModel(BaseModel):
             db='game_release_db'
         )
 
-        self.__cursor = self.__connection.cursor();
+        self.__cursor = self.__connection.cursor()
+        
+    
+
+        
 
 
     def bulk_insert_kaden_list(self, values: list, site: str):

@@ -1,0 +1,867 @@
+2023-01-06 15:46:50,612 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:46:50,614 - INFO:rakuten_games.py - 28: Jitsu Squad（ジツ・スクワッド） PS4版
+2023-01-06 15:48:20,868 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 15:48:20,883 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 15:48:20,986 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 15:48:20,987 - INFO:released_db.py - インサート完了
+2023-01-06 15:48:20,989 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:48:20,990 - INFO:rakuten_games.py - 29: Jitsu Squad（ジツ・スクワッド）スペシャルパック PS4版
+2023-01-06 15:49:51,577 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 15:49:51,590 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 15:49:51,683 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 15:49:51,684 - INFO:released_db.py - インサート完了
+2023-01-06 15:49:51,688 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:49:51,692 - INFO:rakuten_games.py - 30: 【楽天ブックス限定特典】LOOP8（ループエイト） PS4版(森倉円監修 ベニ衣装「真夏のデート服」衣装コード（メール配信）)
+2023-01-06 15:51:22,572 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 15:51:22,588 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 15:51:22,661 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 15:51:22,662 - INFO:released_db.py - インサート完了
+2023-01-06 15:51:22,664 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:51:22,665 - INFO:rakuten_games.py - 31: Dawn of the Monsters PS4版
+2023-01-06 15:52:52,975 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 15:52:53,025 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 15:52:53,144 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 15:52:53,145 - INFO:released_db.py - インサート完了
+2023-01-06 15:52:53,147 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:52:53,148 - INFO:rakuten_games.py - 32: 【楽天ブックス限定特典】LOOP8（ループエイト） PS4版(森倉円監修 ベニ衣装「真夏のデート服」衣装コード（メール配信）+B2布ポスター)
+2023-01-06 15:54:23,457 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 15:54:23,476 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 15:54:23,561 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 15:54:23,562 - INFO:released_db.py - インサート完了
+2023-01-06 15:54:23,564 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:54:23,565 - INFO:rakuten_games.py - 33: 【特典】異夢迷都 果てなき螺旋 PS4版(【初回封入特典】DLC：ゲーム内アイテム A・ B)
+2023-01-06 15:55:54,216 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 15:55:54,228 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 15:55:54,349 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 15:55:54,350 - INFO:released_db.py - インサート完了
+2023-01-06 15:55:54,352 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:55:54,353 - INFO:rakuten_games.py - 34: 【特典】Melon Journey: Bittersweet Memories（メロンジャーニー：ビタースイート・メモリー） PS4版(【初回外付特典】サウンドトラックCD 、OSTダウンロードリンク（QRコード）)
+2023-01-06 15:57:27,023 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 15:57:27,042 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 15:57:27,108 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 15:57:27,110 - INFO:released_db.py - インサート完了
+2023-01-06 15:57:27,112 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:57:27,113 - INFO:rakuten_games.py - 35: レイズ　アーケード　クロノロジー　PS4版
+2023-01-06 15:59:04,421 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 15:59:04,432 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 15:59:04,513 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 15:59:04,514 - INFO:released_db.py - インサート完了
+2023-01-06 15:59:04,516 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 15:59:04,517 - INFO:rakuten_games.py - 36: レイズ　アーケード　クロノロジー　特装版 PS4版
+2023-01-06 16:00:34,873 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 16:00:34,886 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 16:00:34,959 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 16:00:34,961 - INFO:released_db.py - インサート完了
+2023-01-06 16:00:34,962 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:00:34,964 - INFO:rakuten_games.py - 37: 【楽天ブックス限定特典+特典+他】零 〜月蝕の仮面〜 PS4版(マイクロファイバークロス+【早期購入封入特典】流歌限定衣装「マリー・ローズの服」+他)
+2023-01-06 16:02:05,147 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 16:02:05,160 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:02:05,239 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 16:02:05,240 - INFO:released_db.py - インサート完了
+2023-01-06 16:02:05,242 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:02:05,243 - INFO:rakuten_games.py - 38: 【特典】零 〜月蝕の仮面〜 PS4版(【早期購入封入特典】流歌限定衣装「マリー・ローズの服」+【セーブデータ連動特典】流歌・海咲・長四郎限定衣装「射影機の被り物」)
+2023-01-06 16:03:45,967 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 16:03:45,983 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:03:46,079 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 16:03:46,080 - INFO:released_db.py - インサート完了
+2023-01-06 16:03:46,082 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:03:46,082 - INFO:rakuten_games.py - 39: シェフライフ　レストランシミュレーター
+2023-01-06 16:05:18,677 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 16:05:18,689 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 16:05:18,768 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 16:05:18,770 - INFO:released_db.py - インサート完了
+2023-01-06 16:05:18,772 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:05:18,773 - INFO:rakuten_games.py - 40: 【特典】ONI - 空と風の哀歌 PS4版(【早期購入外付特典】DLCダウンロードコード付きチラシ)
+2023-01-06 16:06:27,707 - ERROR:rakuten_games.py - 40: 検索に引っかかりませんでした
+2023-01-06 16:06:27,744 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:06:27,745 - INFO:rakuten_games.py - 41: 【楽天ブックス限定特典+特典】Wo Long: Fallen Dynasty PS4版(絆創膏ケース（アルミ缶）+【早期購入同梱特典】「白虎の戦鎧（せんがい）　一式」)
+2023-01-06 16:07:57,673 - INFO:rakuten_games.py - 画像枚数: 18枚
+2023-01-06 16:07:57,689 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 16:07:57,790 - INFO:released_db.py - 18 records inserted for games.game_image
+2023-01-06 16:07:57,792 - INFO:released_db.py - インサート完了
+2023-01-06 16:07:57,794 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:07:57,795 - INFO:rakuten_games.py - 42: 【楽天ブックス限定特典+特典】Wo Long: Fallen Dynasty Treasure Box PS4版(絆創膏ケース（アルミ缶）+【早期購入同梱特典】「白虎の戦鎧（せんがい）　一式」)
+2023-01-06 16:09:28,533 - INFO:rakuten_games.py - 画像枚数: 18枚
+2023-01-06 16:09:28,547 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 16:09:28,681 - INFO:released_db.py - 18 records inserted for games.game_image
+2023-01-06 16:09:28,682 - INFO:released_db.py - インサート完了
+2023-01-06 16:09:28,684 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:09:28,686 - INFO:rakuten_games.py - 43: スポンジ・ボブ：ザ コズミック シェイク PS4版
+2023-01-06 16:11:00,920 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 16:11:00,934 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 16:11:01,017 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 16:11:01,018 - INFO:released_db.py - インサート完了
+2023-01-06 16:11:01,022 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:11:01,023 - INFO:rakuten_games.py - 44: オクトパストラベラーII PS4版
+2023-01-06 16:12:31,659 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 16:12:31,678 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 16:12:31,792 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 16:12:31,793 - INFO:released_db.py - インサート完了
+2023-01-06 16:12:31,795 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:12:31,796 - INFO:rakuten_games.py - 45: トルトゥーガ パイレーツ テイル PS4版
+2023-01-06 16:14:02,458 - INFO:rakuten_games.py - 画像枚数: 14枚
+2023-01-06 16:14:02,471 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 16:14:02,564 - INFO:released_db.py - 14 records inserted for games.game_image
+2023-01-06 16:14:02,566 - INFO:released_db.py - インサート完了
+2023-01-06 16:14:02,569 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:14:02,569 - INFO:rakuten_games.py - 46: 雷電III×MIKADO MANIAX 限定版 PS4版
+2023-01-06 16:15:32,231 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 16:15:32,243 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 16:15:32,326 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 16:15:32,327 - INFO:released_db.py - インサート完了
+2023-01-06 16:15:32,329 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:15:32,330 - INFO:rakuten_games.py - 47: ミスト探偵 PS4版
+2023-01-06 16:17:02,143 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 16:17:02,157 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:17:02,256 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 16:17:02,258 - INFO:released_db.py - インサート完了
+2023-01-06 16:17:02,260 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:17:02,260 - INFO:rakuten_games.py - 48: 雷電III×MIKADO MANIAX PS4版
+2023-01-06 16:18:32,095 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 16:18:32,109 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 16:18:32,187 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 16:18:32,188 - INFO:released_db.py - インサート完了
+2023-01-06 16:18:32,190 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:18:32,192 - INFO:rakuten_games.py - 49: さくら、もゆ。-as the Night's, Reincarnation- PS4版
+2023-01-06 16:20:01,872 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 16:20:01,886 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:20:01,994 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 16:20:01,996 - INFO:released_db.py - インサート完了
+2023-01-06 16:20:01,998 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:20:01,999 - INFO:rakuten_games.py - 50: 紅月ゆれる恋あかり　完全生産限定版 PS4版
+2023-01-06 16:21:31,506 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 16:21:31,523 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:21:31,591 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 16:21:31,594 - INFO:released_db.py - インサート完了
+2023-01-06 16:21:31,597 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:21:31,598 - INFO:rakuten_games.py - 51: 恋する彼女の不器用な舞台　完全生産限定版 PS4版
+2023-01-06 16:23:01,196 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 16:23:01,214 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:23:01,290 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 16:23:01,292 - INFO:released_db.py - インサート完了
+2023-01-06 16:23:01,294 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:23:01,295 - INFO:rakuten_games.py - 52: 紅月ゆれる恋あかり PS4版
+2023-01-06 16:24:31,238 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 16:24:31,251 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:24:31,366 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 16:24:31,368 - INFO:released_db.py - インサート完了
+2023-01-06 16:24:31,370 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:24:31,371 - INFO:rakuten_games.py - 53: 思い出抱えてアイにコイ!!　完全生産限定版 PS4版
+2023-01-06 16:26:02,794 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 16:26:02,806 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:26:02,884 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 16:26:02,885 - INFO:released_db.py - インサート完了
+2023-01-06 16:26:02,888 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:26:02,889 - INFO:rakuten_games.py - 54: 思い出抱えてアイにコイ!! PS4版
+2023-01-06 16:27:32,538 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 16:27:32,563 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:27:32,661 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 16:27:32,662 - INFO:released_db.py - インサート完了
+2023-01-06 16:27:32,664 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:27:32,666 - INFO:rakuten_games.py - 55: 恋する彼女の不器用な舞台 PS4版
+2023-01-06 16:29:02,601 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 16:29:02,619 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:29:02,691 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 16:29:02,692 - INFO:released_db.py - インサート完了
+2023-01-06 16:29:02,694 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:29:02,695 - INFO:rakuten_games.py - 56: 【楽天ブックス限定特典】紅月ゆれる恋あかり PS4版(B2タペストリー)
+2023-01-06 16:30:32,503 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 16:30:32,516 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:30:32,609 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 16:30:32,610 - INFO:released_db.py - インサート完了
+2023-01-06 16:30:32,611 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:30:32,612 - INFO:rakuten_games.py - 57: 【楽天ブックス限定特典+特典+他】ライザのアトリエ3 プレミアムボックス PS4版(アクリルキーホルダー+【早期購入封入特典】「サマーコーディネートコスチュームセット」DLC+他)
+2023-01-06 16:32:03,943 - INFO:rakuten_games.py - 画像枚数: 17枚
+2023-01-06 16:32:03,958 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 16:32:04,047 - INFO:released_db.py - 17 records inserted for games.game_image
+2023-01-06 16:32:04,049 - INFO:released_db.py - インサート完了
+2023-01-06 16:32:04,051 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:32:04,052 - INFO:rakuten_games.py - 58: 【楽天ブックス限定特典】紅月ゆれる恋あかり　完全生産限定版 PS4版(B2タペストリー)
+2023-01-06 16:33:34,138 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 16:33:34,151 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:33:34,232 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 16:33:34,233 - INFO:released_db.py - インサート完了
+2023-01-06 16:33:34,235 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:33:34,236 - INFO:rakuten_games.py - 59: 【楽天ブックス限定特典】龍が如く 維新！ 極 PS4版(アクリルキーホルダー)
+2023-01-06 16:35:04,356 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 16:35:04,370 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 16:35:04,461 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 16:35:04,462 - INFO:released_db.py - インサート完了
+2023-01-06 16:35:04,464 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:35:04,466 - INFO:rakuten_games.py - 60: さくら、もゆ。-as the Night's, Reincarnation-　完全生産限定版 PS4版
+2023-01-06 16:36:34,277 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 16:36:34,289 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:36:34,378 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 16:36:34,380 - INFO:released_db.py - インサート完了
+2023-01-06 16:36:34,384 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:36:34,385 - INFO:rakuten_games.py - 61: 【特典】FINAL FANTASY XVI(【早期購入封入特典】インゲームアイテム：武器「ブレイブハート」+【早期購入封入特典】インゲームアイテム：アクセサリ「ケットシーのラッキーチャーム」)
+2023-01-06 16:38:04,245 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 16:38:04,257 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 16:38:04,336 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 16:38:04,337 - INFO:released_db.py - インサート完了
+2023-01-06 16:38:04,340 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:38:04,342 - INFO:rakuten_games.py - 62: 【特典】ストリートファイター6 PS5版(【数量限定封入特典】コスチュームカラー)
+2023-01-06 16:39:34,713 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 16:39:34,726 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 16:39:34,805 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 16:39:34,807 - INFO:released_db.py - インサート完了
+2023-01-06 16:39:34,809 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:39:34,810 - INFO:rakuten_games.py - 63: Atomic Heart（アトミックハート）リミテッドエディション PS5版
+2023-01-06 16:41:05,933 - INFO:rakuten_games.py - 画像枚数: 15枚
+2023-01-06 16:41:05,953 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 16:41:06,033 - INFO:released_db.py - 15 records inserted for games.game_image
+2023-01-06 16:41:06,035 - INFO:released_db.py - インサート完了
+2023-01-06 16:41:06,036 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:41:06,037 - INFO:rakuten_games.py - 64: Atomic Heart（アトミックハート） PS5版
+2023-01-06 16:42:21,139 - ERROR:rakuten_games.py - 64: 検索に引っかかりませんでした
+2023-01-06 16:42:21,184 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:42:21,186 - INFO:rakuten_games.py - 65: 【特典】Winning Post 10 シリーズ30周年記念プレミアムボックス PS5版(【早期特典】WP10 稀代のクセ馬 購入権セット 全5頭)
+2023-01-06 16:43:29,921 - ERROR:rakuten_games.py - 65: 検索に引っかかりませんでした
+2023-01-06 16:43:29,961 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:43:29,962 - INFO:rakuten_games.py - 66: 【特典】Winning Post 10 PS5版(【早期特典】WP10 稀代のクセ馬 購入権セット 全5頭)
+2023-01-06 16:45:01,462 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 16:45:01,474 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 16:45:01,568 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 16:45:01,569 - INFO:released_db.py - インサート完了
+2023-01-06 16:45:01,572 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:45:01,573 - INFO:rakuten_games.py - 67: 【特典】BIOHAZARD RE:4　PS5版(【通常版数量限定特典】プロダクトコード)
+2023-01-06 16:46:34,960 - INFO:rakuten_games.py - 画像枚数: 17枚
+2023-01-06 16:46:34,974 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:46:35,056 - INFO:released_db.py - 17 records inserted for games.game_image
+2023-01-06 16:46:35,057 - INFO:released_db.py - インサート完了
+2023-01-06 16:46:35,060 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:46:35,060 - INFO:rakuten_games.py - 68: 【特典】Grim Guardians: Demon Purge 限定版 PS5版(【外付予約特典】A4クリアファイル)
+2023-01-06 16:48:04,743 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 16:48:04,761 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 16:48:04,930 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 16:48:04,931 - INFO:released_db.py - インサート完了
+2023-01-06 16:48:04,933 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:48:04,934 - INFO:rakuten_games.py - 69: R-TYPE FINAL 3 EVOLVED
+2023-01-06 16:49:35,464 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 16:49:35,479 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 16:49:35,566 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 16:49:35,567 - INFO:released_db.py - インサート完了
+2023-01-06 16:49:35,569 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:49:35,570 - INFO:rakuten_games.py - 70: 【特典】Grim Guardians: Demon Purge PS5版(【外付予約特典】A4クリアファイル)
+2023-01-06 16:51:08,599 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 16:51:08,613 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 16:51:08,719 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 16:51:08,721 - INFO:released_db.py - インサート完了
+2023-01-06 16:51:08,724 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:51:08,725 - INFO:rakuten_games.py - 71: 【特典】Star Wars ジェダイ：サバイバー デラックス エディション(【予約封入特典】DLC)
+2023-01-06 16:52:38,533 - INFO:rakuten_games.py - 画像枚数: 8枚
+2023-01-06 16:52:38,546 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 16:52:38,633 - INFO:released_db.py - 8 records inserted for games.game_image
+2023-01-06 16:52:38,635 - INFO:released_db.py - インサート完了
+2023-01-06 16:52:38,637 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:52:38,638 - INFO:rakuten_games.py - 72: 【特典】Star Wars ジェダイ：サバイバー(【予約封入特典】DLC)
+2023-01-06 16:54:08,799 - INFO:rakuten_games.py - 画像枚数: 8枚
+2023-01-06 16:54:08,814 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 16:54:08,892 - INFO:released_db.py - 8 records inserted for games.game_image
+2023-01-06 16:54:08,894 - INFO:released_db.py - インサート完了
+2023-01-06 16:54:08,896 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:54:08,897 - INFO:rakuten_games.py - 73: Dawn of the Monsters PS5版
+2023-01-06 16:55:38,675 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 16:55:38,689 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 16:55:38,814 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 16:55:38,816 - INFO:released_db.py - インサート完了
+2023-01-06 16:55:38,818 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:55:38,819 - INFO:rakuten_games.py - 74: 【特典】異夢迷都 果てなき螺旋 PS5版(【初回封入特典】DLC：ゲーム内アイテム A・ B)
+2023-01-06 16:57:09,946 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 16:57:09,961 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 16:57:10,067 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 16:57:10,069 - INFO:released_db.py - インサート完了
+2023-01-06 16:57:10,071 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:57:10,072 - INFO:rakuten_games.py - 75: 【特典】Melon Journey: Bittersweet Memories（メロンジャーニー：ビタースイート・メモリー） PS5版(【初回外付特典】サウンドトラックCD 、OSTダウンロードリンク（QRコード）)
+2023-01-06 16:58:39,927 - INFO:rakuten_games.py - 画像枚数: 4枚
+2023-01-06 16:58:39,941 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 16:58:40,043 - INFO:released_db.py - 4 records inserted for games.game_image
+2023-01-06 16:58:40,077 - INFO:released_db.py - インサート完了
+2023-01-06 16:58:40,095 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:58:40,129 - INFO:rakuten_games.py - 76: 【特典】ONI - 空と風の哀歌 PS5版(【早期購入外付特典】DLCダウンロードコード付きチラシ)
+2023-01-06 16:59:48,583 - ERROR:rakuten_games.py - 76: 検索に引っかかりませんでした
+2023-01-06 16:59:48,622 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 16:59:48,623 - INFO:rakuten_games.py - 77: 【特典】スカル アンド ボーンズプレミアムエディション(【初回生産限定同梱特典】大海原の高みパック)
+2023-01-06 17:01:19,130 - INFO:rakuten_games.py - 画像枚数: 5枚
+2023-01-06 17:01:19,141 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 17:01:19,243 - INFO:released_db.py - 5 records inserted for games.game_image
+2023-01-06 17:01:19,246 - INFO:released_db.py - インサート完了
+2023-01-06 17:01:19,248 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:01:19,249 - INFO:rakuten_games.py - 78: 【特典】スカル アンド ボーンズ(【初回生産限定同梱特典】大海原の高みパック)
+2023-01-06 17:02:49,083 - INFO:rakuten_games.py - 画像枚数: 5枚
+2023-01-06 17:02:49,093 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 17:02:49,164 - INFO:released_db.py - 5 records inserted for games.game_image
+2023-01-06 17:02:49,165 - INFO:released_db.py - インサート完了
+2023-01-06 17:02:49,167 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:02:49,167 - INFO:rakuten_games.py - 79: 【楽天ブックス限定特典+特典】Wo Long: Fallen Dynasty Treasure Box PS5版(絆創膏ケース（アルミ缶）+【早期購入同梱特典】「白虎の戦鎧（せんがい）　一式」)
+2023-01-06 17:04:18,895 - INFO:rakuten_games.py - 画像枚数: 18枚
+2023-01-06 17:04:18,913 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:04:19,004 - INFO:released_db.py - 18 records inserted for games.game_image
+2023-01-06 17:04:19,006 - INFO:released_db.py - インサート完了
+2023-01-06 17:04:19,007 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:04:19,008 - INFO:rakuten_games.py - 80: 【楽天ブックス限定特典+特典】Wo Long: Fallen Dynasty PS5版(絆創膏ケース（アルミ缶）+【早期購入同梱特典】「白虎の戦鎧（せんがい）　一式」)
+2023-01-06 17:05:48,857 - INFO:rakuten_games.py - 画像枚数: 18枚
+2023-01-06 17:05:48,870 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:05:48,960 - INFO:released_db.py - 18 records inserted for games.game_image
+2023-01-06 17:05:48,961 - INFO:released_db.py - インサート完了
+2023-01-06 17:05:48,964 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:05:48,965 - INFO:rakuten_games.py - 81: Scars Above (スカーズ アバブ)
+2023-01-06 17:07:18,825 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 17:07:18,837 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 17:07:18,929 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 17:07:18,930 - INFO:released_db.py - インサート完了
+2023-01-06 17:07:18,933 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:07:18,933 - INFO:rakuten_games.py - 82: オクトパストラベラーII PS5版
+2023-01-06 17:08:27,192 - ERROR:rakuten_games.py - 82: 検索に引っかかりませんでした
+2023-01-06 17:08:27,234 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:08:27,235 - INFO:rakuten_games.py - 83: 雷電III×MIKADO MANIAX PS5版
+2023-01-06 17:09:56,943 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 17:09:56,955 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 17:09:57,035 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 17:09:57,036 - INFO:released_db.py - インサート完了
+2023-01-06 17:09:57,039 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:09:57,040 - INFO:rakuten_games.py - 84: 雷電III×MIKADO MANIAX 限定版 PS5版
+2023-01-06 17:11:26,870 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 17:11:26,885 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 17:11:27,005 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 17:11:27,006 - INFO:released_db.py - インサート完了
+2023-01-06 17:11:27,009 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:11:27,010 - INFO:rakuten_games.py - 85: ミスト探偵 PS5版
+2023-01-06 17:12:56,559 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 17:12:56,572 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 17:12:56,657 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 17:12:56,659 - INFO:released_db.py - インサート完了
+2023-01-06 17:12:56,661 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:12:56,662 - INFO:rakuten_games.py - 86: トルトゥーガ パイレーツ テイル PS5版
+2023-01-06 17:14:26,492 - INFO:rakuten_games.py - 画像枚数: 14枚
+2023-01-06 17:14:26,503 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:14:26,589 - INFO:released_db.py - 14 records inserted for games.game_image
+2023-01-06 17:14:26,590 - INFO:released_db.py - インサート完了
+2023-01-06 17:14:26,592 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:14:26,594 - INFO:rakuten_games.py - 87: 【楽天ブックス限定特典+特典+他】ライザのアトリエ3 〜終わりの錬金術士と秘密の鍵〜 PS5版(アクリルキーホルダー+【早期購入封入特典】「サマーコーディネートコスチュームセット」DLC+他)
+2023-01-06 17:15:56,527 - INFO:rakuten_games.py - 画像枚数: 17枚
+2023-01-06 17:15:56,543 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:15:56,615 - INFO:released_db.py - 17 records inserted for games.game_image
+2023-01-06 17:15:56,617 - INFO:released_db.py - インサート完了
+2023-01-06 17:15:56,620 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:15:56,622 - INFO:rakuten_games.py - 88: 【楽天ブックス限定特典】龍が如く 維新！ 極 PS5版(アクリルキーホルダー)
+2023-01-06 17:17:26,147 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 17:17:26,158 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 17:17:26,224 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 17:17:26,225 - INFO:released_db.py - インサート完了
+2023-01-06 17:17:26,228 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:17:26,230 - INFO:rakuten_games.py - 89: 【楽天ブックス限定特典+特典+他】ライザのアトリエ3 プレミアムボックス PS5版(アクリルキーホルダー+【早期購入封入特典】「サマーコーディネートコスチュームセット」DLC+他)
+2023-01-06 17:18:57,154 - INFO:rakuten_games.py - 画像枚数: 17枚
+2023-01-06 17:18:57,167 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:18:57,264 - INFO:released_db.py - 17 records inserted for games.game_image
+2023-01-06 17:18:57,266 - INFO:released_db.py - インサート完了
+2023-01-06 17:18:57,269 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:18:57,270 - INFO:rakuten_games.py - 90: 龍が如く 維新！ 極 PS5版
+2023-01-06 17:20:27,931 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 17:20:27,943 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 17:20:28,026 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 17:20:28,027 - INFO:released_db.py - インサート完了
+2023-01-06 17:20:28,029 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:20:28,030 - INFO:rakuten_games.py - 91: 【特典】WILD HEARTS(【初回限定同梱特典】エモート「荒ぶる獣」＆ゲーム内で使えるスタンプ5種)
+2023-01-06 17:21:57,821 - INFO:rakuten_games.py - 画像枚数: 5枚
+2023-01-06 17:21:57,837 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 17:21:57,957 - INFO:released_db.py - 5 records inserted for games.game_image
+2023-01-06 17:21:57,958 - INFO:released_db.py - インサート完了
+2023-01-06 17:21:57,961 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:21:57,962 - INFO:rakuten_games.py - 92: In Sound Mind - DX Edition
+2023-01-06 17:23:06,901 - ERROR:rakuten_games.py - 92: 検索に引っかかりませんでした
+2023-01-06 17:23:06,929 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:23:06,930 - INFO:rakuten_games.py - 93: 【楽天ブックス限定特典+特典+他】ホグワーツ・レガシー PS5版(ホグワーツ寮 エンブレムピンバッジ（レイブンクロー）+【予約同梱特典】オニキス・ヒッポグリフの乗りもの+他)
+2023-01-06 17:24:37,545 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 17:24:37,560 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:24:37,648 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 17:24:37,650 - INFO:released_db.py - インサート完了
+2023-01-06 17:24:37,652 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:24:37,653 - INFO:rakuten_games.py - 94: ウィッチャー3 ワイルドハント ゲームオブザイヤーエディション 新価格版 PS5版
+2023-01-06 17:26:07,679 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 17:26:07,700 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:26:07,772 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 17:26:07,773 - INFO:released_db.py - インサート完了
+2023-01-06 17:26:07,776 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:26:07,777 - INFO:rakuten_games.py - 95: 【楽天ブックス限定特典+特典+他】ホグワーツ・レガシー デラックス・エディション PS5版(ホグワーツ寮 エンブレムピンバッジ（レイブンクロー）+【予約同梱特典】オニキス・ヒッポグリフの乗りもの+他)
+2023-01-06 17:27:37,625 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 17:27:37,639 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:27:37,739 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 17:27:37,740 - INFO:released_db.py - インサート完了
+2023-01-06 17:27:37,742 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:27:37,743 - INFO:rakuten_games.py - 96: ミュータント タートルズ：シュレッダーの復讐
+2023-01-06 17:29:08,028 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 17:29:08,043 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 17:29:08,145 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 17:29:08,146 - INFO:released_db.py - インサート完了
+2023-01-06 17:29:08,149 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:29:08,150 - INFO:rakuten_games.py - 97: 【楽天ブックス限定特典+特典】百英雄伝 Rising PS5版(オリジナルロゴステッカー+【初回外付特典】サウンドトラック CD（全45分、20曲）)
+2023-01-06 17:30:38,062 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 17:30:38,075 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:30:38,158 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 17:30:38,159 - INFO:released_db.py - インサート完了
+2023-01-06 17:30:38,161 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:30:38,162 - INFO:rakuten_games.py - 98: 【特典】Goat Simulator 3 「GOAT IN A BOX」エディション(【同梱予約特典】「搾乳前」ギア)
+2023-01-06 17:32:08,237 - INFO:rakuten_games.py - 画像枚数: 15枚
+2023-01-06 17:32:08,251 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 17:32:08,340 - INFO:released_db.py - 15 records inserted for games.game_image
+2023-01-06 17:32:08,342 - INFO:released_db.py - インサート完了
+2023-01-06 17:32:08,343 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:32:08,344 - INFO:rakuten_games.py - 99: 【楽天ブックス限定特典+特典】魔界戦記ディスガイア7 PS5版(DLC特典「プリニー族」鬼と河童 Ver+【同梱予約特典】DLC特典めがねコスチュームセット)
+2023-01-06 17:33:38,193 - INFO:rakuten_games.py - 画像枚数: 4枚
+2023-01-06 17:33:38,206 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:33:38,284 - INFO:released_db.py - 4 records inserted for games.game_image
+2023-01-06 17:33:38,286 - INFO:released_db.py - インサート完了
+2023-01-06 17:33:38,289 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:33:38,290 - INFO:rakuten_games.py - 100: 【特典】Goat Simulator 3(【同梱予約特典】「搾乳前」ギア)
+2023-01-06 17:35:08,090 - INFO:rakuten_games.py - 画像枚数: 15枚
+2023-01-06 17:35:08,103 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 17:35:08,244 - INFO:released_db.py - 15 records inserted for games.game_image
+2023-01-06 17:35:08,246 - INFO:released_db.py - インサート完了
+2023-01-06 17:35:08,248 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:35:08,249 - INFO:rakuten_games.py - 101: 【楽天ブックス限定特典+他】魔界戦記ディスガイア7 PS5版(DLC特典「プリニー族」鬼と河童 Ver+アクリルキーホルダー2種セット（「プリニー族」鬼、河童）+他)
+2023-01-06 17:36:38,004 - INFO:rakuten_games.py - 画像枚数: 4枚
+2023-01-06 17:36:38,018 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:36:38,097 - INFO:released_db.py - 4 records inserted for games.game_image
+2023-01-06 17:36:38,099 - INFO:released_db.py - インサート完了
+2023-01-06 17:36:38,100 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:36:38,101 - INFO:rakuten_games.py - 102: 【特典】FORSPOKEN（フォースポークン）(【初回生産同梱特典】『ウィスカーズ』マントと『コヴェット』ネイルのDLC)
+2023-01-06 17:38:07,732 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 17:38:07,747 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:38:07,835 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 17:38:07,836 - INFO:released_db.py - インサート完了
+2023-01-06 17:38:07,839 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:38:07,840 - INFO:rakuten_games.py - 103: 【特典】A Space for the Unbound 心に咲く花 PS5版(【初回外付特典】豪華オリジナルサウンドトラック)
+2023-01-06 17:39:37,594 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 17:39:37,608 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 17:39:37,717 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 17:39:37,718 - INFO:released_db.py - インサート完了
+2023-01-06 17:39:37,721 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:39:37,723 - INFO:rakuten_games.py - 104: ドラゴンボールZ KAKAROT スペシャルエディション PS5版
+2023-01-06 17:41:07,732 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 17:41:07,747 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 17:41:07,820 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 17:41:07,822 - INFO:released_db.py - インサート完了
+2023-01-06 17:41:07,825 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:41:07,826 - INFO:rakuten_games.py - 105: 【楽天ブックス限定特典+特典】ONE PIECE ODYSSEY PS5版(「瀕死のパワープチジュエリー」が入手できる特典コード（メール配信）+【早期購入封入特典】旅立ちの衣装セットが入手できる特典コード)
+2023-01-06 17:42:37,596 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 17:42:37,611 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:42:37,695 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 17:42:37,696 - INFO:released_db.py - インサート完了
+2023-01-06 17:42:37,700 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:42:37,701 - INFO:rakuten_games.py - 106: 【特典】Evil Dead: The Game（死霊のはらわた: ザ・ゲーム） PS5版(【初回限定封入特典】アッシュ・ウィリアムズのコスチュームのDLCチラシ)
+2023-01-06 17:44:07,702 - INFO:rakuten_games.py - 画像枚数: 16枚
+2023-01-06 17:44:07,718 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 17:44:07,815 - INFO:released_db.py - 16 records inserted for games.game_image
+2023-01-06 17:44:07,817 - INFO:released_db.py - インサート完了
+2023-01-06 17:44:07,819 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:44:07,820 - INFO:rakuten_games.py - 107: クライシス コア -ファイナルファンタジーVII- リユニオン PS5版
+2023-01-06 17:45:37,535 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 17:45:37,548 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 17:45:37,630 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 17:45:37,632 - INFO:released_db.py - インサート完了
+2023-01-06 17:45:37,634 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:45:37,636 - INFO:rakuten_games.py - 108: PULSE 3Dワイヤレスヘッドセット グレー カモフラージュ
+2023-01-06 17:47:07,353 - INFO:rakuten_games.py - 画像枚数: 2枚
+2023-01-06 17:47:07,368 - INFO:rakuten_games.py - ジャンル: 周辺機器
+2023-01-06 17:47:07,442 - INFO:released_db.py - 2 records inserted for games.game_image
+2023-01-06 17:47:07,443 - INFO:released_db.py - インサート完了
+2023-01-06 17:47:07,446 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:47:07,447 - INFO:rakuten_games.py - 109: マーベル ミッドナイト・サンズ レジェンダリー・エディション PS5版
+2023-01-06 17:48:37,953 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 17:48:37,967 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 17:48:38,132 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 17:48:38,134 - INFO:released_db.py - インサート完了
+2023-01-06 17:48:38,154 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:48:38,172 - INFO:rakuten_games.py - 110: 【特典】Need for Speed Unbound(【予約同梱特典】ダウンロードコード)
+2023-01-06 17:50:07,896 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 17:50:07,910 - INFO:rakuten_games.py - ジャンル: スポーツ・レース
+2023-01-06 17:50:07,990 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 17:50:07,991 - INFO:released_db.py - インサート完了
+2023-01-06 17:50:07,995 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:50:07,996 - INFO:rakuten_games.py - 111: 【特典】マーベル ミッドナイト・サンズ エンハンスド・エディション PS5版(【早期購入封入特典】ドクター・ストレンジ用「ディフェンダーズ・スキン」)
+2023-01-06 17:51:37,758 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 17:51:37,772 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 17:51:37,853 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 17:51:37,854 - INFO:released_db.py - インサート完了
+2023-01-06 17:51:37,857 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:51:37,858 - INFO:rakuten_games.py - 112: 【特典】ダカール・デザート・ラリー PS5版(【 初回限定外付特典】「Audi RSQ e-tron」 ダウンロードコード)
+2023-01-06 17:53:07,494 - INFO:rakuten_games.py - 画像枚数: 5枚
+2023-01-06 17:53:07,509 - INFO:rakuten_games.py - ジャンル: スポーツ・レース
+2023-01-06 17:53:07,588 - INFO:released_db.py - 5 records inserted for games.game_image
+2023-01-06 17:53:07,589 - INFO:released_db.py - インサート完了
+2023-01-06 17:53:07,593 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:53:07,594 - INFO:rakuten_games.py - 113: 【特典】熱血硬派くにおくん外伝 リバーシティガールズ1・2 PS5版(【外付け予約特典】『熱血硬派くにおくん外伝 リバーシティガールズ1・2』オリジナルステッカーシート)
+2023-01-06 17:54:37,390 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 17:54:37,404 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 17:54:37,497 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 17:54:37,498 - INFO:released_db.py - インサート完了
+2023-01-06 17:54:37,500 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:54:37,501 - INFO:rakuten_games.py - 114: 【特典】SAMURAI MAIDEN -サムライメイデンー PS5版(【初回封入特典】 2大特典（ダウンロードコード）)
+2023-01-06 17:56:07,147 - INFO:rakuten_games.py - 画像枚数: 16枚
+2023-01-06 17:56:07,161 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 17:56:07,246 - INFO:released_db.py - 16 records inserted for games.game_image
+2023-01-06 17:56:07,248 - INFO:released_db.py - インサート完了
+2023-01-06 17:56:07,249 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:56:07,250 - INFO:rakuten_games.py - 115: セッション：スケートシム PS5版
+2023-01-06 17:57:36,930 - INFO:rakuten_games.py - 画像枚数: 12枚
+2023-01-06 17:57:36,948 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 17:57:37,033 - INFO:released_db.py - 12 records inserted for games.game_image
+2023-01-06 17:57:37,035 - INFO:released_db.py - インサート完了
+2023-01-06 17:57:37,038 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:57:37,039 - INFO:rakuten_games.py - 116: Soulstice: Deluxe Edition
+2023-01-06 17:59:07,103 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 17:59:07,117 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 17:59:07,207 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 17:59:07,208 - INFO:released_db.py - インサート完了
+2023-01-06 17:59:07,210 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 17:59:07,211 - INFO:rakuten_games.py - 117: タクティカルアサルトコマンダー　メカニカルキーパッド　for PlayStation5,PlayStation4,PC
+2023-01-06 18:00:36,824 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 18:00:36,839 - INFO:rakuten_games.py - ジャンル: 周辺機器
+2023-01-06 18:00:36,944 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 18:00:36,946 - INFO:released_db.py - インサート完了
+2023-01-06 18:00:36,948 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:00:36,949 - INFO:rakuten_games.py - 118: PS5対応 M.2 拡張SSD ヒートシンク付 2TB
+2023-01-06 18:02:06,857 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:02:06,873 - INFO:rakuten_games.py - ジャンル: 周辺機器
+2023-01-06 18:02:06,954 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:02:06,955 - INFO:released_db.py - インサート完了
+2023-01-06 18:02:06,957 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:02:06,958 - INFO:rakuten_games.py - 119: GUNGRAVE G.O.R.E (ガングレイヴ ゴア） PS5版
+2023-01-06 18:03:36,657 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 18:03:36,675 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 18:03:36,743 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 18:03:36,744 - INFO:released_db.py - インサート完了
+2023-01-06 18:03:36,747 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:03:36,748 - INFO:rakuten_games.py - 120: PS5用　ホコリキャッチャー （ブラック）
+2023-01-06 18:05:06,523 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 18:05:06,540 - INFO:rakuten_games.py - ジャンル: 周辺機器
+2023-01-06 18:05:06,612 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 18:05:06,613 - INFO:released_db.py - インサート完了
+2023-01-06 18:05:06,616 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:05:06,617 - INFO:rakuten_games.py - 121: 【特典】トラブル ウィッチーズ ふぁいなる！　〜Episode 01 アマルガムの娘たち〜 Switch版(【初回外付特典】トラブル☆ウィッチーズ ふぁいなる！ データブック)
+2023-01-06 18:06:36,499 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:06:36,514 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 18:06:36,594 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:06:36,596 - INFO:released_db.py - インサート完了
+2023-01-06 18:06:36,598 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:06:36,599 - INFO:rakuten_games.py - 122: 【楽天ブックス限定特典+特典+他】BUSTAFELLOWS シーズン2(缶ミラー(76mm)+【予約外付特典】予約特典ドラマCD+他)
+2023-01-06 18:08:06,297 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 18:08:06,317 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:08:06,398 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 18:08:06,400 - INFO:released_db.py - インサート完了
+2023-01-06 18:08:06,402 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:08:06,402 - INFO:rakuten_games.py - 123: 蒼の彼方のフォーリズム EXTRA2S
+2023-01-06 18:09:36,821 - INFO:rakuten_games.py - 画像枚数: 17枚
+2023-01-06 18:09:36,835 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:09:36,916 - INFO:released_db.py - 17 records inserted for games.game_image
+2023-01-06 18:09:36,918 - INFO:released_db.py - インサート完了
+2023-01-06 18:09:36,920 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:09:36,921 - INFO:rakuten_games.py - 124: 蒼の彼方のフォーリズム EXTRA1S
+2023-01-06 18:11:06,726 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 18:11:06,743 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:11:06,816 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 18:11:06,817 - INFO:released_db.py - インサート完了
+2023-01-06 18:11:06,819 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:11:06,820 - INFO:rakuten_games.py - 125: 蒼の彼方のフォーリズム EXTRA1+2S
+2023-01-06 18:12:36,729 - INFO:rakuten_games.py - 画像枚数: 17枚
+2023-01-06 18:12:36,743 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:12:36,841 - INFO:released_db.py - 17 records inserted for games.game_image
+2023-01-06 18:12:36,842 - INFO:released_db.py - インサート完了
+2023-01-06 18:12:36,844 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:12:36,845 - INFO:rakuten_games.py - 126: 【楽天ブックス限定特典+特典+他】BUSTAFELLOWS シーズン2 DXエディション(缶ミラー(76mm)+【予約外付特典】予約特典ドラマCD+他)
+2023-01-06 18:14:06,576 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 18:14:06,598 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:14:06,718 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 18:14:06,719 - INFO:released_db.py - インサート完了
+2023-01-06 18:14:06,723 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:14:06,724 - INFO:rakuten_games.py - 127: Kizuna AI - Touch the Beat!　限定版 Switch版
+2023-01-06 18:15:15,782 - ERROR:rakuten_games.py - 127: 検索に引っかかりませんでした
+2023-01-06 18:15:15,814 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:15:15,816 - INFO:rakuten_games.py - 128: エヴァーメイデン〜堕落の園の乙女たち〜 Switch版
+2023-01-06 18:16:45,567 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 18:16:45,581 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:16:45,699 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 18:16:45,700 - INFO:released_db.py - インサート完了
+2023-01-06 18:16:45,702 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:16:45,703 - INFO:rakuten_games.py - 129: Kizuna AI - Touch the Beat! Switch版
+2023-01-06 18:17:54,136 - ERROR:rakuten_games.py - 129: 検索に引っかかりませんでした
+2023-01-06 18:17:54,175 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:17:54,177 - INFO:rakuten_games.py - 130: 【楽天ブックス限定特典】Kizuna AI - Touch the Beat! Switch版(アクリルキーホルダー)
+2023-01-06 18:19:02,539 - ERROR:rakuten_games.py - 130: 検索に引っかかりませんでした
+2023-01-06 18:19:02,569 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:19:02,571 - INFO:rakuten_games.py - 131: エヴァーメイデン〜堕落の園の乙女たち〜　完全生産限定版 Switch版
+2023-01-06 18:20:32,222 - INFO:rakuten_games.py - 画像枚数: 13枚
+2023-01-06 18:20:32,237 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:20:32,320 - INFO:released_db.py - 13 records inserted for games.game_image
+2023-01-06 18:20:32,321 - INFO:released_db.py - インサート完了
+2023-01-06 18:20:32,324 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:20:32,325 - INFO:rakuten_games.py - 132: 【楽天ブックス限定特典】Kizuna AI - Touch the Beat!　限定版 Switch版(アクリルキーホルダー+アクリルスタンド)
+2023-01-06 18:21:40,773 - ERROR:rakuten_games.py - 132: 検索に引っかかりませんでした
+2023-01-06 18:21:40,807 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:21:40,808 - INFO:rakuten_games.py - 133: 【特典】テミラーナ国の強運姫と悲運騎士団　特装版(【予約外付特典】ドラマCD)
+2023-01-06 18:23:10,716 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 18:23:10,729 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:23:10,812 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 18:23:10,814 - INFO:released_db.py - インサート完了
+2023-01-06 18:23:10,815 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:23:10,816 - INFO:rakuten_games.py - 134: 【特典】テミラーナ国の強運姫と悲運騎士団(【予約外付特典】ドラマCD)
+2023-01-06 18:24:40,445 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 18:24:40,460 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:24:40,547 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 18:24:40,549 - INFO:released_db.py - インサート完了
+2023-01-06 18:24:40,552 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:24:40,553 - INFO:rakuten_games.py - 135: AKIBA'S TRIP2 ディレクターズカット 通常版 Switch版
+2023-01-06 18:26:10,945 - INFO:rakuten_games.py - 画像枚数: 8枚
+2023-01-06 18:26:10,960 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:26:11,044 - INFO:released_db.py - 8 records inserted for games.game_image
+2023-01-06 18:26:11,045 - INFO:released_db.py - インサート完了
+2023-01-06 18:26:11,048 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:26:11,049 - INFO:rakuten_games.py - 136: 【特典】DNF Duel(【外付予約特典】PC版『アラド戦記』で使用できるシリアルコード)
+2023-01-06 18:27:40,732 - INFO:rakuten_games.py - 画像枚数: 4枚
+2023-01-06 18:27:40,745 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 18:27:40,817 - INFO:released_db.py - 4 records inserted for games.game_image
+2023-01-06 18:27:40,819 - INFO:released_db.py - インサート完了
+2023-01-06 18:27:40,821 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:27:40,822 - INFO:rakuten_games.py - 137: AKIBA'S TRIP2 ディレクターズカット 初回限定版 10th Anniversary Edition Switch版
+2023-01-06 18:29:10,667 - INFO:rakuten_games.py - 画像枚数: 8枚
+2023-01-06 18:29:10,680 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:29:10,759 - INFO:released_db.py - 8 records inserted for games.game_image
+2023-01-06 18:29:10,760 - INFO:released_db.py - インサート完了
+2023-01-06 18:29:10,761 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:29:10,762 - INFO:rakuten_games.py - 138: 【特典】Cuphead Switch版(【初回同梱特典】5点特典)
+2023-01-06 18:30:40,843 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:30:40,859 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 18:30:40,944 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:30:40,946 - INFO:released_db.py - インサート完了
+2023-01-06 18:30:40,948 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:30:40,949 - INFO:rakuten_games.py - 139: 【特典】バッカニヤ Switch版(【初回生産限定封入特典】特殊強化武器DLCカード)
+2023-01-06 18:32:10,899 - INFO:rakuten_games.py - 画像枚数: 3枚
+2023-01-06 18:32:10,914 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 18:32:10,998 - INFO:released_db.py - 3 records inserted for games.game_image
+2023-01-06 18:32:10,999 - INFO:released_db.py - インサート完了
+2023-01-06 18:32:11,001 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:32:11,002 - INFO:rakuten_games.py - 140: ハテナの塔 -The Tower of Children-
+2023-01-06 18:33:40,610 - INFO:rakuten_games.py - 画像枚数: 5枚
+2023-01-06 18:33:40,625 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:33:40,710 - INFO:released_db.py - 5 records inserted for games.game_image
+2023-01-06 18:33:40,711 - INFO:released_db.py - インサート完了
+2023-01-06 18:33:40,713 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:33:40,714 - INFO:rakuten_games.py - 141: ハテナの塔 -The Tower of Children- コレクターズ・エディション
+2023-01-06 18:35:10,362 - INFO:rakuten_games.py - 画像枚数: 5枚
+2023-01-06 18:35:10,375 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:35:10,450 - INFO:released_db.py - 5 records inserted for games.game_image
+2023-01-06 18:35:10,451 - INFO:released_db.py - インサート完了
+2023-01-06 18:35:10,453 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:35:10,455 - INFO:rakuten_games.py - 142: 【特典】ロックマンエグゼ アドバンスドコレクション Switch版(【数量限定封入特典】「カスタムPETパック」が入手できるコード印字チラシ)
+2023-01-06 18:36:40,255 - INFO:rakuten_games.py - 画像枚数: 15枚
+2023-01-06 18:36:40,269 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 18:36:40,401 - INFO:released_db.py - 15 records inserted for games.game_image
+2023-01-06 18:36:40,403 - INFO:released_db.py - インサート完了
+2023-01-06 18:36:40,405 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:36:40,406 - INFO:rakuten_games.py - 143: 【楽天ブックス限定特典+特典】ロックマンエグゼ アドバンスドコレクション Switch版(アクリルスタンド2種セット（ロックマン、ロール）+【数量限定封入特典】「カスタムPETパック」が入手できるコード印字チラシ)
+2023-01-06 18:38:10,346 - INFO:rakuten_games.py - 画像枚数: 15枚
+2023-01-06 18:38:10,361 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 18:38:10,467 - INFO:released_db.py - 15 records inserted for games.game_image
+2023-01-06 18:38:10,468 - INFO:released_db.py - インサート完了
+2023-01-06 18:38:10,471 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:38:10,473 - INFO:rakuten_games.py - 144: 【特典】戦場の円舞曲 for Nintendo Switch(【予約外付特典】再録設定資料集)
+2023-01-06 18:39:40,192 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:39:40,207 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:39:40,300 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:39:40,301 - INFO:released_db.py - インサート完了
+2023-01-06 18:39:40,304 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:39:40,305 - INFO:rakuten_games.py - 145: 【特典】戦場の円舞曲 for Nintendo Switch　特装版(【予約外付特典】再録設定資料集)
+2023-01-06 18:41:09,999 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:41:10,014 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:41:10,090 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:41:10,091 - INFO:released_db.py - インサート完了
+2023-01-06 18:41:10,092 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:41:10,093 - INFO:rakuten_games.py - 146: 式神の城2
+2023-01-06 18:42:39,755 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:42:39,769 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 18:42:39,860 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:42:39,861 - INFO:released_db.py - インサート完了
+2023-01-06 18:42:39,864 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:42:39,865 - INFO:rakuten_games.py - 147: 【特典】Winning Post 10 Switch版(【早期特典】WP10 稀代のクセ馬 購入権セット 全5頭)
+2023-01-06 18:44:09,557 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 18:44:09,572 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 18:44:09,660 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 18:44:09,661 - INFO:released_db.py - インサート完了
+2023-01-06 18:44:09,663 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:44:09,664 - INFO:rakuten_games.py - 148: 【特典】シリアルクリーナーズ Switch版(【初回外付特典】シリアルクリーナーズ特製レコード型コースター)
+2023-01-06 18:45:39,370 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 18:45:39,386 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 18:45:39,497 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 18:45:39,499 - INFO:released_db.py - インサート完了
+2023-01-06 18:45:39,501 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:45:39,502 - INFO:rakuten_games.py - 149: 【特典】Winning Post 10 シリーズ30周年記念プレミアムボックス Switch版(【早期特典】WP10 稀代のクセ馬 購入権セット 全5頭)
+2023-01-06 18:47:09,786 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 18:47:09,804 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 18:47:09,899 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 18:47:09,901 - INFO:released_db.py - インサート完了
+2023-01-06 18:47:09,904 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:47:09,905 - INFO:rakuten_games.py - 150: すだまリレイシヨン Switch版
+2023-01-06 18:48:39,596 - INFO:rakuten_games.py - 画像枚数: 4枚
+2023-01-06 18:48:39,609 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:48:39,687 - INFO:released_db.py - 4 records inserted for games.game_image
+2023-01-06 18:48:39,688 - INFO:released_db.py - インサート完了
+2023-01-06 18:48:39,691 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:48:39,692 - INFO:rakuten_games.py - 151: 【特典】Grim Guardians: Demon Purge Switch版(【外付予約特典】A4クリアファイル)
+2023-01-06 18:50:09,432 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 18:50:09,451 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 18:50:09,620 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 18:50:09,621 - INFO:released_db.py - インサート完了
+2023-01-06 18:50:09,624 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:50:09,625 - INFO:rakuten_games.py - 152: JINKI -Infinity-　完全生産限定版 Switch版
+2023-01-06 18:51:39,420 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:51:39,436 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:51:39,518 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:51:39,519 - INFO:released_db.py - インサート完了
+2023-01-06 18:51:39,521 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:51:39,522 - INFO:rakuten_games.py - 153: すだまリレイシヨン　完全生産限定版 Switch版
+2023-01-06 18:53:09,048 - INFO:rakuten_games.py - 画像枚数: 4枚
+2023-01-06 18:53:09,062 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:53:09,152 - INFO:released_db.py - 4 records inserted for games.game_image
+2023-01-06 18:53:09,154 - INFO:released_db.py - インサート完了
+2023-01-06 18:53:09,156 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:53:09,157 - INFO:rakuten_games.py - 154: 【特典】Grim Guardians: Demon Purge 限定版 Switch版(【外付予約特典】A4クリアファイル)
+2023-01-06 18:54:38,995 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 18:54:39,006 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 18:54:39,097 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 18:54:39,099 - INFO:released_db.py - インサート完了
+2023-01-06 18:54:39,101 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:54:39,102 - INFO:rakuten_games.py - 155: JINKI -Infinity- Switch版
+2023-01-06 18:56:08,846 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:56:08,859 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 18:56:08,934 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:56:08,936 - INFO:released_db.py - インサート完了
+2023-01-06 18:56:08,938 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:56:08,939 - INFO:rakuten_games.py - 156: ベヨネッタ オリジンズ: セレッサと迷子の悪魔
+2023-01-06 18:57:38,627 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 18:57:38,639 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 18:57:38,721 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 18:57:38,723 - INFO:released_db.py - インサート完了
+2023-01-06 18:57:38,725 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:57:38,726 - INFO:rakuten_games.py - 157: Dawn of the Monsters Switch版
+2023-01-06 18:59:08,525 - INFO:rakuten_games.py - 画像枚数: 11枚
+2023-01-06 18:59:08,539 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 18:59:08,623 - INFO:released_db.py - 11 records inserted for games.game_image
+2023-01-06 18:59:08,624 - INFO:released_db.py - インサート完了
+2023-01-06 18:59:08,627 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 18:59:08,628 - INFO:rakuten_games.py - 158: 【特典】Sixtar Gate: STARTRAIL(【初回封入特典】書き下ろし楽曲先行ダウンロードコード)
+2023-01-06 19:00:38,450 - INFO:rakuten_games.py - 画像枚数: 15枚
+2023-01-06 19:00:38,464 - INFO:rakuten_games.py - ジャンル: スポーツ・レース
+2023-01-06 19:00:38,552 - INFO:released_db.py - 15 records inserted for games.game_image
+2023-01-06 19:00:38,554 - INFO:released_db.py - インサート完了
+2023-01-06 19:00:38,556 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:00:38,557 - INFO:rakuten_games.py - 159: 【特典】Sixtar Gate: STARTRAIL 初回限定版(【初回封入特典】書き下ろし楽曲先行ダウンロードコード)
+2023-01-06 19:02:08,704 - INFO:rakuten_games.py - 画像枚数: 15枚
+2023-01-06 19:02:08,724 - INFO:rakuten_games.py - ジャンル: スポーツ・レース
+2023-01-06 19:02:08,825 - INFO:released_db.py - 15 records inserted for games.game_image
+2023-01-06 19:02:08,826 - INFO:released_db.py - インサート完了
+2023-01-06 19:02:08,829 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:02:08,830 - INFO:rakuten_games.py - 160: 蒼き翼のシュバリエ
+2023-01-06 19:03:38,560 - INFO:rakuten_games.py - 画像枚数: 0枚
+2023-01-06 19:03:38,578 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 19:03:38,649 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-06 19:03:38,650 - INFO:released_db.py - インサート完了
+2023-01-06 19:03:38,652 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:03:38,653 - INFO:rakuten_games.py - 161: Jitsu Squad（ジツ・スクワッド）スペシャルパック Switch版
+2023-01-06 19:05:09,431 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 19:05:09,443 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 19:05:09,524 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 19:05:09,525 - INFO:released_db.py - インサート完了
+2023-01-06 19:05:09,527 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:05:09,528 - INFO:rakuten_games.py - 162: 【楽天ブックス限定特典】LOOP8（ループエイト） Switch版(森倉円監修 ベニ衣装「真夏のデート服」衣装コード（メール配信）)
+2023-01-06 19:06:39,565 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 19:06:39,585 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 19:06:39,712 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 19:06:39,713 - INFO:released_db.py - インサート完了
+2023-01-06 19:06:39,717 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:06:39,718 - INFO:rakuten_games.py - 163: 新釈・剣の街の異邦人 〜黒の宮殿〜
+2023-01-06 19:08:09,541 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 19:08:09,557 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 19:08:09,642 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 19:08:09,643 - INFO:released_db.py - インサート完了
+2023-01-06 19:08:09,647 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:08:09,648 - INFO:rakuten_games.py - 164: Jitsu Squad（ジツ・スクワッド） Switch版
+2023-01-06 19:09:39,658 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 19:09:39,674 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-06 19:09:39,790 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 19:09:39,792 - INFO:released_db.py - インサート完了
+2023-01-06 19:09:39,795 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:09:39,796 - INFO:rakuten_games.py - 165: 【楽天ブックス限定特典】LOOP8（ループエイト） Switch版(森倉円監修 ベニ衣装「真夏のデート服」衣装コード（メール配信）+B2布ポスター)
+2023-01-06 19:11:09,578 - INFO:rakuten_games.py - 画像枚数: 10枚
+2023-01-06 19:11:09,593 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 19:11:09,686 - INFO:released_db.py - 10 records inserted for games.game_image
+2023-01-06 19:11:09,690 - INFO:released_db.py - インサート完了
+2023-01-06 19:11:09,693 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:11:09,694 - INFO:rakuten_games.py - 166: 【特典】異夢迷都 果てなき螺旋 Switch版(【初回封入特典】DLC：ゲーム内アイテム A・ B)
+2023-01-06 19:12:39,575 - INFO:rakuten_games.py - 画像枚数: 9枚
+2023-01-06 19:12:39,594 - INFO:rakuten_games.py - ジャンル: RPG
+2023-01-06 19:12:39,695 - INFO:released_db.py - 9 records inserted for games.game_image
+2023-01-06 19:12:39,696 - INFO:released_db.py - インサート完了
+2023-01-06 19:12:39,700 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:12:39,701 - INFO:rakuten_games.py - 167: 【特典】ONI - 空と風の哀歌 Switch版(【早期購入外付特典】DLCダウンロードコード付きチラシ)
+2023-01-06 19:13:48,202 - ERROR:rakuten_games.py - 167: 検索に引っかかりませんでした
+2023-01-06 19:13:48,241 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:13:48,243 - INFO:rakuten_games.py - 168: 【楽天ブックス限定特典+特典+他】零 〜月蝕の仮面〜 Switch版(マイクロファイバークロス+【早期購入封入特典】流歌限定衣装「マリー・ローズの服」+他)
+2023-01-06 19:15:17,929 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 19:15:17,943 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 19:15:18,133 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 19:15:18,135 - INFO:released_db.py - インサート完了
+2023-01-06 19:15:18,137 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:15:18,138 - INFO:rakuten_games.py - 169: CHEF LIFE A Restaurant Simulator　シェフライフ レストランシミュレーター Switch版
+2023-01-06 19:16:47,986 - INFO:rakuten_games.py - 画像枚数: 7枚
+2023-01-06 19:16:48,001 - INFO:rakuten_games.py - ジャンル: シミュレーション
+2023-01-06 19:16:48,082 - INFO:released_db.py - 7 records inserted for games.game_image
+2023-01-06 19:16:48,083 - INFO:released_db.py - インサート完了
+2023-01-06 19:16:48,085 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:16:48,086 - INFO:rakuten_games.py - 170: あの、素晴らしい　　をもう一度／再装版HD　限定版
+2023-01-06 19:18:17,750 - INFO:rakuten_games.py - 画像枚数: 5枚
+2023-01-06 19:18:17,765 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 19:18:17,857 - INFO:released_db.py - 5 records inserted for games.game_image
+2023-01-06 19:18:17,858 - INFO:released_db.py - インサート完了
+2023-01-06 19:18:17,862 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:18:17,864 - INFO:rakuten_games.py - 171: 【楽天ブックス限定特典+特典+他】零 〜月蝕の仮面〜 プレミアムボックス Switch版(マイクロファイバークロス+【早期購入封入特典】流歌限定衣装「マリー・ローズの服」+他)
+2023-01-06 19:19:47,818 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 19:19:47,839 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 19:19:47,962 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 19:19:47,963 - INFO:released_db.py - インサート完了
+2023-01-06 19:19:47,966 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:19:47,967 - INFO:rakuten_games.py - 172: 【特典】零 〜月蝕の仮面〜 プレミアムボックス Switch版(【早期購入封入特典】流歌限定衣装「マリー・ローズの服」+【セーブデータ連動特典】流歌・海咲・長四郎限定衣装「射影機の被り物」)
+2023-01-06 19:21:18,013 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 19:21:18,063 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 19:21:18,183 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 19:21:18,185 - INFO:released_db.py - インサート完了
+2023-01-06 19:21:18,187 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:21:18,189 - INFO:rakuten_games.py - 173: IB 通常版
+2023-01-06 19:22:47,935 - INFO:rakuten_games.py - 画像枚数: 8枚
+2023-01-06 19:22:47,950 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 19:22:48,058 - INFO:released_db.py - 8 records inserted for games.game_image
+2023-01-06 19:22:48,060 - INFO:released_db.py - インサート完了
+2023-01-06 19:22:48,062 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:22:48,063 - INFO:rakuten_games.py - 174: レイズ　アーケード　クロノロジー　Switch版
+2023-01-06 19:24:17,706 - INFO:rakuten_games.py - 画像枚数: 6枚
+2023-01-06 19:24:17,722 - INFO:rakuten_games.py - ジャンル: シューティング
+2023-01-06 19:24:17,810 - INFO:released_db.py - 6 records inserted for games.game_image
+2023-01-06 19:24:17,812 - INFO:released_db.py - インサート完了
+2023-01-06 19:24:17,813 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:24:17,815 - INFO:rakuten_games.py - 175: 【特典】Melon Journey: Bittersweet Memories（メロンジャーニー：ビタースイート・メモリー） Switch版(【初回外付特典】サウンドトラックCD 、OSTダウンロードリンク（QRコード）)
+2023-01-06 19:25:47,617 - INFO:rakuten_games.py - 画像枚数: 4枚
+2023-01-06 19:25:47,631 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 19:25:47,717 - INFO:released_db.py - 4 records inserted for games.game_image
+2023-01-06 19:25:47,718 - INFO:released_db.py - インサート完了
+2023-01-06 19:25:47,721 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:25:47,721 - INFO:rakuten_games.py - 176: あの、素晴らしい　　をもう一度／再装版HD　通常版
+2023-01-06 19:27:17,315 - INFO:rakuten_games.py - 画像枚数: 5枚
+2023-01-06 19:27:17,328 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 19:27:17,408 - INFO:released_db.py - 5 records inserted for games.game_image
+2023-01-06 19:27:17,410 - INFO:released_db.py - インサート完了
+2023-01-06 19:27:17,414 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-06 19:27:17,415 - INFO:rakuten_games.py - 177: 【特典】零 〜月蝕の仮面〜 Switch版(【早期購入封入特典】流歌限定衣装「マリー・ローズの服」+【セーブデータ連動特典】流歌・海咲・長四郎限定衣装「射影機の被り物」)
+2023-01-06 19:28:47,397 - INFO:rakuten_games.py - 画像枚数: 19枚
+2023-01-06 19:28:47,414 - INFO:rakuten_games.py - ジャンル: アドベンチャー
+2023-01-06 19:28:47,530 - INFO:released_db.py - 19 records inserted for games.game_image
+2023-01-06 19:28:47,532 - INFO:released_db.py - インサート完了
