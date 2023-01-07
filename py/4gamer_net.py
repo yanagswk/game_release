@@ -77,20 +77,33 @@ def get_4gamer_net(day: int):
                 print(article_img)
                 article_obj['img'] = article_img
                 
+                # 投稿日時
+                article_post = article.locator('.V2_time_container')
+                article_post = article_post.inner_text() if article_post.is_visible() else ""
+                print(article_post)
+                if article_post:
+                    article_post = article_post.replace('［', "").replace('］', "")
+                    article_obj['post_date'] = dt.strptime(article_post, '%Y/%m/%d %H:%M')
+                else:
+                    article_obj['post_date'] = dt.strptime(tagert_date, '%Y%m%d')
+                
+                # ジャンル
+                article_obj['genre'] = ""
+                
                 date.append(article_obj)
 
             releasedModel = ReleasedModel()
-            releasedModel.insert_article(date, 1, day)
+            releasedModel.insert_article(date, 1)
         
         browser.close()
 
 
 if __name__ == '__main__':
     
-    tagert_date = "20221220"
+    tagert_date = "20221226"
     tagert_date_datatime = dt.strptime(tagert_date, '%Y%m%d')
     
-    game = ReleasedModel().exit_date_game_article(tagert_date_datatime)
+    game = ReleasedModel().exit_date_game_article(1, tagert_date_datatime)
 
     if game:
         print("記事を取得したことがあります")

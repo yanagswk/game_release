@@ -62,12 +62,14 @@ class ReleasedModel():
         
         return games
 
-    def exit_date_game_article(self, date: datetime) -> bool:
+    def exit_date_game_article(self, site_id: int,date: datetime) -> bool:
         """
             指定された日付のゲーム記事が存在するか
             
             Parameters
             ----------
+            site_id : int
+                サイトid (1: 4gamer, 2: ファミ通)
             date : str
                 日付
         """
@@ -76,11 +78,13 @@ class ReleasedModel():
         try:
             sql = ('''
                 SELECT EXISTS(
-                    SELECT * FROM game_article ga WHERE post_date = %s
+                    SELECT * FROM game_article
+                    WHERE DATE_FORMAT(post_date, '%Y%m%d') = DATE_FORMAT(%s, '%Y%m%d')
+                    AND site_id = %s
                 ) AS game_article_check;
             ''')
             
-            param = (date,)
+            param = (date, site_id)
 
             #sql実行
             self.__cursor.execute(sql, param)
@@ -155,16 +159,16 @@ class ReleasedModel():
                 self.__connection.close()
                 
     
-    def insert_article(self, article_list: list, site_id: int, day: str):
+    def insert_article(self, article_list: list, site_id: int):
         """
             記事をインサートする
         """
         
         sql = '''
-            INSERT INTO game_article (site_id, site_url, title, top_image_url, post_date, created_at, updated_at)
-            VALUES (%s,%s,%s,%s,%s,%s,%s)
+            INSERT INTO game_article (site_id, site_url, title, top_image_url, genre, post_date, created_at, updated_at)
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
         '''
-        tdatetime = dt.strptime(day, '%Y%m%d')   # 日付に変更
+        # tdatetime = dt.strptime(day, '%Y%m%d')   # 日付に変更
         insert_data = []
         try:
             for n in range (len(article_list)):
@@ -173,7 +177,8 @@ class ReleasedModel():
                     article_list[n]['url'],
                     article_list[n]['title'],
                     article_list[n]['img'],
-                    tdatetime,
+                    article_list[n]['genre'],
+                    article_list[n]['post_date'],
                     datetime.datetime.now(pytz.timezone('Asia/Tokyo')),
                     datetime.datetime.now(pytz.timezone('Asia/Tokyo')),
                 ))
@@ -187,7 +192,7 @@ class ReleasedModel():
         else:
             # コミット
             self.__connection.commit()
-            print(f"{self.__cursor.rowcount} records inserted for games.genre")
+            print(f"{self.__cursor.rowcount} records inserted for games.article")
             self.__cursor.close()
 
         finally:
