@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\MessageController;
@@ -54,3 +55,7 @@ Route::get('/notice', [NoticeController::class, 'getNoticeList']);
 Route::post('/notification/register', [NotificationControllers::class, 'register']);
 // 通知キャンセル
 Route::post('/notification/cancel', [NotificationControllers::class, 'cancel']);
+
+
+// 記事一覧取得
+Route::get('/article/index', [ArticleController::class, 'getArticle']);

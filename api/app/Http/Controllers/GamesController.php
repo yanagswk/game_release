@@ -78,7 +78,7 @@ class GamesController extends Controller
             logger($games->get()->toArray());
         }
 
-        // 照準
+        // 昇順
         if ($sort == "asc") {
             $games->orderBy('sales_date', 'asc');
         }
@@ -94,7 +94,7 @@ class GamesController extends Controller
             $games->orderBy('sales_date', 'desc');
         } else if ($is_released == 2) {
             // 発売後
-            $games->where('sales_date', '>', $today_format);   // 今日以降に発売されたゲームを取得
+            $games->where('sales_date', '>', $today_format);   // 今日以降に発売されるゲームを取得
             $games->orderBy('sales_date', 'asc');
         }
 
