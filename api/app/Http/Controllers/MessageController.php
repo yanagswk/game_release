@@ -24,14 +24,24 @@ class MessageController extends Controller
     {
         $message = $request->input('message');
         $user_id = $request->input('user_id');
+        $nickname = $request->input('nickname');
+        $email = $request->input('email');
 
-        Contacts::create([
-            'user_id' => $user_id,
-            'message' => $message
-        ]);
-
-        return response()->json([
-            'message'   => 'success',
-        ], 200);
+        try {
+            Contacts::create([
+                'user_id'   => $user_id,
+                'message'   => $message,
+                'nickname'  => $nickname,
+                'email'     => $email,
+            ]);
+            return response()->json([
+                'message'   => 'success',
+            ], 200);
+        } catch(\Exception $e) {
+            logger($e);
+            return response()->json([
+                'message'   => 'fail',
+            ], 400);
+        }
     }
 }
