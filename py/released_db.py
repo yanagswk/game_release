@@ -38,7 +38,7 @@ class ReleasedModel():
                         where `games`.`id` = `game_image`.`game_id` 
                     )
                 order by id ASC
-                limit 150
+                limit 1000
                 offset %s
             ''')
             

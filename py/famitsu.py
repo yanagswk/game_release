@@ -1,5 +1,6 @@
 from playwright.sync_api import sync_playwright
 from rich import print
+import argparse
 import sys
 import time
 from datetime import datetime as dt
@@ -82,9 +83,12 @@ def get_famitsu(tagert_date: int):
                 
                 # 記事のurl
                 article_url_selector = article.locator('.card__title > a')
-                article_url = f"https://www.famitsu.com{article_url_selector.get_attribute('href')}" if article_url_selector.is_visible() else ""
-                article_obj['url'] = article_url
-                print(article_url)
+                article_url = article_url_selector.get_attribute('href') if article_url_selector.is_visible() else ""
+                if "https" in article_url:
+                    article_obj['url'] = article_url
+                else:
+                    article_obj['url'] = f"https://www.famitsu.com{article_url}"
+                print(article_obj['url'])
                 
                 # 記事のトップ画像url
                 article_img = article.locator('.media-image')
@@ -116,8 +120,16 @@ def get_famitsu(tagert_date: int):
 
 if __name__ == '__main__':
     
-    tagert_date = "20221226"
-    tagert_date_datatime = dt.strptime(tagert_date, '%Y%m%d')
+    parser = argparse.ArgumentParser()
+    parser.add_argument("tagert_date")
+    args = parser.parse_args( )
+    print(args.tagert_date)
+    
+    if not args.tagert_date.isdigit() or len(args.tagert_date) != 8:
+        print("年月日は8桁で入力してください")
+        sys.exit()
+    
+    tagert_date_datatime = dt.strptime(args.tagert_date, '%Y%m%d')
     
     game = ReleasedModel().exit_date_game_article(2, tagert_date_datatime)
 
@@ -125,4 +137,4 @@ if __name__ == '__main__':
         print("記事を取得したことがあります")
         sys.exit()
     
-    get_famitsu(tagert_date)
+    get_famitsu(args.tagert_date)

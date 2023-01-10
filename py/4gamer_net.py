@@ -1,5 +1,6 @@
 from playwright.sync_api import sync_playwright
 from rich import print
+import argparse
 import sys
 import time
 from datetime import datetime as dt
@@ -100,8 +101,15 @@ def get_4gamer_net(day: int):
 
 if __name__ == '__main__':
     
-    tagert_date = "20221226"
-    tagert_date_datatime = dt.strptime(tagert_date, '%Y%m%d')
+    parser = argparse.ArgumentParser()
+    parser.add_argument("tagert_date")
+    args = parser.parse_args( )
+    print(args.tagert_date)
+    
+    if not args.tagert_date.isdigit() or len(args.tagert_date) != 8:
+        print("年月日は8桁で入力してください")
+        sys.exit()
+    tagert_date_datatime = dt.strptime(args.tagert_date, '%Y%m%d')
     
     game = ReleasedModel().exit_date_game_article(1, tagert_date_datatime)
 
@@ -109,4 +117,4 @@ if __name__ == '__main__':
         print("記事を取得したことがあります")
         sys.exit()
     
-    get_4gamer_net(tagert_date)
+    get_4gamer_net(args.tagert_date)
