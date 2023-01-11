@@ -1,18 +1,22 @@
 import datetime
 import mysql.connector
 import pytz
+import os
 from datetime import datetime as dt
+from dotenv import load_dotenv
 
 from log_setting import getMyLogger
+
+load_dotenv()
 
 
 class ReleasedModel():
     def __init__(self) :
         self.__connection = mysql.connector.connect(
-            host='db',
-            user='game_release',
-            passwd='game_release_pass',
-            db='game_release_db'
+            host = os.getenv('DB_HOST'),
+            user = os.getenv('DB_USER'),
+            passwd = os.getenv('DB_PASSWD'),
+            db = os.getenv('DB_NAME')
         )
         self.__connection.autocommit = False
         self.__cursor = self.__connection.cursor(dictionary=True)
