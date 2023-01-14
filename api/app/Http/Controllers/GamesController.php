@@ -292,18 +292,14 @@ class GamesController extends Controller
 
 
         foreach ($games_info as $index => $game) {
-            // if (count($game['game_image'])) {
-            //     $main_img_url = $game['game_image'][0]['img_url'];
-            //     // http://localhost/storage/img/1288/main_img.jpg
-            //     // $full_url = "http://localhost/storage/img/{$main_img_url}";
-            //     $full_url = "https://yurubo0.com/storage/img/{$main_img_url}";
-            // } else {
-            //     $full_url = "";
-            // }
-            // 画像urlだけの配列にする
-            $games_info[$index]['image_list'] = array_map(function($image) {
-                return $image["img_url"];
-            }, $game["game_image"]);
+            if ($game["game_image"]) {
+                // 画像urlだけの配列にする
+                $games[$index]['image_list'] = array_map(function($image) {
+                    return $image["img_url"];
+                }, $game["game_image"]);
+            } else {
+                $games[$index]['image_list'] = array($games_info[$index]['large_image_url']);
+            }
 
             // 日付フォーマット
             $games_info[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);

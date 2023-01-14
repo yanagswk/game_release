@@ -1,0 +1,27 @@
+version: "3"
+services:
+  py:
+    # restart: always
+    build:
+      context: .
+      dockerfile: ./docker/py/Dockerfile
+    container_name: 'py'
+    working_dir: '/var/www/python'
+    tty: true
+    volumes:
+      - ./:/var/www/python
+    networks:
+      py_net:
+        ipv4_address: 172.28.1.5 # 固定IPに指定
+    extra_hosts:
+      - "host.docker.internal:host-gateway" #<- containerの中からアクセスできるようにhostのIPを渡す
+
+#ネットワーク設定
+networks:
+  py_net:
+    driver: bridge
+    name: app_net
+    ipam:
+      config:
+        - subnet: 172.28.1.0/24
+
