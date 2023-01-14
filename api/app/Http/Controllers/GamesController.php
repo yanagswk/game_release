@@ -294,11 +294,11 @@ class GamesController extends Controller
         foreach ($games_info as $index => $game) {
             if ($game["game_image"]) {
                 // 画像urlだけの配列にする
-                $games[$index]['image_list'] = array_map(function($image) {
+                $games_info[$index]['image_list'] = array_map(function($image) {
                     return $image["img_url"];
                 }, $game["game_image"]);
             } else {
-                $games[$index]['image_list'] = array($games_info[$index]['large_image_url']);
+                $games_info[$index]['image_list'] = array($games_info[$index]['large_image_url']);
             }
 
             // 日付フォーマット
