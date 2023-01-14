@@ -26,7 +26,7 @@ services:
       dockerfile: ./docker/mysql/Dockerfile
     platform: linux/x86_64 # M1 mac用
     ports:
-      - 3306:3306
+      - 3307:3307
     environment:
       MYSQL_DATABASE: game_release_db
       MYSQL_USER: game_release
@@ -45,6 +45,29 @@ services:
     tty: true
     volumes:
       - ./:/var/www/python
+    networks:
+     app_net: 
+      ipv4_address: 172.28.1.5 # <- 固定IPに指定
+    extra_hosts: 
+      - "host.docker.internal:host-gateway" #<- containerの中からアクセスできるようにhostのIPを渡す
+
+#ネットワーク設定
+networks:
+  app_net: # <-ここはどんな名前でも大丈夫
+    driver: bridge
+    name: app_net
+    ipam:
+      config:
+        - subnet: 172.28.1.0/24
+
+#ネットワーク設定
+networks:
+  app_net: # <-ここはどんな名前でも大丈夫
+    driver: bridge
+    name: app_net
+    ipam:
+      config:
+        - subnet: 172.28.1.0/24
 
 volumes:
   game_release:
