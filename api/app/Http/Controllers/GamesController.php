@@ -63,7 +63,7 @@ class GamesController extends Controller
                 $query->where('user_id', $user_id);
                 $query->where('is_disabled', false);
             },
-        ]);
+        ])->active();
 
         if ($hardware !== 'All') {
             $games->where('hardware', $hardware);
@@ -71,11 +71,8 @@ class GamesController extends Controller
 
         // 発売日の年で絞る
         if ($search_year && !is_null($search_year)) {
-            logger("nullであれ！");
-            logger($search_year);
             $year_month = $search_year . $search_month;
             $games->where('sales_date', 'like', $year_month.'%');  // 前方一致
-            logger($games->get()->toArray());
         }
 
         // 昇順
@@ -91,10 +88,12 @@ class GamesController extends Controller
         if ($is_released == 1) {
             // 発売前
             $games->where('sales_date', '<=', $today_format);   // 今日以前に発売されたゲームを取得
+            // $games->where('sales_date', '<=', "20221125");   // 今日以前に発売されたゲームを取得
             $games->orderBy('sales_date', 'desc');
         } else if ($is_released == 2) {
             // 発売後
             $games->where('sales_date', '>', $today_format);   // 今日以降に発売されるゲームを取得
+            // $games->where('sales_date', '>', "20221125");   // 今日以降に発売されるゲームを取得
             $games->orderBy('sales_date', 'asc');
         }
 
@@ -122,6 +121,7 @@ class GamesController extends Controller
 
             // 日付フォーマット
             $games[$index]['sales_date'] = $this->gamesServices->formatSalesDate($game['sales_date']);
+            // $games[$index]['sales_date'] = $game['sales_date'];
             // お気に入りにしているか(空の場合はfalse)
             $games[$index]['is_favorite'] = !empty($game['favorite']) ? true : false;
             // 通知登録しているか(nullの場合はfalse)
@@ -277,6 +277,9 @@ class GamesController extends Controller
                 ]);
             },
             ])
+            ->whereHas('games', function ($query) {
+                $query->active();
+            })
             ->active()
             ->where('user_id', $user_id)
             ->get()

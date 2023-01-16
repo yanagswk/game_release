@@ -50,4 +50,27 @@ class Games extends Model
         return $this->hasMany('App\Models\GameImage', 'game_id', 'id');
     }
 
+    /**
+     * スコープ 有効なゲームのみ
+     *
+     * @param [type] $query
+     * @return void
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('disabled', false);
+    }
+
+
+    /**
+     * スコープ 発売日(sales_date)が決まっていないゲームを除外
+     * 例)「20221200」とか「20220000」など
+     *
+     * @param [type] $query
+     * @return void
+     */
+    public function scopeSalesDateAllZero($query)
+    {
+        return $query->where('sales_date', 'not like', '%00');
+    }
 }
