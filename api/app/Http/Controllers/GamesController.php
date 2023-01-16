@@ -69,10 +69,13 @@ class GamesController extends Controller
             $games->where('hardware', $hardware);
         }
 
-        // 発売日の年で絞る
+        // 発売日の年月で絞る
         if ($search_year && !is_null($search_year)) {
             $year_month = $search_year . $search_month;
             $games->where('sales_date', 'like', $year_month.'%');  // 前方一致
+        } else {
+            // 発売日を指定していないゲーム一覧画面の場合は、発売日が決まっていないゲームを除外する
+            $games->salesDateAllZero();
         }
 
         // 昇順
@@ -88,12 +91,10 @@ class GamesController extends Controller
         if ($is_released == 1) {
             // 発売前
             $games->where('sales_date', '<=', $today_format);   // 今日以前に発売されたゲームを取得
-            // $games->where('sales_date', '<=', "20221125");   // 今日以前に発売されたゲームを取得
             $games->orderBy('sales_date', 'desc');
         } else if ($is_released == 2) {
             // 発売後
             $games->where('sales_date', '>', $today_format);   // 今日以降に発売されるゲームを取得
-            // $games->where('sales_date', '>', "20221125");   // 今日以降に発売されるゲームを取得
             $games->orderBy('sales_date', 'asc');
         }
 
