@@ -107,6 +107,45 @@ class ReleasedModel():
         
         return games
 
+    def get_exit_game_article(self, site_id: int, date: datetime):
+        """
+            指定された日付のゲームを取得
+            
+            Parameters
+            ----------
+            site_id : int
+                サイトid (1: 4gamer, 2: ファミ通)
+            date : str
+                日付
+        """
+
+        games = ""
+        try:
+            sql = ('''
+                SELECT title FROM game_article
+                WHERE DATE_FORMAT(post_date, '%Y%m%d') = DATE_FORMAT(%s, '%Y%m%d')
+                AND site_id = %s;
+            ''')
+            
+            param = (date, site_id)
+
+            #sql実行
+            self.__cursor.execute(sql, param)
+            # データ取得
+            games = self.__cursor.fetchall()
+            # games = True if games[0]["game_article_check"] else False
+
+            self.__cursor.close()
+
+        except Exception as e:
+            print(f"Error Occurred: {e}")
+
+        finally:
+            if self.__connection is not None and self.__connection.is_connected():
+                self.__connection.close()
+        
+        return games
+
         
     def insert_game_image(self, game_id: int, image_list: list, genre: str):
         """

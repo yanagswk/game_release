@@ -18,6 +18,11 @@ def get_4gamer_net(day: int):
             日付 例(20221229)
     """
     
+    games = ReleasedModel().get_exit_game_article(1, day)
+    game_title_list = [game["title"] for game in games]
+    
+    print(game_title_list)
+    
     with sync_playwright() as p:
         browser = p.chromium.launch()
         page = browser.new_page()
@@ -64,6 +69,12 @@ def get_4gamer_net(day: int):
                 article_title = article.locator('h2')
                 article_title = article_title.inner_text() if article_title.is_visible() else ""
                 print(article_title)
+
+                # すでに取得している記事ならスキップ
+                if article_title in game_title_list:
+                    print("取得している記事ですた")
+                    continue
+
                 article_obj['title'] = article_title
                 
                 # 記事のurl
@@ -86,7 +97,7 @@ def get_4gamer_net(day: int):
                     article_post = article_post.replace('［', "").replace('］', "")
                     article_obj['post_date'] = dt.strptime(article_post, '%Y/%m/%d %H:%M')
                 else:
-                    article_obj['post_date'] = dt.strptime(tagert_date, '%Y%m%d')
+                    article_obj['post_date'] = dt.strptime(day, '%Y%m%d')
                 
                 # ジャンル
                 article_obj['genre'] = ""
@@ -111,10 +122,10 @@ if __name__ == '__main__':
         sys.exit()
     tagert_date_datatime = dt.strptime(args.tagert_date, '%Y%m%d')
     
-    game = ReleasedModel().exit_date_game_article(1, tagert_date_datatime)
+    # game = ReleasedModel().exit_date_game_article(1, tagert_date_datatime)
 
-    if game:
-        print("記事を取得したことがあります")
-        sys.exit()
+    # if game:
+    #     print("記事を取得したことがあります")
+    #     sys.exit()
     
     get_4gamer_net(args.tagert_date)
