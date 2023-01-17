@@ -5846,3 +5846,9 @@
 2023-01-17 14:01:28,053 - INFO:released_db.py - インサート完了
 2023-01-17 14:01:28,054 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
 2023-01-17 14:01:28,054 - INFO:rakuten_games.py - 631: The Last of Us Remastered PlayStation Hits
+2023-01-17 14:02:59,790 - INFO:rakuten_games.py - 画像枚数: 1枚
+2023-01-17 14:02:59,810 - INFO:rakuten_games.py - ジャンル: 格闘・アクション
+2023-01-17 14:03:00,188 - INFO:released_db.py - 1 records inserted for games.game_image
+2023-01-17 14:03:00,188 - INFO:released_db.py - インサート完了
+2023-01-17 14:03:00,189 - INFO:rakuten_games.py - ------------------------取得スタート------------------------
+2023-01-17 14:03:00,190 - INFO:rakuten_games.py - 632: inFAMOUS Second Son PlayStation Hits

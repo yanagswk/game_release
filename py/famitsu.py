@@ -17,14 +17,17 @@ def get_famitsu(tagert_date: int):
         day : int
             日付 例(20221229)
     """
-    
-    if not len(tagert_date) == 8:
-        print("年月日の8桁で指定してください")
-        sys.exit()
-    
+
     year = tagert_date[0:4]
     month = tagert_date[4:6]
     day = tagert_date[6:8]
+    
+    games = ReleasedModel().get_exit_game_article(2, tagert_date)
+    game_title_list = [game["title"] for game in games]
+    
+    print(game_title_list)
+    
+    
 
     with sync_playwright() as p:
         browser = p.chromium.launch()
@@ -79,6 +82,12 @@ def get_famitsu(tagert_date: int):
                 article_title = article.locator('.card__title > a')
                 article_title = article_title.inner_text() if article_title.is_visible() else ""
                 print(article_title)
+                
+                # すでに取得している記事ならスキップ
+                if article_title in game_title_list:
+                    print("取得している記事ですた")
+                    continue
+
                 article_obj['title'] = article_title
                 
                 # 記事のurl
@@ -130,11 +139,5 @@ if __name__ == '__main__':
         sys.exit()
     
     tagert_date_datatime = dt.strptime(args.tagert_date, '%Y%m%d')
-    
-    game = ReleasedModel().exit_date_game_article(2, tagert_date_datatime)
 
-    if game:
-        print("記事を取得したことがあります")
-        sys.exit()
-    
     get_famitsu(args.tagert_date)
