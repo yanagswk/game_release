@@ -40,6 +40,7 @@ class ReleasedModel():
                     where not exists (
                         select * from `game_image` 
                         where `games`.`id` = `game_image`.`game_id` 
+                        or `games`.`disabled` = 1
                     )
                 order by id ASC
                 limit 1000
@@ -197,6 +198,34 @@ class ReleasedModel():
             # コミット
             self.__connection.commit()
             print(f"{self.__cursor.rowcount} records inserted for games.article")
+            self.__cursor.close()
+
+        finally:
+            if self.__connection is not None and self.__connection.is_connected():
+                self.__connection.close()
+
+
+    def update_game_disable(self, game_id: int):
+        """
+            ゲームを無効扱いにするクエリ
+        """
+        
+        sql = '''
+            UPDATE games SET disabled = 1
+            where id = %s
+        '''
+        try:
+            param = (game_id,)
+            self.__cursor.execute(sql, param)
+
+        except Exception as e:
+            print(f"Error Occurred: {e}")
+            self.__connection.rollback()
+        
+        else:
+            # コミット
+            self.__connection.commit()
+            self.logger.info(f"{self.__cursor.rowcount} records updated for games")
             self.__cursor.close()
 
         finally:
