@@ -81,6 +81,8 @@ class GamesController extends Controller
         // 昇順
         if ($sort == "asc") {
             $games->orderBy('sales_date', 'asc');
+        } else if ($sort == "desc") {
+            $games->orderBy('sales_date', 'desc');
         }
 
         // 検索ワードを指定している場合は、発売前・発売後関係なしに全期間
@@ -135,7 +137,7 @@ class GamesController extends Controller
             unset($games[$index]['game_image']);
         }
         return response()->json([
-            'message'       => 'success',
+            'message'       => $request->all(),
             'games'         => $games,
             'game_count'    => $game_count
         ], 200);

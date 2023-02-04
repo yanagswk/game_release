@@ -123,6 +123,6 @@ def str_replace(target: str) -> str:
     return target
 
 if __name__ == '__main__':
-    games = get_not_game_image(0)
+    games = get_not_game_image(3)
     # print(games)
     get_game_image(games)
