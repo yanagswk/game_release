@@ -42,6 +42,8 @@ def get_game_image(games: list[str]):
             browser = p.chromium.launch()
             page = browser.new_page()
             
+            releasedModel = ReleasedModel()
+            
             url = "https://books.rakuten.co.jp"
 
             # 楽天へ遷移
@@ -65,6 +67,7 @@ def get_game_image(games: list[str]):
             if not game_title.is_visible():
                 logger.error(f"{games[index]['id']}: 検索に引っかかりませんでした")
                 browser.close()
+                releasedModel.update_game_disable(games[index]["id"])
                 continue
 
             page.click(game_title_selector)
@@ -74,19 +77,33 @@ def get_game_image(games: list[str]):
             image_url_list = page.locator('#imageSliderWrap > div.lSSlideOuter > ul > li')
             time.sleep(10)
 
-            if image_url_list.count == 0:
-                browser.close()
-                logger.error(f"{games[index]['id']}: 画像が取得できませんでした")
-                continue
+            # if image_url_list.count() == 0:
+            #     browser.close()
+            #     logger.error(f"{games[index]['id']}: 画像が取得できませんでした")
+            #     continue
             
             image_list = []
-            # 画像urlを取得
-            for n in range(1, image_url_list.count()+1):
-                # n番目の要素取得
-                image_url = page.locator(f"#imageSliderWrap > div.lSSlideOuter > ul > li:nth-child({n}) > a > img").get_attribute('src')
-                image_url = f"https:{image_url}"
-                image_list.append(image_url)
-            logger.info(f"画像枚数: {image_url_list.count()}枚")
+            
+            if image_url_list.count() == 0:
+                one_image_url = page.locator('#oneImageWrap > a')
+                if not one_image_url.is_visible():
+                    browser.close()
+                    logger.error(f"{games[index]['id']}: 画像が取得できませんでした")
+                    continue
+                
+                one_image_url = f"https:{one_image_url.get_attribute('href')}"
+                image_list.append(one_image_url)
+                logger.info("画像枚数: 1枚")
+                
+            else:
+                # 画像urlを取得
+                for n in range(1, image_url_list.count()+1):
+                    # n番目の要素取得
+                    image_url = page.locator(f"#imageSliderWrap > div.lSSlideOuter > ul > li:nth-child({n}) > a > img").get_attribute('src')
+                    image_url = f"https:{image_url}"
+                    image_list.append(image_url)
+                logger.info(f"画像枚数: {image_url_list.count()}枚")
+            
                 
             # ジャンル
             genre = page.locator('#topicPath > dd > a:nth-child(4)')
@@ -96,7 +113,6 @@ def get_game_image(games: list[str]):
             browser.close()
             
             # 写真データをインサート
-            releasedModel = ReleasedModel()
             releasedModel.insert_game_image(games[index]["id"], image_list, genre)
 
 def str_replace(target: str) -> str:
@@ -107,6 +123,6 @@ def str_replace(target: str) -> str:
     return target
 
 if __name__ == '__main__':
-    games = get_not_game_image(0)
+    games = get_not_game_image(3)
     # print(games)
     get_game_image(games)
