@@ -48,8 +48,8 @@ class RakutenBooks extends Command
             'https://app.rakuten.co.jp/services/api/BooksGame/Search/20170404',
             ['query' => [
                 'format'        => 'json',
-                'applicationId' => '1092593678658310389',
-                'affiliateId'   => '2c1ecae8.486864ad.2c1ecae9.2490d2f1',
+                'applicationId' => config('app.rakuten_app'),
+                'affiliateId'   => config('app.rakuten_affi'),
                 'booksGenreId'  => '006',
                 'hardware'      => $hardware,
                 'sort'          => '-releaseDate',

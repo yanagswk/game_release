@@ -221,4 +221,7 @@ return [
 
     // 'GameLibrary' => App\Library\GameLibrary::class,
 
+    'rakuten_app' => env('RAKUTEN_APP_ID'),     // 楽天apiアプリケーションid
+    'rakuten_affi' => env('RAKUTEN_AFFI_ID')    // 楽天apiアフィリエイトid
+
 ];
