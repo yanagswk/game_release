@@ -13,14 +13,14 @@ use function PHPSTORM_META\map;
 // use GuzzleHttp\Client;
 
 
-class RakutenBooks extends Command
+class RakutenBooksGames extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:rakuten {hardware} {page}';
+    protected $signature = 'command:rakutenGame {hardware} {page}';
 
     /**
      * The console command description.
@@ -58,6 +58,7 @@ class RakutenBooks extends Command
             ]]
         );
         $data = json_decode($response->getBody(), true);
+        logger($data);
         $data_items = $data['Items'];
 
         $game_list = array_map(function($item) {
@@ -103,4 +104,45 @@ class RakutenBooks extends Command
 
         return true;
     }
+
+            // DVD情報取得
+        // $response = $client->request(
+        //     'GET',
+        //     'https://app.rakuten.co.jp/services/api/BooksDVD/Search/20170404',
+        //     ['query' => [
+        //         'format'        => 'json',
+        //         'applicationId' => config('app.rakuten_app'),
+        //         'affiliateId'   => config('app.rakuten_affi'),
+
+        //         'booksGenreId'  => '003',
+        //         'sort'          => '-releaseDate',
+        //         'hits'          => '30',
+        //         'page'          => '20',
+        //         // 'size'          => 7,
+        //         // 'title'         => "ブルーロック",
+        //         // 'availability'  => 0,
+        //         // 'outOfStockFlag'  => 1,
+        //         // 'carrier'  => 0,
+        //     ]]
+        // );
+        // // CD情報取得
+        // $response = $client->request(
+        //     'GET',
+        //     'https://app.rakuten.co.jp/services/api/BooksCD/Search/20170404',
+        //     ['query' => [
+        //         'format'        => 'json',
+        //         'applicationId' => config('app.rakuten_app'),
+        //         'affiliateId'   => config('app.rakuten_affi'),
+
+        //         'booksGenreId'  => '002',
+        //         'sort'          => '-releaseDate',
+        //         'hits'          => '30',
+        //         'page'          => '30',
+        //         // 'size'          => 7,
+        //         // 'title'         => "ブルーロック",
+        //         // 'availability'  => 0,
+        //         // 'outOfStockFlag'  => 1,
+        //         // 'carrier'  => 0,
+        //     ]]
+        // );
 }

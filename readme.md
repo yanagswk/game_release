@@ -7,9 +7,25 @@ docker-compose -f docker-compose-prod.yaml up -d
 
 # 楽天api
 - 楽天apiでゲームを取得するコマンド  
-`php artisan command:rakuten "PS4" 1`  
-`php artisan command:rakuten "PS5" 1`  
-`php artisan command:rakuten "Switch" 1`  
+`php artisan command:rakutenGame "PS4" 1`  
+`php artisan command:rakutenGame "PS5" 1`  
+`php artisan command:rakutenGame "Switch" 1`  
+
+- 楽天apiでゲームを取得するコマンド 
+  - コミック  
+  `php artisan command:rakutenBook 9 1`  88までやった
+  - 文庫  
+  `php artisan command:rakutenBook 2 1`  90までやった
+  - 単行本  
+  `php artisan command:rakutenBook 1 1`  90までやった
+  - 図鑑  
+  `php artisan command:rakutenBook 6 1`  
+  - 絵本  
+  `php artisan command:rakutenBook 7 1`  
+
+
+
+
 
 - コード補完するライブラリ  
 barryvdh/laravel-ide-helper  
