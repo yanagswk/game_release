@@ -7,12 +7,12 @@ trait RakutenApi
     /**
      * 楽天apiを叩く
      * @param int $page ページ数(100まで)
-     * @param int $size 書式のタイプ(9:コミック)
+     * @param ?int $size 書式のタイプ(9:コミック)
      * @return array
      */
     abstract public function requestRakutenApi(
-        $page,
-        $size
+        int $page,
+        int $size=null
     );
 
     /**
