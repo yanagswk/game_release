@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Log;
 
 
 /**
- * 楽天ブックスcd検索api叩く
+ * 楽天ブックスDVD/Blu-ray検索api叩く
  */
-class RakutenBooksCd extends Command
+class RakutenBooksDvdBluRay extends Command
 {
     use RakutenApi;
 
@@ -23,7 +23,7 @@ class RakutenBooksCd extends Command
      *
      * @var string
      */
-    protected $signature = 'command:rakutenCd {page}';
+    protected $signature = 'command:rakutenDb {page}';
 
     /**
      * The console command description.
@@ -65,18 +65,18 @@ class RakutenBooksCd extends Command
     {
         $client = new \GuzzleHttp\Client();
 
-        // CD情報取得
+        // DVD情報取得
         $response = $client->request(
             'GET',
-            'https://app.rakuten.co.jp/services/api/BooksCD/Search/20170404',
+            'https://app.rakuten.co.jp/services/api/BooksDVD/Search/20170404',
             ['query' => [
                 'format'        => 'json',
                 'applicationId' => config('app.rakuten_app'),
                 'affiliateId'   => config('app.rakuten_affi'),
-                'booksGenreId'  => '002',
-                'sort'          => '-releaseDate',
-                'hits'          => '30',
-                'page'          => $page,
+                'booksGenreId'      => '003',
+                'sort'              => '-releaseDate',
+                'hits'              => '30',
+                'page'              => $page,
             ]]
         );
         $data = json_decode($response->getBody(), true);
@@ -96,9 +96,8 @@ class RakutenBooksCd extends Command
                 'title_kana'        => $item['Item']['titleKana'],
                 'artist_name'       => $item['Item']['artistName'],
                 'artist_name_kana'  => $item['Item']['artistNameKana'],
-                'type'              => CdDvdItem::CD_ID,
+                'type'              => CdDvdItem::DVD_ID,
                 'label'             => $item['Item']['label'],
-                'play_list'         => $item['Item']['playList'],
                 'price'             => $item['Item']['itemPrice'],
                 'sales_date'        => $this->formatSalesDate($item['Item']['salesDate']),
                 'large_image_url'   => $item['Item']['largeImageUrl'],

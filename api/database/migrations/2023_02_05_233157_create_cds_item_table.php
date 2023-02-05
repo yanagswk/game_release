@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cds_item', function (Blueprint $table) {
+        Schema::create('cds_dbds_item', function (Blueprint $table) {
             $table->id();
             $table->string('title')->comment('CDのタイトル');
+            $table->string('title_kana')->nullable()->comment('CDのタイトルかな');
             $table->string('artist_name')->nullable()->comment('アーティスト名');
             $table->string('artist_name_kana')->nullable()->comment('アーティストかな');
+            $table->integer('type')->nullable()->comment('CDorDVD/Blu-ray 1:CD 2:DVD/Blu-ray');
             $table->string('label')->comment('発売元名');
-            $table->string('play_list', 2000)->nullable()->comment('曲名');
+            $table->string('play_list', 3000)->nullable()->comment('曲名');
             $table->integer('size')->nullable()->comment('CD区分 1:アルバム 2:シングル 3:ミニアルバム');
             $table->integer('price')->nullable()->comment('価格');
             $table->string('sales_date')->nullable()->comment('発売日');

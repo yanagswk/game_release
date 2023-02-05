@@ -5,16 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CdsItem extends Model
+class CdDvdItem extends Model
 {
     use HasFactory;
 
-    protected $table = 'cds_item';
+    protected $table = 'cds_dbds_item';
+
+    public const CD_ID = 1;
+    public const DVD_ID = 2;
 
     protected $fillable = [
         'title',
+        'title_kana',
         'artist_name',
         'artist_name_kana',
+        'type',
         'label',
         'play_list',
         'size',
