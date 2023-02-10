@@ -11,6 +11,14 @@ class BooksItem extends Model
 
     protected $table = 'books_item';
 
+    // sizeの種類
+    // コミック
+    // 文庫
+    // 単行本
+    // 図鑑
+    // 絵本
+
+
     protected $fillable = [
         'title',
         'size',

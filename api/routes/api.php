@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\CdDvdController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NoticeController;
@@ -56,6 +58,17 @@ Route::post('/notification/register', [NotificationControllers::class, 'register
 // 通知キャンセル
 Route::post('/notification/cancel', [NotificationControllers::class, 'cancel']);
 
-
 // 記事一覧取得
 Route::get('/article/index', [ArticleController::class, 'getArticle']);
+
+// 本
+Route::group(['prefix' => 'books'], function(){
+    // 本取得
+    Route::get('info', [BooksController::class, 'getBooksInfo']);
+});
+
+// CD or DVD
+Route::group(['prefix' => 'cddvd'], function(){
+    // CD or DVD取得
+    Route::get('info', [CdDvdController::class, 'getCdDvdInfo']);
+});
