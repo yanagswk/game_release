@@ -271,3 +271,42 @@ class ReleasedModel():
             if self.__connection is not None and self.__connection.is_connected():
                 self.__connection.close()
         
+        
+    def get_books_item(self, offset: int) -> list:
+        """
+            本を取得するクエリ
+            
+            Parameters
+            ----------
+            offset : int
+                いくつ取得するか
+        """
+
+        games = []
+        try:
+            sql = ('''
+                select * from `books_item` 
+                order by id DESC
+                limit 3
+                offset %s
+            ''')
+            
+            param = (offset,)
+
+            #sql実行
+            self.__cursor.execute(sql, param)
+            # データ取得
+            games = self.__cursor.fetchall()
+            
+            print(f'{self.__cursor.rowcount} 件取得しました。')
+
+            self.__cursor.close()
+
+        except Exception as e:
+            print(f"Error Occurred: {e}")
+
+        finally:
+            if self.__connection is not None and self.__connection.is_connected():
+                self.__connection.close()
+        
+        return games

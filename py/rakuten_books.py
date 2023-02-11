@@ -1,0 +1,143 @@
+from playwright.sync_api import sync_playwright
+from rich import print
+import sys
+import time
+
+from released_db import ReleasedModel
+from log_setting import getMyLogger
+
+def get_not_game_image(offset: int) -> list:
+    """
+        ゲーム画像のurlがないゲームを取得する
+
+        Parameters
+        ----------
+        offset : int
+            いくつ取得するか
+    """
+
+    releasedModel = ReleasedModel()
+    return releasedModel.get_books_item(offset)
+
+
+def get_game_image(games: list[str]):
+    """
+        playwriteでゲーム画像のurlを取得する
+
+        Parameters
+        ----------
+        games : list
+            画像取得対象のゲーム一覧
+    """
+    
+    logger = getMyLogger(__name__)
+
+    with sync_playwright() as p:
+
+        for index in range(len(games)):
+            logger.info("------------------------取得スタート------------------------")
+            logger.info(f"{games[index]['id']}: {games[index]['title']}")
+            print(f"{games[index]['id']}: {games[index]['title']}")
+        
+            browser = p.chromium.launch()
+            page = browser.new_page()
+            
+            # releasedModel = ReleasedModel()
+            
+            url = "https://books.rakuten.co.jp"
+
+            # 楽天へ遷移
+            page.goto(url, timeout=0)
+
+            time.sleep(10)
+            
+            print(page.title())
+
+            title = str_replace(games[index]["title"])
+
+            # ログイン画面へ
+            page.click("#headerBox > div.header-books > div.header-nav > div.header-nav__memberShip.header-nav__memberShip--no-login.js-memberShip--no-login > ul > li:nth-child(1) > a")
+            time.sleep(10)
+            
+            print(page.title())
+            
+            # ユーザーid・パスワード入れる
+            page.fill("#loginInner_u", "yanagimassu@gmail.com")
+            time.sleep(1)
+            page.fill("#loginInner_p", "gotgot100")
+            time.sleep(10)
+            
+            # ログインボタンクリック
+            page.click("#loginInner > p:nth-child(3) > input")
+            time.sleep(20)
+            
+            print(page.title())
+            
+            browser.close()
+            return False
+
+            # ヒットした一番上のゲームタイトルをクリック
+            game_title_selector = "#ratArea > div > div:nth-child(1) > div.rbcomp__item-list__item__details > div.rbcomp__item-list__item__details__lead > h3 > a"
+            game_title = page.locator(game_title_selector)
+            if not game_title.is_visible():
+                logger.error(f"{games[index]['id']}: 検索に引っかかりませんでした")
+                browser.close()
+                releasedModel.update_game_disable(games[index]["id"])
+                continue
+
+            page.click(game_title_selector)
+            time.sleep(1)
+            
+            # 画像一覧
+            image_url_list = page.locator('#imageSliderWrap > div.lSSlideOuter > ul > li')
+            time.sleep(10)
+
+            # if image_url_list.count() == 0:
+            #     browser.close()
+            #     logger.error(f"{games[index]['id']}: 画像が取得できませんでした")
+            #     continue
+            
+            image_list = []
+            
+            if image_url_list.count() == 0:
+                one_image_url = page.locator('#oneImageWrap > a')
+                if not one_image_url.is_visible():
+                    browser.close()
+                    logger.error(f"{games[index]['id']}: 画像が取得できませんでした")
+                    continue
+                
+                one_image_url = f"https:{one_image_url.get_attribute('href')}"
+                image_list.append(one_image_url)
+                logger.info("画像枚数: 1枚")
+                
+            else:
+                # 画像urlを取得
+                for n in range(1, image_url_list.count()+1):
+                    # n番目の要素取得
+                    image_url = page.locator(f"#imageSliderWrap > div.lSSlideOuter > ul > li:nth-child({n}) > a > img").get_attribute('src')
+                    image_url = f"https:{image_url}"
+                    image_list.append(image_url)
+                logger.info(f"画像枚数: {image_url_list.count()}枚")
+            
+                
+            # ジャンル
+            genre = page.locator('#topicPath > dd > a:nth-child(4)')
+            genre = genre.inner_text() if genre.is_visible() else ""
+            logger.info(f"ジャンル: {genre}")
+
+            browser.close()
+            
+            # 写真データをインサート
+            releasedModel.insert_game_image(games[index]["id"], image_list, genre)
+
+def str_replace(target: str) -> str:
+    """
+        特殊文字を変換
+    """
+    target = target.replace('\u3000', '　')
+    return target
+
+if __name__ == '__main__':
+    books = get_not_game_image(0)
+    print(books)
+    get_game_image(books)
