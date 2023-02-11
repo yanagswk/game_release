@@ -14,7 +14,8 @@ docker-compose -f docker-compose-prod.yaml up -d
 - 本取得 
   - コミック  
   `php artisan command:rakutenBook 9 1`  80までやった
-  男運ゼロの薬師令嬢、初恋の黒騎士様が押しかけ婚約者になりまして。　3巻 : 1/31発売  2/10 7:00の段階で「90」ページにある
+  男運ゼロの薬師令嬢、初恋の黒騎士様が押しかけ婚約者になりまして。　3巻 : 1/31発売  2/10 7:00の段階で「90」ページにある  
+  →「95」ページになった
   更新頻度: 高
   - 文庫  
   `php artisan command:rakutenBook 2 1`  90までやった 

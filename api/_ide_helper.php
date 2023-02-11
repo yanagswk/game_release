@@ -17406,6 +17406,48 @@
         }
          
     }
+            /**
+     * 
+     *
+     */ 
+        class CommonFacade {
+                    /**
+         * テスト関数
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function testFunction()
+        {
+                        /** @var \App\Libraries\Common $instance */
+                        $instance->testFunction();
+        }
+                    /**
+         * 今日の日付を返す
+         * 例) 20220110
+         *
+         * @return String 
+         * @static 
+         */ 
+        public static function getToday()
+        {
+                        /** @var \App\Libraries\Common $instance */
+                        return $instance->getToday();
+        }
+                    /**
+         * 発売日のフォーマットを整える
+         *
+         * @return String $sales_date 例)20221001
+         * @return String
+         * @static 
+         */ 
+        public static function formatSalesDate($sales_date)
+        {
+                        /** @var \App\Libraries\Common $instance */
+                        return $instance->formatSalesDate($sales_date);
+        }
+         
+    }
      
 }
 
@@ -21633,6 +21675,7 @@ namespace  {
             class View extends \Illuminate\Support\Facades\View {}
             class Vite extends \Illuminate\Support\Facades\Vite {}
             class GameLibrary extends \App\Facades\GameLibrary {}
+            class Common extends \App\Facades\CommonFacade {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
      
 }

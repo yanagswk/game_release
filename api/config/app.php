@@ -212,7 +212,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'GameLibrary'   => \App\Facades\GameLibrary::class
+        'GameLibrary'   => \App\Facades\GameLibrary::class,
+        'Common'        => \App\Facades\CommonFacade::class,
     ])->toArray(),
 
 

@@ -28,20 +28,17 @@ class BooksController extends Controller
         $search_word = $request->input('search_word');
         $size = $request->input('size');
 
-        $today = Carbon::today();
-        $today_format = $today->format('Ymd');
-
         // 本の種類
         $books = BooksItem::where('size', $size);
 
         // 発売日
         if ($is_released == 1) {
             // 発売前
-            $books->where('sales_date', '<=', $today_format);   // 今日以前に発売されたゲームを取得
+            $books->where('sales_date', '<=', \Common::getToday());   // 今日以前に発売されたゲームを取得
             $books->orderBy('sales_date', 'desc');
         } else if ($is_released == 2) {
             // 発売後
-            $books->where('sales_date', '>', $today_format);   // 今日以降に発売されるゲームを取得
+            $books->where('sales_date', '>', \Common::getToday());   // 今日以降に発売されるゲームを取得
             $books->orderBy('sales_date', 'asc');
         }
 
@@ -51,6 +48,11 @@ class BooksController extends Controller
 
         $books->limit($limit)->offset($offset);
         $books = $books->get()->toArray();
+
+        foreach ($books as $index => $book) {
+            // 日付フォーマット
+            $books[$index]['sales_date'] = \Common::formatSalesDate($book['sales_date']);
+        }
 
         return response()->json([
             'books'         => $books,
