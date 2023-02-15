@@ -61,3 +61,4 @@ barryvdh/laravel-ide-helper
 `python3 famitsu.py xxxxxxxx` (引数は年月日8桁) 
 - 4gamerの記事取得  
 `python3 4gamer_net.py xxxxxxxx` (引数は年月日8桁) 
+

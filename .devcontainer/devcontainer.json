@@ -1,6 +1,6 @@
 {
 	"name": "vscode python debug",
-	"dockerComposeFile": "../docker-compose.yml",
+	"dockerComposeFile": "../docker-compose-local.yaml",
 	"service": "py",
 	"workspaceFolder": "/var/www/python",
 	"extensions": [
