@@ -244,6 +244,10 @@ class ReleasedModel():
                 self.__connection.close()
 
 
+    
+
+
+
     def update_game_disable(self, game_id: int):
         """
             ゲームを無効扱いにするクエリ
@@ -310,3 +314,57 @@ class ReleasedModel():
                 self.__connection.close()
         
         return games
+
+
+
+
+    def insert_books(self, books_list: list):
+        """
+            本情報をインサートする
+        """
+        
+        sql = '''
+            INSERT INTO books_item (
+                title, page_url, genre, genre_detail, label, author, image_url, series, page, size,
+                description, release_date, publisher, isbn, rakuten_affiliate_url, created_at, updated_at
+            )
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        '''
+        insert_data = []
+        try:
+            for n in range (len(books_list)):
+                insert_data.append((
+                    books_list[n]['title'],
+                    books_list[n]['page_url'],
+                    books_list[n]['genre'],
+                    books_list[n]['genre_detail'],
+                    books_list[n]['label'],
+                    books_list[n]['author'],
+                    books_list[n]['image_url'],
+                    books_list[n]['series'],
+                    books_list[n]['page'],
+                    books_list[n]['size'],
+                    books_list[n]['description'],
+                    books_list[n]['release_date'],
+                    books_list[n]['publisher'],
+                    books_list[n]['isbn'],
+                    books_list[n]['rakuten_affiliate_url'],
+                    datetime.datetime.now(pytz.timezone('Asia/Tokyo')),
+                    datetime.datetime.now(pytz.timezone('Asia/Tokyo')),
+                ))
+                
+            self.__cursor.executemany(sql, insert_data)
+                
+        except Exception as e:
+            print(f"Error Occurred: {e}")
+            self.__connection.rollback()
+        
+        else:
+            # コミット
+            self.__connection.commit()
+            print(f"{self.__cursor.rowcount} records inserted for games.article")
+            self.__cursor.close()
+
+        finally:
+            if self.__connection is not None and self.__connection.is_connected():
+                self.__connection.close()

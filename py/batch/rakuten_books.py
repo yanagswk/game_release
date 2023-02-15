@@ -43,7 +43,7 @@ def get_books():
         browser = p.chromium.launch()
         page = browser.new_page()
         
-        # releasedModel = ReleasedModel()
+        releasedModel = ReleasedModel()
         
         # 001017005 本(ライトノベル/少年)
         # url = "https://books.rakuten.co.jp/calendar/001017005/weekly/?tid=2023-02-12&v=2&s=14"
@@ -94,7 +94,7 @@ def get_books():
                 book_info["genre"] = page.locator("#topicPath > dd > a:nth-child(3)").inner_text()
                 
                 # ジャンル詳細(ジャンルに対しての詳細 少年、少女など)
-                book_info["junru_details"] = page.locator("#topicPath > dd > a:nth-child(4)").inner_text()
+                book_info["genre_detail"] = page.locator("#topicPath > dd > a:nth-child(4)").inner_text()
                 
                 # レーベル(GA文庫、電撃文庫、少年サンデーなど)
                 book_info["label"] = page.locator("#productDetailedDescription > div > ul > li:nth-child(4) > span.categoryValue > a").inner_text()
@@ -118,7 +118,7 @@ def get_books():
                 
                 # ページ数
                 page_selector = page.locator(".productInfo:has-text(\"ページ数\") .categoryValue")
-                book_info["series"] = page_selector.inner_text() if page_selector.is_visible() else ""
+                book_info["page"] = page_selector.inner_text() if page_selector.is_visible() else ""
                 
                 # 発行形態
                 book_info["size"] = page.locator(".productInfo:has-text(\"発行形態\") .categoryValue").inner_text()
@@ -136,7 +136,7 @@ def get_books():
                 book_info["isbn"] = page.locator(".productInfo:has-text(\"ISBN\") .categoryValue").inner_text()
                 
                 # アフィリエイトリンク
-                # urlから数字のみを取得し、正常なら長さが1つの配列になる
+                # urlから数字のみを取得し、正常なら長さ配列の長さが1になる
                 number_list = re.findall(r"\d+", detail_page)
                 if not len(number_list) == 1:
                      print("urlから商品idが正常に取得できません")
@@ -146,10 +146,13 @@ def get_books():
                 
                 print(book_info)
                 books_data.append(book_info)
-                
+
                 # 一覧ページへ戻る
                 page.go_back(timeout=0)
                 time.sleep(1)
+            
+            # ページごとにインサート
+            releasedModel.insert_books(books_data)
             
             # 「次の30件」が活性化状態ならTrue
             is_next_page = True if next_page_selector.is_visible() else False
@@ -159,11 +162,6 @@ def get_books():
         
         browser.close()
         return False
-        
-        
-
-        # 写真データをインサート
-        # releasedModel.insert_game_image(games[index]["id"], image_list, genre)
 
 
 if __name__ == '__main__':

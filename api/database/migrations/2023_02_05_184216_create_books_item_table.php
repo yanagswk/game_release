@@ -16,20 +16,21 @@ return new class extends Migration
         Schema::create('books_item', function (Blueprint $table) {
             $table->id();
             $table->string('title')->comment('本のタイトル');
-            $table->string('series')->nullable()->comment('シリーズ');
-            $table->string('size')->comment('本の種類');
-            $table->integer('price')->nullable()->comment('価格');
-            $table->string('sales_date')->nullable()->comment('発売日');
-            $table->string('large_image_url')->nullable()->comment('画像URL');
-            $table->string('item_url')->nullable()->comment('商品URL');
-            $table->string('affiliate_url')->nullable()->comment('アフィリエイトurl');
+            $table->string('page_url')->comment('詳細ページurl');
+            $table->string('genre')->nullable()->comment('本のジャンル');
+            $table->string('genre_detail')->nullable()->comment('本のジャンル詳細');
+            $table->string('label')->nullable()->comment('レーベル');
             $table->string('author')->nullable()->comment('著者名');
-            $table->string('publisherName')->nullable()->comment('出版社名');
-            $table->integer('review_count')->nullable()->comment('レビュー件数');
-            $table->double('review_average')->nullable()->comment('レビュー平均');
-            $table->string('item_caption', 3000)->nullable()->comment('説明');
-            $table->string('type')->nullable()->comment('本のタイプ');
-            $table->string('contents')->nullable()->comment('図鑑や全集など複数巻からなる本の内容');
+            $table->string('image_url')->nullable()->comment('画像URL');
+            $table->string('series')->nullable()->comment('シリーズ');
+            $table->string('page', 10)->nullable()->comment('ページ数');
+            $table->string('size', 10)->nullable()->comment('発行形態');
+            $table->string('description', 3000)->nullable()->comment('商品説明');
+            $table->string('release_date')->nullable()->comment('発売日');
+            $table->string('publisher')->nullable()->comment('出版社名');
+            $table->string('isbn')->nullable()->comment('本のISBN');
+            $table->string('rakuten_affiliate_url', 2000)->nullable()->comment('楽天アフィリエイトリンク');
+            $table->string('amazon_affiliate_url', 2000)->nullable()->comment('amazonアフィリエイトリンク');
             $table->boolean('disabled')->default(false)->comment('無効フラグ');
             $table->timestamps();
 
