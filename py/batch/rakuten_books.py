@@ -43,14 +43,13 @@ def get_books():
         browser = p.chromium.launch()
         page = browser.new_page()
         
-        releasedModel = ReleasedModel()
-        
         # 001017005 本(ライトノベル/少年)
         # url = "https://books.rakuten.co.jp/calendar/001017005/weekly/?tid=2023-02-12&v=2&s=14"
-        url = "https://books.rakuten.co.jp/calendar/001017005/monthly/?tid=2023-02-14&v=2&s=14#rclist"
+        # url = "https://books.rakuten.co.jp/calendar/001017005/monthly/?tid=2023-02-14&v=2&s=14#rclist"
+        url = "https://books.rakuten.co.jp/calendar/001017005/monthly/?tid=2023-03-01&v=2&s=14"
         # 楽天へ遷移
         page.goto(url, timeout=0)
-        time.sleep(1)
+        time.sleep(5)
         
         # 次の30件を押し続ける
         next_page_selector = page.locator('#main-container > div.rbcomp__pager-contents > div > div:nth-child(3) > a')
@@ -59,8 +58,6 @@ def get_books():
         # 「次の30件」が非活性化状態になるまで
         while is_next_page:
             print("----------------------------------------ページ----------------------------------------")
-            print(page.title())
-            time.sleep(1)
 
             # 本のセレクター
             book_list = page.locator('.item__panel')
@@ -83,24 +80,28 @@ def get_books():
                 
                 # 詳細ページへ移動
                 page.goto(detail_page, timeout=0)
-                time.sleep(1)
+                time.sleep(5)
                 print(page.title())
-                time.sleep(1)
                 
                 # 本のタイトル
-                book_info["title"] = page.locator("#productTitle > h1").inner_text()
+                title_selector = page.locator("#productTitle > h1")
+                book_info["title"] = title_selector.inner_text() if title_selector.is_visible() else ""
                 
                 # ジャンル(ライトノベル、コミックなど)
-                book_info["genre"] = page.locator("#topicPath > dd > a:nth-child(3)").inner_text()
+                genre_selector = page.locator("#topicPath > dd > a:nth-child(3)")
+                book_info["genre"] = genre_selector.inner_text() if genre_selector.is_visible() else ""
                 
                 # ジャンル詳細(ジャンルに対しての詳細 少年、少女など)
-                book_info["genre_detail"] = page.locator("#topicPath > dd > a:nth-child(4)").inner_text()
+                genre_detail_selector = page.locator("#topicPath > dd > a:nth-child(4)")
+                book_info["genre_detail"] = genre_detail_selector.inner_text() if genre_detail_selector.is_visible() else ""
                 
                 # レーベル(GA文庫、電撃文庫、少年サンデーなど)
-                book_info["label"] = page.locator("#productDetailedDescription > div > ul > li:nth-child(4) > span.categoryValue > a").inner_text()
+                label_selector = page.locator("#productDetailedDescription > div > ul > li:nth-child(4) > span.categoryValue > a")
+                book_info["label"] = label_selector.inner_text() if label_selector.is_visible() else ""
 
                 # 本の作者
-                book_info["author"] = page.locator("#productDetailedDescription > div > ul > li:nth-child(2) > span.categoryValue").inner_text()
+                author_selector = page.locator("#productDetailedDescription > div > ul > li:nth-child(2) > span.categoryValue")
+                book_info["author"] = author_selector.inner_text() if author_selector.is_visible() else ""
 
                 # 画像url
                 # 画像が1つだけの場合と、複数ある場合でセレクターが異なる
@@ -121,19 +122,24 @@ def get_books():
                 book_info["page"] = page_selector.inner_text() if page_selector.is_visible() else ""
                 
                 # 発行形態
-                book_info["size"] = page.locator(".productInfo:has-text(\"発行形態\") .categoryValue").inner_text()
+                size_selector = page.locator(".productInfo:has-text(\"発行形態\") .categoryValue")
+                book_info["size"] = size_selector.inner_text() if size_selector.is_visible() else ""
                 
                 # 商品説明
-                book_info["description"] = page.locator("#editArea2 > div > p:nth-child(2)").inner_text()
-                
+                description_selector = page.locator("#editArea2 > div > p:nth-child(2)")
+                book_info["description"] = description_selector.inner_text() if description_selector.is_visible() else ""
+
                 # 本の発売日
-                book_info["release_date"] = page.locator(".productInfo:has-text(\"発売日\") .categoryValue").inner_text()
+                release_date_selector = page.locator(".productInfo:has-text(\"発売日\") .categoryValue")
+                book_info["release_date"] = release_date_selector.inner_text() if release_date_selector.is_visible() else ""
                 
                 # 本の出版社
-                book_info["publisher"] = page.locator(".productInfo:has-text(\"出版社\") .categoryValue").inner_text()
+                publisher_selector = page.locator(".productInfo:has-text(\"出版社\") .categoryValue")
+                book_info["publisher"] = publisher_selector.inner_text() if publisher_selector.is_visible() else ""
                 
                 # 本のISBN
-                book_info["isbn"] = page.locator(".productInfo:has-text(\"ISBN\") .categoryValue").inner_text()
+                isbn_selector = page.locator(".productInfo:has-text(\"ISBN\") .categoryValue")
+                book_info["isbn"] = isbn_selector.inner_text() if isbn_selector.is_visible() else ""
                 
                 # アフィリエイトリンク
                 # urlから数字のみを取得し、正常なら長さ配列の長さが1になる
@@ -146,12 +152,16 @@ def get_books():
                 
                 print(book_info)
                 books_data.append(book_info)
+                
+                # browser.close()
+                # return False
 
                 # 一覧ページへ戻る
                 page.go_back(timeout=0)
-                time.sleep(1)
-            
+                time.sleep(5)
+
             # ページごとにインサート
+            releasedModel = ReleasedModel()
             releasedModel.insert_books(books_data)
             
             # 「次の30件」が活性化状態ならTrue
@@ -159,6 +169,7 @@ def get_books():
             if is_next_page:
                 # 「次の30件」へ遷移
                 page.goto(next_page_selector.get_attribute('href'))
+                time.sleep(5)
         
         browser.close()
         return False
