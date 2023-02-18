@@ -72,3 +72,10 @@ Route::group(['prefix' => 'cddvd'], function(){
     // CD or DVD取得
     Route::get('info', [CdDvdController::class, 'getCdDvdInfo']);
 });
+
+// CD or DVD
+Route::group(['prefix' => 'game'], function(){
+    // CD or DVD取得
+    Route::get('new/info', [GamesController::class, 'getGameInfoNew']);
+});
+

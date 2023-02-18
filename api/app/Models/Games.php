@@ -9,6 +9,11 @@ class Games extends Model
 {
     use HasFactory;
 
+    // 発売前
+    public const BEFORE_RELEASE = 1;
+    // 発売後
+    public const AFTER_RELEASE = 2;
+
     protected $table = 'games';
 
     protected $fillable = [
@@ -23,6 +28,11 @@ class Games extends Model
         'item_caption',
         'review_count',
         'review_average',
+
+        'genre_detail',
+        'release_date',
+        // 'genre_detail',
+        // 'genre_detail',
     ];
 
     // 取得しない項目

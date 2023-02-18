@@ -422,4 +422,48 @@ class GamesController extends Controller
             'message'   => 'success',
         ], 200);
     }
+
+
+    /**
+     * ゲーム情報取得
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function getGameInfoNew(Request $request)
+    {
+        $user_id = $request->input('user_id');
+        $limit = $request->input('limit');
+        $offset = $request->input('offset');
+        $released_status = $request->input('released_status');
+        $search_word = $request->input('search_word');
+        $genre = $request->input('genre');
+        $genre_detail = $request->input('genre_detail');
+
+        // db操作
+        list($games, $game_count) = $this->gamesServices->getGames(
+            $genre,
+            $released_status,
+            $limit,
+            $offset,
+            $genre_detail
+        );
+
+        logger(count($games));
+        logger($games);
+
+        foreach ($games as $index => $game) {
+            // 日付フォーマット
+            $games[$index]['release_date'] = \Common::formatSalesDate($game['release_date']);
+        }
+
+        return response()->json([
+            'games'         => $games,
+            'game_count'    => $game_count
+        ], 200);
+
+
+
+
+    }
 }
