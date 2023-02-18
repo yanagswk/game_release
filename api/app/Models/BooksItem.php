@@ -18,22 +18,31 @@ class BooksItem extends Model
     // 図鑑
     // 絵本
 
+    // 発売前
+    public const BEFORE_RELEASE = 1;
+    // 発売後
+    public const AFTER_RELEASE = 2;
+
 
     protected $fillable = [
         'title',
-        'size',
-        'price',
-        'sales_date',
-        'large_image_url',
-        'item_url',
-        'affiliate_url',
+        'page_url',
+        'genre',
+        'genre_detail',
+        'label',
         'author',
-        'publisherName',
-        'item_caption',
-        'series_name',
-        'contents',
-        'review_count',
-        'review_average',
+        'item_url',
+        'series',
+        'page',
+        'size',
+        'description',
+        'size',
+        'release_date',
+        'publisher',
+        'isbn',
+        'rakuten_affiliate_url',
+        'amazon_affiliate_url',
+        'disabled',
     ];
 
     // 取得しない項目
@@ -41,4 +50,18 @@ class BooksItem extends Model
         'created_at',
         'updated_at',
     ];
+
+
+    /**
+     * スコープ 抽出制限
+     *
+     * @param [type] $limit
+     * @param [type] $offset
+     * @return void
+     */
+    public function scopePage($query, int $limit, int $offset)
+    {
+        return $query->limit($limit)->offset($offset);
+    }
+
 }

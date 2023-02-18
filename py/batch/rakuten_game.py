@@ -11,7 +11,8 @@ from dotenv import load_dotenv
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from released_db import ReleasedModel
 from log_setting import getMyLogger
-from common.chrome import get_my_chrome
+from lib.chrome import get_my_chrome
+from lib.common import Common
 
 load_dotenv()
 
@@ -103,7 +104,7 @@ def run(playwright: Playwright):
 
                     # 本の発売日
                     release_date_selector = page.locator(".productInfo:has-text(\"発売日\") .categoryValue")
-                    games_info["release_date"]  = release_date_selector.inner_text() if release_date_selector.is_visible() else ""
+                    games_info["release_date"]  = Common.format_release_date(release_date_selector.inner_text()) if release_date_selector.is_visible() else ""
 
                     # cdの関連作品
                     relation_item_selector = page.locator(".productInfo:has-text(\"関連作品\") .categoryValue")

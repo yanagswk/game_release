@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\BooksResource;
 use App\Models\BooksItem;
+use App\Services\BooksServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+use function PHPUnit\Framework\countOf;
+
 class BooksController extends Controller
 {
+    private $booksServices;
+
     public function __construct()
     {
         $this->middleware('deviceCheck');
+        $this->booksServices = new BooksServices();
     }
 
     /**
@@ -24,34 +31,26 @@ class BooksController extends Controller
         $user_id = $request->input('user_id');
         $limit = $request->input('limit');
         $offset = $request->input('offset');
-        $is_released = $request->input('is_released');
+        $released_status = $request->input('released_status');
         $search_word = $request->input('search_word');
-        $size = $request->input('size');
+        $genre = $request->input('genre');
+        $genre_detail = $request->input('genre_detail');
 
-        // 本の種類
-        $books = BooksItem::where('size', $size);
+        // db操作
+        list($books, $book_count) = $this->booksServices->getBooks(
+            $genre,
+            $genre_detail,
+            $released_status,
+            $limit,
+            $offset,
+        );
 
-        // 発売日
-        if ($is_released == 1) {
-            // 発売前
-            $books->where('sales_date', '<=', \Common::getToday());   // 今日以前に発売されたゲームを取得
-            $books->orderBy('sales_date', 'desc');
-        } else if ($is_released == 2) {
-            // 発売後
-            $books->where('sales_date', '>', \Common::getToday());   // 今日以降に発売されるゲームを取得
-            $books->orderBy('sales_date', 'asc');
-        }
-
-        // 対象の総数を取得するために、limit・offsetする前にコピーする
-        $book_copy = clone $books;
-        $book_count = count($book_copy->get());
-
-        $books->limit($limit)->offset($offset);
-        $books = $books->get()->toArray();
+        logger(count($books));
+        logger($books);
 
         foreach ($books as $index => $book) {
             // 日付フォーマット
-            $books[$index]['sales_date'] = \Common::formatSalesDate($book['sales_date']);
+            $books[$index]['release_date'] = \Common::formatSalesDate($book['release_date']);
         }
 
         return response()->json([

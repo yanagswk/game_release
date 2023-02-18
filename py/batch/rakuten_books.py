@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from released_db import ReleasedModel
 from log_setting import getMyLogger
-from common.chrome import get_my_chrome
+from lib.chrome import get_my_chrome
 
 load_dotenv()
 
@@ -26,6 +26,15 @@ def get_not_game_image(offset: int) -> list:
 
     releasedModel = ReleasedModel()
     return releasedModel.get_books_item(offset)
+
+
+def format_release_date(release_date_str) -> str:
+    """
+    Returns:
+        日付フォーマット
+    """
+    result = re.sub(r"\D", "", release_date_str)    # 数字のみへ
+    return result.ljust(8, '0')                     # 8桁になるように0埋め
 
 
 def run(playwright: Playwright):
@@ -47,8 +56,7 @@ def run(playwright: Playwright):
             # 001017005 本(ライトノベル/少年)
             # url = "https://books.rakuten.co.jp/calendar/001017005/weekly/?tid=2023-02-12&v=2&s=14"
             # url = "https://books.rakuten.co.jp/calendar/001017005/monthly/?tid=2023-02-14&v=2&s=14#rclist"
-            # url = "https://books.rakuten.co.jp/calendar/001017005/monthly/?tid=2023-02-01&v=2&s=14"
-            url = "https://books.rakuten.co.jp/calendar/006515/monthly/?tid=2023-02-01&v=2&s=14"
+            url = "https://books.rakuten.co.jp/calendar/001017005/monthly/?tid=2023-02-01&v=2&s=14"
             # 楽天へ遷移
             page.goto(url, timeout=0)
             time.sleep(5)
@@ -131,7 +139,7 @@ def run(playwright: Playwright):
 
                     # 本の発売日
                     release_date_selector = page.locator(".productInfo:has-text(\"発売日\") .categoryValue")
-                    book_info["release_date"] = release_date_selector.inner_text() if release_date_selector.is_visible() else ""
+                    book_info["release_date"] = format_release_date(release_date_selector.inner_text()) if release_date_selector.is_visible() else ""
                     
                     # 本の出版社
                     publisher_selector = page.locator(".productInfo:has-text(\"出版社\") .categoryValue")
