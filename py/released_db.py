@@ -425,3 +425,54 @@ class ReleasedModel():
         finally:
             if self.__connection is not None and self.__connection.is_connected():
                 self.__connection.close()
+
+
+
+    def insert_games(self, books_list: list):
+        """
+            ゲーム情報をインサートする
+        """
+
+        sql = '''
+            INSERT INTO games_item (
+                title, page_url, genre, genre_detail, release_date, relation_item, distributor, game_number,
+                jan, cero, image_url, description, rakuten_affiliate_url, created_at, updated_at
+            )
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        '''
+        insert_data = []
+        try:
+            for n in range (len(books_list)):
+                insert_data.append((
+                    books_list[n]['title'],
+                    books_list[n]['page_url'],
+                    books_list[n]['genre'],
+                    books_list[n]['genre_detail'],
+                    books_list[n]['release_date'],
+                    books_list[n]['relation_item'],
+                    books_list[n]['distributor'],
+                    books_list[n]['game_number'],
+                    books_list[n]['jan'],
+                    books_list[n]['cero'],
+                    books_list[n]['image_url'],
+                    books_list[n]['description'],
+                    books_list[n]['rakuten_affiliate_url'],
+                    datetime.datetime.now(pytz.timezone('Asia/Tokyo')),
+                    datetime.datetime.now(pytz.timezone('Asia/Tokyo')),
+                ))
+                
+            self.__cursor.executemany(sql, insert_data)
+                
+        except Exception as e:
+            print(f"Error Occurred: {e}")
+            self.__connection.rollback()
+        
+        else:
+            # コミット
+            self.__connection.commit()
+            print(f"{self.__cursor.rowcount} records inserted for games_item tables")
+            self.__cursor.close()
+
+        finally:
+            if self.__connection is not None and self.__connection.is_connected():
+                self.__connection.close()

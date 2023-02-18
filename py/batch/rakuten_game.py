@@ -31,7 +31,7 @@ load_dotenv()
 
 def run(playwright: Playwright):
     """
-        playwriteでcd情報を取得
+        playwriteでゲーム情報を取得
 
         Parameters
         ----------
@@ -40,41 +40,49 @@ def run(playwright: Playwright):
     """
     
     # logger = getMyLogger(__name__)
+    
+    print("やあ")
 
     with get_my_chrome(playwright) as chrome:
+        print("やあ2")
         
         with chrome.new_page() as page:
+            print("やあ3")
 
-            # 002 (CD)
-            url = "https://books.rakuten.co.jp/calendar/002/monthly/?tid=2023-02-14&v=2&s=14"
+            # 006 (ゲーム)
+            # url = "https://books.rakuten.co.jp/calendar/006514/monthly/?tid=2023-02-01&v=2&s=14"
+            url = "https://books.rakuten.co.jp/calendar/006515/monthly/?tid=2023-02-01&v=2&s=14"
             # 楽天へ遷移
             page.goto(url, timeout=0)
             time.sleep(5)
+            print("やあ4")
             
             # 次の30件を押し続ける
             next = page.locator('#main-container > div.rbcomp__pager-contents > div > div:nth-child(3) > a')
             is_next = True
             
             while is_next:
+                print("やあ5")
                 print("----------------------------------------ページ----------------------------------------")
 
                 # cdのセレクター
                 cd_list = page.locator('.item__panel')
                 print(cd_list.count())    # ページ内の本の数
                 if cd_list.count() == 0:
-                    print("本が存在しません")
+                    print("ゲームが存在しません")
                     sys.exit()
                 
                 # 本の情報
-                cds_data = []
+                games_data = []
                 for n in range(cd_list.count()):
-                    cds_info = {}
+                # for n in range(1):
+                    games_info = {}
                     
                     book = cd_list.nth(n)
                     # 詳細ページのurl取得
                     detail_page = book.locator(".item-image > a").get_attribute('href')
                     # 詳細ページのurl
-                    cds_info["page_url"] = detail_page
+                    games_info["page_url"] = detail_page
                     
                     # 詳細ページへ移動
                     page.goto(detail_page, timeout=0)
@@ -83,59 +91,43 @@ def run(playwright: Playwright):
                     
                     # cdのタイトル
                     title_selector = page.locator("#productTitle > h1")
-                    cds_info["title"] = title_selector.inner_text() if title_selector.is_visible() else ""
+                    games_info["title"] = title_selector.inner_text() if title_selector.is_visible() else ""
                     
                     # ジャンル
                     genre_selector = page.locator("#topicPath > dd > a:nth-child(3)")
-                    cds_info["genre"] = genre_selector.inner_text() if genre_selector.is_visible() else ""
+                    games_info["genre"] = genre_selector.inner_text() if genre_selector.is_visible() else ""
                     
                     # ジャンル詳細
                     genre_detail_selector = page.locator("#topicPath > dd > a:nth-child(4)")
-                    cds_info["genre_detail"] = genre_detail_selector.inner_text() if genre_detail_selector.is_visible() else ""
-
-                    # cdのアーティスト
-                    author_selector = page.locator(".productInfo:has-text(\"アーティスト\") .categoryValue")
-                    cds_info["author"] = author_selector.inner_text() if author_selector.is_visible() else ""
-
-                    # cdの関連作品
-                    relation_item_selector = page.locator(".productInfo:has-text(\"関連作品\") .categoryValue")
-                    cds_info["relation_item"] = relation_item_selector.inner_text() if relation_item_selector.is_visible() else ""
-
-                    # cdの発売元
-                    selling_agency_selector = page.locator(".productInfo:has-text(\"発売元\") .categoryValue")
-                    cds_info["selling_agency"] = selling_agency_selector.inner_text() if selling_agency_selector.is_visible() else ""
-
-                    # cdの販売元
-                    distributor_selector = page.locator(".productInfo:has-text(\"販売元\") .categoryValue")
-                    cds_info["distributor"] = distributor_selector.inner_text() if distributor_selector.is_visible() else ""
-
-                    # cdのディスク枚数
-                    disc_count_selector = page.locator(".productInfo:has-text(\"ディスク枚数\") .categoryValue")
-                    cds_info["disc_count"]  = disc_count_selector.inner_text() if disc_count_selector.is_visible() else ""
-
-                    # cdの曲数
-                    music_count_selector = page.locator(".productInfo:has-text(\"総曲数\") .categoryValue")
-                    cds_info["music_count"]  = music_count_selector.inner_text() if music_count_selector.is_visible() else ""
-
-                    # cdの収録時間
-                    record_time_selector = page.locator(".productInfo:has-text(\"収録時間\") .categoryValue")
-                    cds_info["record_time"]  = record_time_selector.inner_text() if record_time_selector.is_visible() else ""
-
-                    # cdの品番
-                    cd_number_selector = page.locator(".productInfo:has-text(\"品番\") .categoryValue")
-                    cds_info["cd_number"]  = cd_number_selector.inner_text() if cd_number_selector.is_visible() else ""
-
-                    # cdのJAN
-                    jan_selector = page.locator(".productInfo:has-text(\"JAN\") .categoryValue")
-                    cds_info["jan"]  = jan_selector.inner_text() if jan_selector.is_visible() else ""
-
-                    # cdのインストアコード
-                    in_store_code_selector = page.locator(".productInfo:has-text(\"インストアコード\") .categoryValue")
-                    cds_info["in_store_code"]  = in_store_code_selector.inner_text() if in_store_code_selector.is_visible() else ""
+                    games_info["genre_detail"] = genre_detail_selector.inner_text() if genre_detail_selector.is_visible() else ""
 
                     # 本の発売日
                     release_date_selector = page.locator(".productInfo:has-text(\"発売日\") .categoryValue")
-                    cds_info["release_date"]  = release_date_selector.inner_text() if release_date_selector.is_visible() else ""
+                    games_info["release_date"]  = release_date_selector.inner_text() if release_date_selector.is_visible() else ""
+
+                    # cdの関連作品
+                    relation_item_selector = page.locator(".productInfo:has-text(\"関連作品\") .categoryValue")
+                    games_info["relation_item"] = relation_item_selector.inner_text() if relation_item_selector.is_visible() else ""
+
+                    # cdの発売元
+                    # selling_agency_selector = page.locator(".productInfo:has-text(\"発売元\") .categoryValue")
+                    # games_info["selling_agency"] = selling_agency_selector.inner_text() if selling_agency_selector.is_visible() else ""
+
+                    # cdの販売元
+                    distributor_selector = page.locator(".productInfo:has-text(\"販売元\") .categoryValue")
+                    games_info["distributor"] = distributor_selector.inner_text() if distributor_selector.is_visible() else ""
+
+                    # cdの品番
+                    game_number_selector = page.locator(".productInfo:has-text(\"品番\") .categoryValue")
+                    games_info["game_number"]  = game_number_selector.inner_text() if game_number_selector.is_visible() else ""
+                    
+                    # cdのJAN
+                    jan_selector = page.locator(".productInfo:has-text(\"JAN\") .categoryValue")
+                    games_info["jan"]  = jan_selector.inner_text() if jan_selector.is_visible() else ""
+                    
+                    # CERO区分
+                    cero_selector = page.locator(".productInfo:has-text(\"CERO区分\") .categoryValue")
+                    games_info["cero"]  = cero_selector.inner_text() if cero_selector.is_visible() else ""
 
                     # 画像url
                     # 画像が1つだけの場合と、複数ある場合でセレクターが異なる
@@ -145,11 +137,11 @@ def run(playwright: Playwright):
                     else:
                         image_url = page.locator("#imageSliderWrap > div.lSSlideOuter > ul > li:nth-child(1) > a > img").get_attribute('src')
                     # gifの場合はスキップする
-                    cds_info["image_url"] = f"https:{image_url}" if image_url not in 'gif' else ""
+                    games_info["image_url"] = f"https:{image_url}" if image_url not in 'gif' else ""
 
                     # 商品説明
                     description_selector = page.locator("#editArea2")
-                    cds_info["description"]  = description_selector.inner_text() if description_selector.is_visible() else ""
+                    games_info["description"]  = description_selector.inner_text() if description_selector.is_visible() else ""
 
                     # アフィリエイトリンク
                     # urlから数字のみを取得し、正常なら長さ配列の長さが1になる
@@ -158,25 +150,20 @@ def run(playwright: Playwright):
                         print("urlから商品idが正常に取得できません")
                         print(detail_page)
                         continue
-                    cds_info["rakuten_affiliate_url"] = f"https://hb.afl.rakuten.co.jp/ichiba/2cd5b0ae.6303a4de.2cd5b0af.dbaafed3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F{number_list[0]}%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
+                    games_info["rakuten_affiliate_url"] = f"https://hb.afl.rakuten.co.jp/ichiba/2cd5b0ae.6303a4de.2cd5b0af.dbaafed3/?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F{number_list[0]}%2F&link_type=hybrid_url&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9"
                     
-                    print(cds_info)
-                    cds_data.append(cds_info)
+                    print(games_info)
+                    games_data.append(games_info)
     
                     # 一覧ページへ戻る
                     page.go_back(timeout=0)
                     time.sleep(5)
+                    
 
                 # ページごとにインサート
                 releasedModel = ReleasedModel()
-                releasedModel.insert_cds(cds_data)
-                
-                # if next is None:
-                #     break
-                # with page.expect_navigation():
-                #     # 「次の30件」へ
-                #     next.click()
-                
+                releasedModel.insert_games(games_data)
+
                 # # 「次の30件」が活性化状態ならTrue
                 is_next = True if next.is_visible() else False
                 if is_next:

@@ -18,6 +18,7 @@ class MyChromeContextManager:
             self._browser.close()
         else:
             print(exc_type, value, traceback)
+            self._browser.close()
             return False
 
     @contextmanager
