@@ -476,3 +476,58 @@ class ReleasedModel():
         finally:
             if self.__connection is not None and self.__connection.is_connected():
                 self.__connection.close()
+
+
+    def insert_dvd_blu_ray(self, books_list: list):
+        """
+            DVD/Blu-ray情報をインサートする
+        """
+
+        sql = '''
+            INSERT INTO dvd_blu_ray_item (
+                title, page_url, genre, genre_detail, author, relation_item, selling_agency, distributor,
+                disc_count, record_time, cd_number, jan, release_date, image_url, description,
+                rakuten_affiliate_url, created_at, updated_at
+            )
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+        '''
+        insert_data = []
+        try:
+            for n in range (len(books_list)):
+                insert_data.append((
+                    books_list[n]['title'],
+                    books_list[n]['page_url'],
+                    # books_list[n]['type'],
+                    books_list[n]['genre'],
+                    books_list[n]['genre_detail'],
+                    books_list[n]['author'],
+                    books_list[n]['relation_item'],
+                    books_list[n]['selling_agency'],
+                    books_list[n]['distributor'],
+                    books_list[n]['disc_count'],
+                    books_list[n]['record_time'],
+                    books_list[n]['cd_number'],
+                    books_list[n]['jan'],
+                    books_list[n]['release_date'],
+                    books_list[n]['image_url'],
+                    books_list[n]['description'],
+                    books_list[n]['rakuten_affiliate_url'],
+                    datetime.datetime.now(pytz.timezone('Asia/Tokyo')),
+                    datetime.datetime.now(pytz.timezone('Asia/Tokyo')),
+                ))
+                
+            self.__cursor.executemany(sql, insert_data)
+                
+        except Exception as e:
+            print(f"Error Occurred: {e}")
+            self.__connection.rollback()
+        
+        else:
+            # コミット
+            self.__connection.commit()
+            print(f"{self.__cursor.rowcount} records inserted for dvd_blu_ray_item tables")
+            self.__cursor.close()
+
+        finally:
+            if self.__connection is not None and self.__connection.is_connected():
+                self.__connection.close()

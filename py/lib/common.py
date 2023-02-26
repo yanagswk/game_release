@@ -18,4 +18,17 @@ class Common:
         """
         result = re.sub(r"\D", "", release_date_str)    # 数字のみへ
         return result.ljust(8, '0')                     # 8桁になるように0埋め
+    
+    @staticmethod
+    def get_title(title: str) -> str:
+        """
+        タイトルをいい感じに取得
+
+        Args:
+            title (str): _description_
+
+        Returns:
+            str: _description_
+        """
+        return title.split('\n')[0]
 
