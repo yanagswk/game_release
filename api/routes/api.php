@@ -4,6 +4,8 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\CdDvdController;
+use App\Http\Controllers\CdsController;
+use App\Http\Controllers\DvdBluRayController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NoticeController;
@@ -68,14 +70,19 @@ Route::group(['prefix' => 'books'], function(){
 });
 
 // CD or DVD
-Route::group(['prefix' => 'cddvd'], function(){
+Route::group(['prefix' => 'cd'], function(){
     // CD or DVD取得
-    Route::get('info', [CdDvdController::class, 'getCdDvdInfo']);
+    Route::get('info', [CdsController::class, 'getCdInfo']);
 });
 
-// CD or DVD
+// ゲーム
 Route::group(['prefix' => 'game'], function(){
-    // CD or DVD取得
+    // ゲーム取得
     Route::get('new/info', [GamesController::class, 'getGameInfoNew']);
 });
 
+// DVD/Blu-Ray
+Route::group(['prefix' => 'dvd'], function(){
+    // DVD/Blu-Ray取得
+    Route::get('info', [DvdBluRayController::class, 'getDvdBluRayInfo']);
+});

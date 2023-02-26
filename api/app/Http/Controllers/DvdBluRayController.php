@@ -2,31 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\BooksResource;
 use App\Models\BooksItem;
-use App\Services\BooksServices;
+use App\Models\CdDvdItem;
+use App\Services\CdsServices;
+use App\Services\DvdBluRayServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-use function PHPUnit\Framework\countOf;
-
-class BooksController extends Controller
+class DvdBluRayController extends Controller
 {
-    private $booksServices;
+    private $dvdBluRayServices;
 
     public function __construct()
     {
         $this->middleware('deviceCheck');
-        $this->booksServices = new BooksServices();
+        $this->dvdBluRayServices = new DvdBluRayServices();
     }
 
     /**
-     * 本の情報取得
+     * ゲーム情報取得
      *
      * @param Request $request
      * @return void
      */
-    public function getBooksInfo(Request $request)
+    public function getDvdBluRayInfo(Request $request)
     {
         $user_id = $request->input('user_id');
         $limit = $request->input('limit');
@@ -36,30 +35,27 @@ class BooksController extends Controller
         $genre = $request->input('genre');
         $genre_detail = $request->input('genre_detail');
 
-        logger("やあ");
-        logger($request->all());
-
         // db操作
-        list($books, $book_count) = $this->booksServices->getBooks(
+        list($dvds, $dvd_count) = $this->dvdBluRayServices->getDvdBluRays(
             $genre,
             $released_status,
             $limit,
             $offset,
-            $genre_detail,
+            $genre_detail
         );
 
-        foreach ($books as $index => $book) {
+        logger(count($dvds));
+        logger($dvds);
+
+        foreach ($dvds as $index => $dvd) {
             // 日付フォーマット
-            $books[$index]['release_date'] = \Common::formatSalesDate($book['release_date']);
-            $books[$index]['release_date_int'] = $book['release_date'];
+            $dvds[$index]['release_date'] = \Common::formatSalesDate($dvd['release_date']);
         }
 
         return response()->json([
-            'books'         => $books,
-            'book_count'    => $book_count
+            'dvd'       => $dvds,
+            'dvd_count' => $dvd_count
         ], 200);
-
-
     }
 
 

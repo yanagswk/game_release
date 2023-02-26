@@ -2,65 +2,64 @@
 
 namespace App\Services;
 
-use App\Models\BooksItem;
+use App\Models\CdsItem;
+use App\Models\Games;
+use App\Models\GamesItem;
+use Carbon\Carbon;
 
-class BooksServices
+class CdsServices
 {
-
     /**
-     * 本の情報を取得
+     * cdの情報を取得
      *
      * @param string $genre             ジャンル
      * @param string $genre_detail      ジャンル詳細
      * @param integer $released_status  リリースステータス
      * @return array
      */
-    public function getBooks(
+    public function getCds(
         string $genre,
         int $released_status,
         int $limit,
         int $offset,
-        ?string $genre_detail=null,
+        ?string $genre_detail = null,
     )
     {
-        $books = BooksItem::query();
+        $games = CdsItem::query();
 
-        // ジャンル
-        $books
-            ->where('genre', $genre);
-            // ->where('genre_detail', $genre_detail);
+        // ジャンル(ハードウェア)
+        $games->where('genre', $genre);
 
         // ゲーム詳細ジャンル
         if (!is_null($genre_detail)) {
-            $books->where('genre_detail', $genre_detail);
+            $games->where('genre_detail', $genre_detail);
         }
 
         // 発売日
-        if ($released_status == BooksItem::BEFORE_RELEASE) {
+        if ($released_status == CdsItem::BEFORE_RELEASE) {
             // 発売前 今日以前に発売されたゲームを取得
-            $books
+            $games
                 ->where('release_date', '<=', \Common::getToday())
                 ->orderBy('release_date', 'desc');
-        } else if ($released_status == BooksItem::AFTER_RELEASE) {
+        } else if ($released_status == CdsItem::AFTER_RELEASE) {
             // 発売後 今日以降に発売されるゲームを取得
-            $books
+            $games
                 ->where('release_date', '>', \Common::getToday())
                 ->orderBy('release_date', 'asc');
         }
 
         // 対象の総数を取得するために、limit・offsetする前にコピーする
-        $book_copy = clone $books;
+        $book_copy = clone $games;
         $book_count = count($book_copy->get());
-        $books->page($limit, $offset);
+        $games->page($limit, $offset);
+
+        $games->active();
 
         return [
-            $books->get()->toArray(),
+            $games->get()->toArray(),
             $book_count
         ];
     }
-
 }
-
-
 
 ?>

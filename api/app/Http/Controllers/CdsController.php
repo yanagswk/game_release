@@ -2,31 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\BooksResource;
 use App\Models\BooksItem;
-use App\Services\BooksServices;
+use App\Models\CdDvdItem;
+use App\Services\CdsServices;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-use function PHPUnit\Framework\countOf;
-
-class BooksController extends Controller
+class CdsController extends Controller
 {
-    private $booksServices;
+    private $cdsServices;
 
     public function __construct()
     {
         $this->middleware('deviceCheck');
-        $this->booksServices = new BooksServices();
+        $this->cdsServices = new CdsServices();
     }
 
     /**
-     * 本の情報取得
+     * ゲーム情報取得
      *
      * @param Request $request
      * @return void
      */
-    public function getBooksInfo(Request $request)
+    public function getCdInfo(Request $request)
     {
         $user_id = $request->input('user_id');
         $limit = $request->input('limit');
@@ -36,30 +34,27 @@ class BooksController extends Controller
         $genre = $request->input('genre');
         $genre_detail = $request->input('genre_detail');
 
-        logger("やあ");
-        logger($request->all());
-
         // db操作
-        list($books, $book_count) = $this->booksServices->getBooks(
+        list($cds, $cds_count) = $this->cdsServices->getCds(
             $genre,
             $released_status,
             $limit,
             $offset,
-            $genre_detail,
+            $genre_detail
         );
 
-        foreach ($books as $index => $book) {
+        logger(count($cds));
+        logger($cds);
+
+        foreach ($cds as $index => $cd) {
             // 日付フォーマット
-            $books[$index]['release_date'] = \Common::formatSalesDate($book['release_date']);
-            $books[$index]['release_date_int'] = $book['release_date'];
+            $cds[$index]['release_date'] = \Common::formatSalesDate($cd['release_date']);
         }
 
         return response()->json([
-            'books'         => $books,
-            'book_count'    => $book_count
+            'cd'        => $cds,
+            'cds_count' => $cds_count
         ], 200);
-
-
     }
 
 
