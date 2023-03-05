@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\CdDvdController;
 use App\Http\Controllers\CdsController;
+use App\Http\Controllers\ContentsController;
 use App\Http\Controllers\DvdBluRayController;
 use App\Http\Controllers\GamesController;
 use App\Http\Controllers\MessageController;
@@ -86,3 +87,6 @@ Route::group(['prefix' => 'dvd'], function(){
     // DVD/Blu-Ray取得
     Route::get('info', [DvdBluRayController::class, 'getDvdBluRayInfo']);
 });
+
+// 検索
+Route::get('content/search', [ContentsController::class, 'getSearchContents']);

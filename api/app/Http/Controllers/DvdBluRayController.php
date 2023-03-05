@@ -37,15 +37,12 @@ class DvdBluRayController extends Controller
 
         // db操作
         list($dvds, $dvd_count) = $this->dvdBluRayServices->getDvdBluRays(
-            $genre,
-            $released_status,
-            $limit,
-            $offset,
-            $genre_detail
+            genre: $genre,
+            released_status: $released_status,
+            limit: $limit,
+            offset: $offset,
+            genre_detail: $genre_detail
         );
-
-        logger(count($dvds));
-        logger($dvds);
 
         foreach ($dvds as $index => $dvd) {
             // 日付フォーマット

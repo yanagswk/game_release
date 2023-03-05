@@ -53,21 +53,30 @@ class GamesServices
      * @return array
      */
     public function getGames(
-        string $genre,
-        int $released_status,
         int $limit,
         int $offset,
+        ?string $genre=null,
+        ?int $released_status=null,
         ?string $genre_detail = null,
+        ?string $search_word = null,
     )
     {
         $games = GamesItem::query();
 
         // ジャンル(ハードウェア)
-        $games->where('genre', $genre);
+        // if (!is_null($genre)) {
+        if ($genre != "選択しない") {
+            $games->where('genre', $genre);
+        }
 
         // ゲーム詳細ジャンル
         if (!is_null($genre_detail)) {
             $games->where('genre_detail', $genre_detail);
+        }
+
+        // 検索
+        if (!is_null($search_word)) {
+            $games->where('title', 'like', '%'.$search_word.'%');
         }
 
         // 発売日

@@ -440,17 +440,16 @@ class GamesController extends Controller
         $genre = $request->input('genre');
         $genre_detail = $request->input('genre_detail');
 
+        logger($request->all());
+
         // db操作
         list($games, $game_count) = $this->gamesServices->getGames(
-            $genre,
-            $released_status,
-            $limit,
-            $offset,
-            $genre_detail
+            genre: $genre,
+            released_status: $released_status,
+            limit: $limit,
+            offset: $offset,
+            genre_detail: $genre_detail
         );
-
-        logger(count($games));
-        logger($games);
 
         foreach ($games as $index => $game) {
             // 日付フォーマット

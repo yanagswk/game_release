@@ -36,11 +36,11 @@ class CdsController extends Controller
 
         // db操作
         list($cds, $cds_count) = $this->cdsServices->getCds(
-            $genre,
-            $released_status,
-            $limit,
-            $offset,
-            $genre_detail
+            genre: $genre,
+            released_status: $released_status,
+            limit: $limit,
+            offset: $offset,
+            genre_detail: $genre_detail
         );
 
         logger(count($cds));

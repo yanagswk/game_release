@@ -36,16 +36,13 @@ class BooksController extends Controller
         $genre = $request->input('genre');
         $genre_detail = $request->input('genre_detail');
 
-        logger("やあ");
-        logger($request->all());
-
         // db操作
         list($books, $book_count) = $this->booksServices->getBooks(
-            $genre,
-            $released_status,
-            $limit,
-            $offset,
-            $genre_detail,
+            genre: $genre,
+            released_status: $released_status,
+            limit: $limit,
+            offset: $offset,
+            genre_detail: $genre_detail,
         );
 
         foreach ($books as $index => $book) {

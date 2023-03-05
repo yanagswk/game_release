@@ -16,23 +16,36 @@ class DvdBluRayServices
      * @return array
      */
     public function getDvdBluRays(
-        string $genre,
-        int $released_status,
         int $limit,
         int $offset,
+        ?int $released_status = null,
+        ?string $genre = null,
+        ?string $search_word = null,
         ?string $genre_detail = null,
     )
     {
         $games = DvdBluRayItem::query();
 
-        // ジャンル(ハードウェア)
-        $games->where('genre', $genre);
+        logger("------------------------------------");
+        logger($genre);
+        logger($genre === "選択しない");
+        logger(!is_null($genre));
 
-        // logger($games->get()->toArray());
+        // ジャンル
+        // if (!is_null($genre) || $genre != "選択しない") {
+        if ($genre != "選択しない") {
+            logger('osu');
+            $games->where('genre', $genre);
+        }
 
         // ゲーム詳細ジャンル
         if (!is_null($genre_detail)) {
             $games->where('genre_detail', $genre_detail);
+        }
+
+        // 検索
+        if (!is_null($search_word)) {
+            $games->where('title', 'like', '%'.$search_word.'%');
         }
 
         // 発売日

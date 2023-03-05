@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\BooksItem;
 
-class BooksServices
+class ContentsServices
 {
 
     /**
@@ -15,30 +15,24 @@ class BooksServices
      * @param integer $released_status  リリースステータス
      * @return array
      */
-    public function getBooks(
+    public function getContents(
+        string $genre,
+        int $released_status,
         int $limit,
         int $offset,
-        ?string $genre=null,
-        ?int $released_status =null,
         ?string $genre_detail=null,
-        ?string $search_word=null,
     )
     {
         $books = BooksItem::query();
+
         // ジャンル
-        // if (!is_null($genre)) {
-        if ($genre != "選択しない") {
-            $books->where('genre', $genre);
-        }
+        $books
+            ->where('genre', $genre);
+            // ->where('genre_detail', $genre_detail);
 
         // ゲーム詳細ジャンル
         if (!is_null($genre_detail)) {
             $books->where('genre_detail', $genre_detail);
-        }
-
-        // 検索
-        if (!is_null($search_word)) {
-            $books->where('title', 'like', '%'.$search_word.'%');
         }
 
         // 発売日
