@@ -32,3 +32,15 @@ class Common:
         """
         return title.split('\n')[0]
 
+    @staticmethod
+    def exit_goods_title(title: str) -> str:
+        """
+        タイトルに【グッズ】がある場合はtrue、ない場合はfalse
+
+        Args:
+            title (str): _description_
+
+        Returns:
+            str: _description_
+        """
+        return True if "【グッズ】" in title else False

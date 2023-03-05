@@ -189,11 +189,6 @@ def run(playwright: Playwright, count: int):
                 #     page.goto(next.get_attribute('href'))
                 #     time.sleep(10)
 
-# if __name__ == '__main__':
-    # books = get_not_game_image(0)
-    # print(books)
-    # get_books()
-    
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("page", help="ページ")
