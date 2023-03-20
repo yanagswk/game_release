@@ -1,24 +1,11 @@
-// import './bootstrap';
+import './bootstrap';
 
-require("./bootstrap");
 
-console.log("やあ");
+import { createApp } from "vue";
+// import App from "./App.vue";
 
-// const game_json = @games;
+const app = createApp();
 
-// console.log(game_json);
+console.log(app.version);
 
-const Counter = {
-    data() {
-        return {
-            counter: 0,
-        };
-    },
-    mounted() {
-        setInterval(() => {
-            this.counter++;
-        }, 1000);
-    },
-};
-
-Vue.createApp(Counter).mount("#counter");
+app.mount("#app");

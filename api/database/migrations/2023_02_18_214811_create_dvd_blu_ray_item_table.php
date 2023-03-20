@@ -32,13 +32,13 @@ return new class extends Migration
             // $table->string('in_store_code')->nullable()->comment('インストアコード');
             $table->string('release_date')->nullable()->comment('発売日');
             $table->string('image_url')->nullable()->comment('画像url');
-            $table->string('description', 3000)->nullable()->comment('商品説明');
+            $table->string('description', 5000)->nullable()->comment('商品説明');
             $table->string('rakuten_affiliate_url', 2000)->nullable()->comment('楽天アフィリエイトリンク');
             $table->string('amazon_affiliate_url', 2000)->nullable()->comment('Amazonアフィリエイトリンク');
             $table->boolean('disabled')->default(false)->comment('無効フラグ');
             $table->timestamps();
 
-            $table->unique(['title'], 'UNIQUE_COLUMNS'); // ユニーク制約
+            // $table->unique(['title'], 'UNIQUE_COLUMNS'); // ユニーク制約
         });
     }
 
