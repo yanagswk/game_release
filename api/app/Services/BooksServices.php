@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\BookSeriesMaster;
 use App\Models\BooksItem;
 
 class BooksServices
@@ -31,8 +32,12 @@ class BooksServices
             $books->where('genre', $genre);
         }
 
+        logger($genre_detail);
+        logger($genre_detail === "全て");
+
         // ゲーム詳細ジャンル
-        if (!is_null($genre_detail)) {
+        // if (!is_null($genre_detail) || $genre_detail !== "全て") {
+        if ($genre_detail !== "全て") {
             $books->where('genre_detail', $genre_detail);
         }
 
@@ -63,6 +68,52 @@ class BooksServices
             $books->get()->toArray(),
             $book_count
         ];
+    }
+
+
+    /**
+     * シリーズを登録していないコンテンツを取得
+     *
+     * @return array
+     */
+    public function getUnregisteredSeriesContents()
+    {
+        $books = BooksItem::query()
+            ->select('id', 'series', 'author')
+            ->whereNotNull('series')                // シリーズが存在する
+            ->where('is_series_checked', false)     // チェック済みでない
+            ->get()->toArray();
+        return $books;
+    }
+
+
+    /**
+     * シリーズタイトルをマスターテーブルへ保存
+     *
+     * @return void
+     */
+    public function insertSeriesTitles(array $books)
+    {
+        BookSeriesMaster::query()->upsert(
+            $books,
+            ['series'],     // ユニークなカラム
+            ['updated_at']  // update対象
+        );
+    }
+
+
+    /**
+     * シリーズチェックフラグをtrueにする
+     *
+     * @return void
+     */
+    public function updateSeriesChecked(array $id_list)
+    {
+        BooksItem::query()
+            ->whereIn('id', $id_list)
+            ->update([
+                'is_series_checked' => true
+            ]);
     }
 
 }

@@ -49,10 +49,11 @@ def run(playwright: Playwright, count: int):
 
             # 002 (DVD/Blu-ray)
             # url = "https://books.rakuten.co.jp/calendar/003/monthly/?tid=2023-02-01&v=2&s=14"
+            # url = f"https://books.rakuten.co.jp/calendar/003/monthly/?tid=2023-03-01&p={count}&v=2&s=14#rclist"
             url = f"https://books.rakuten.co.jp/calendar/003/monthly/?tid=2023-02-01&p={count}&v=2&s=14#rclist"
             # 楽天へ遷移
             page.goto(url, timeout=0)
-            time.sleep(3)
+            time.sleep(1)
             
             # 次の30件を押し続ける
             # next = page.locator('#main-container > div.rbcomp__pager-contents > div > div:nth-child(3) > a')
@@ -81,7 +82,7 @@ def run(playwright: Playwright, count: int):
                 
                 # 詳細ページへ移動
                 page.goto(detail_page, timeout=0)
-                time.sleep(3)
+                time.sleep(1)
                 print(page.title())
                 
                 # タイトル
@@ -92,7 +93,7 @@ def run(playwright: Playwright, count: int):
                         print("スキップ")
                         # 一覧ページへ戻る
                         page.go_back(timeout=0)
-                        time.sleep(3)
+                        time.sleep(1)
                         continue
                     dvd_info["title"] = Common.get_title(title)
                 else:
@@ -100,11 +101,20 @@ def run(playwright: Playwright, count: int):
                 
                 # ジャンル
                 genre_selector = page.locator("#topicPath > dd > a:nth-child(3)")
-                dvd_info["genre"] = genre_selector.inner_text() if genre_selector.is_visible() else ""
+                genre = genre_selector.inner_text() if genre_selector.is_visible() else ""
                 
-                # ジャンル詳細
-                genre_detail_selector = page.locator("#topicPath > dd > a:nth-child(4)")
-                dvd_info["genre_detail"] = genre_detail_selector.inner_text() if genre_detail_selector.is_visible() else ""
+                if genre == "ブルーレイ":
+                    genre_detail_selector = page.locator("#topicPath > dd > a:nth-child(4)")
+                    dvd_info["genre"] = genre_detail_selector.inner_text() if genre_detail_selector.is_visible() else ""
+                    dvd_info["genre_detail"] = ""
+                    dvd_info["type"] = 2    # ブルーレイ
+                    
+                else:
+                    dvd_info["genre"] = genre
+                    dvd_info["type"] = 1    # DVD
+                    # ジャンル詳細
+                    genre_detail_selector = page.locator("#topicPath > dd > a:nth-child(4)")
+                    dvd_info["genre_detail"] = genre_detail_selector.inner_text() if genre_detail_selector.is_visible() else ""
                 
                 # アーティスト
                 author_selector = page.locator(".productInfo:has-text(\"アーティスト\") .categoryValue")
@@ -179,7 +189,7 @@ def run(playwright: Playwright, count: int):
 
                 # 一覧ページへ戻る
                 page.go_back(timeout=0)
-                time.sleep(3)
+                time.sleep(1)
 
             # ページごとにインサート
             releasedModel = ReleasedModel()

@@ -49,7 +49,7 @@ def run(playwright: Playwright, count: int):
 
             
             # Nintendo Switch
-            url = "https://books.rakuten.co.jp/calendar/006514/monthly/?tid=2023-02-14&v=2&s=14"
+            url = "https://books.rakuten.co.jp/calendar/006514/monthly/?tid=2023-02-14&p={count}&v=2&s=14#rclist"
             # # PS5
             # url = "https://books.rakuten.co.jp/calendar/006515/monthly/?tid=2023-02-14&v=2&s=14"
             # # PS4

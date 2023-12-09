@@ -71,7 +71,9 @@ class GamesServices
 
         // ゲーム詳細ジャンル
         if (!is_null($genre_detail)) {
-            $games->where('genre_detail', $genre_detail);
+            if ($genre_detail != "全て") {
+                $games->where('genre_detail', $genre_detail);
+            }
         }
 
         // 検索

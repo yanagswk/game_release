@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VueController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/star', function () {
+    // return view('star.index');
+    return view('index');
+});
+Route::get('/vue', [VueController::class, 'index']);

@@ -485,11 +485,11 @@ class ReleasedModel():
 
         sql = '''
             INSERT INTO dvd_blu_ray_item (
-                title, page_url, genre, genre_detail, author, relation_item, selling_agency, distributor,
+                title, page_url, type, genre, genre_detail, author, relation_item, selling_agency, distributor,
                 disc_count, record_time, cd_number, jan, release_date, image_url, description,
                 rakuten_affiliate_url, created_at, updated_at
             )
-            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
         '''
         insert_data = []
         try:
@@ -497,7 +497,7 @@ class ReleasedModel():
                 insert_data.append((
                     books_list[n]['title'],
                     books_list[n]['page_url'],
-                    # books_list[n]['type'],
+                    books_list[n]['type'],
                     books_list[n]['genre'],
                     books_list[n]['genre_detail'],
                     books_list[n]['author'],
