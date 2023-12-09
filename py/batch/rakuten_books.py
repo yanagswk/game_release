@@ -55,27 +55,31 @@ def run(playwright: Playwright, count: int):
         with chrome.new_page() as page:
             
             # 001017005 本(ライトノベル/少年)
-            # url = "https://books.rakuten.co.jp/calendar/001017005/monthly/?tid=2023-02-01&v=2&s=14"
+            # url = "https://books.rakuten.co.jp/calendar/001017/monthly/?tid=2023-10-29&v=2&s=14"
             # 漫画
-            url = f"https://books.rakuten.co.jp/calendar/001001/monthly/?tid=2023-02-01&p={count}&v=2&s=14#rclist"
+            # url = f"https://books.rakuten.co.jp/calendar/001001/monthly/?tid=2023-10-29&p={count}&v=2&s=14#rclist"
             # 小説
-            # url = "https://books.rakuten.co.jp/calendar/001004/monthly/?tid=2023-02-01&v=2&s=14"
-            # url = "https://books.rakuten.co.jp/calendar/001004/monthly/?tid=2023-02-01&p=4&v=2&s=14#rclist"
+            url = "https://books.rakuten.co.jp/calendar/001004/monthly/?tid=2023-10-29&v=2&s=14"
+            # url = f"https://books.rakuten.co.jp/calendar/001004/monthly/?tid=2023-03-01&p={count}&v=2&s=14#rclist"
             # ボーイズラブ
             # url = f"https://books.rakuten.co.jp/calendar/001021/monthly/?tid=2023-02-01&p={count}&v=2&s=14#rclist"
             # 文庫
             # url = f"https://books.rakuten.co.jp/calendar/001019/monthly/?tid=2023-02-01&p={count}&v=2&s=14#rclist"
             
+            # print(url)
+            
             # 楽天へ遷移
             page.goto(url, timeout=0)
             
-            time.sleep(5)
+            
+            time.sleep(3)
 
             # next = page.locator('#main-container > div.rbcomp__pager-contents > div > div:nth-child(3) > a')
             # is_next = True
             
             # while is_next:
             print(f"----------------------------------------{count}ページ----------------------------------------")
+            print(page.title())
 
             # 本のセレクター
             book_list = page.locator('.item__panel')
@@ -99,7 +103,7 @@ def run(playwright: Playwright, count: int):
                 # page.set_default_navigation_timeout(0)
                 # page.goto(detail_page)
                 page.goto(detail_page, timeout=0, wait_until='load')
-                time.sleep(5)
+                time.sleep(3)
                 print(page.title())
 
                 # 本のタイトル
@@ -176,7 +180,7 @@ def run(playwright: Playwright, count: int):
                 # 一覧ページへ戻る
                 page.go_back(timeout=0)
                 
-                time.sleep(5)
+                time.sleep(3)
 
             # ページごとにインサート
             releasedModel = ReleasedModel()
@@ -194,6 +198,6 @@ if __name__ == '__main__':
     parser.add_argument("page", help="ページ")
     args = parser.parse_args()
     print("page=" + args.page)
-    
+
     with sync_playwright() as p:
         run(p, args.page)

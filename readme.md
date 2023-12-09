@@ -11,39 +11,6 @@ docker-compose -f docker-compose-prod.yaml up -d
 `php artisan command:rakutenGame "PS5" 1`  
 `php artisan command:rakutenGame "Switch" 1`  
 
-- 本取得 
-  - コミック  
-  `php artisan command:rakutenBook 9 1`  80までやった
-  男運ゼロの薬師令嬢、初恋の黒騎士様が押しかけ婚約者になりまして。　3巻 : 1/31発売  2/10 7:00の段階で「90」ページにある  
-  →「95」ページになった
-  更新頻度: 高
-  - 文庫  
-  `php artisan command:rakutenBook 2 1`  90までやった 
-  5日経って1冊しか更新されていない
-  更新頻度: 低  
-  3日に1回数？
-
-  - 単行本  
-  `php artisan command:rakutenBook 1 1`  80までやった
-  今に向き合い、次につなぐ : 3/7発売  2/10 7:00の段階で「90」ページにある  
-  更新頻度: 高  
-
-  - 図鑑  
-  `php artisan command:rakutenBook 6 1`  1から10まで  
-  更新頻度: 低
-  - 絵本  
-  `php artisan command:rakutenDb 7 1`    1から10まで  
-  更新頻度: 低
-
-- CD取得  
-  `php artisan command:rakutenCd 1`       81までやった
-  【輸入盤】Jaroslav Tuma: Johann David Sieber Organ : 1/31発売  2/10 7:00の段階で「90」ページにある  
-  更新頻度: 高
-
-- DVD/Blu-ray取得  
-`php artisan command:rakutenDb 1`       80までやった
-  クビキリサイクル 青色サヴァンと戯言遣い Blu-ray Disc BOX【完全生産限定版】【Blu-ray】 : 2/22発売  2/10 7:00の段階で「90」ページにある  
-  更新頻度: 高
 
 
 # コード補完
@@ -64,30 +31,11 @@ barryvdh/laravel-ide-helper
 
 
 
-https://hb.afl.rakuten.co.jp/ichiba/2cd5b0ae.6303a4de.2cd5b0af.dbaafed3/?
-pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17336236%2F&link_type=hybrid_url&
-ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9
-
-
-https://hb.afl.rakuten.co.jp/ichiba/2cd5b0ae.6303a4de.2cd5b0af.dbaafed3/?
-pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17336236%2F&link_type=hybrid_url&
-ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9
 
 
 
 
+docker-compose -f docker-compose-local.yaml exec py bash
 
-https://hb.afl.rakuten.co.jp/ichiba/2cd5b0ae.6303a4de.2cd5b0af.dbaafed3/?
-pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17336236%2F&link_type=hybrid_url&
-ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9
+python3 batch/rakuten_exec.py BOOK 3
 
-
-
-https://hb.afl.rakuten.co.jp/ichiba/2cd5b0ae.6303a4de.2cd5b0af.dbaafed3/?
-pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17288300%2F&link_type=hybrid_url&
-ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9
-
-
-https://hb.afl.rakuten.co.jp/ichiba/2cd5b0ae.6303a4de.2cd5b0af.dbaafed3/?
-pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fbook%2F17288300%2F&link_type=hybrid_url&
-ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJoeWJyaWRfdXJsIiwic2l6ZSI6IjI0MHgyNDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9

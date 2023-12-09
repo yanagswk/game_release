@@ -48,8 +48,7 @@ def run(playwright: Playwright, count: int):
         with chrome.new_page() as page:
 
             # 002 (CD)
-            # url = "https://books.rakuten.co.jp/calendar/002/monthly/?tid=2023-02-14&v=2&s=14"
-            url = f"https://books.rakuten.co.jp/calendar/002/monthly/?tid=2023-02-14&p={count}&v=2&s=14#rclist"
+            url = f"https://books.rakuten.co.jp/calendar/002/monthly/?tid=2023-02-01&p={count}&v=2&s=14#rclist"
             # 楽天へ遷移
             page.goto(url, timeout=0)
             time.sleep(5)

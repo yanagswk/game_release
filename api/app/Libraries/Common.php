@@ -14,7 +14,8 @@ class Common
      */
     public function getToday()
     {
-        $today = Carbon::today();
+        // $today = Carbon::today();
+        $today = new Carbon("2023-03-16");
         return $today->format('Ymd');
     }
 

@@ -26,8 +26,10 @@ class BooksController extends Controller
      * @param Request $request
      * @return void
      */
-    public function getBooksInfo(Request $request)
+    public function list(Request $request)
     {
+        logger($request->all());
+
         $user_id = $request->input('user_id');
         $limit = $request->input('limit');
         $offset = $request->input('offset');

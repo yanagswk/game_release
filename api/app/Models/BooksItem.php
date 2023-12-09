@@ -42,6 +42,7 @@ class BooksItem extends Model
         'isbn',
         'rakuten_affiliate_url',
         'amazon_affiliate_url',
+        'is_series_checked',
         'disabled',
     ];
 

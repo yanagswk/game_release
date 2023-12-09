@@ -67,7 +67,7 @@ Route::get('/article/index', [ArticleController::class, 'getArticle']);
 // 本
 Route::group(['prefix' => 'books'], function(){
     // 本取得
-    Route::get('info', [BooksController::class, 'getBooksInfo']);
+    Route::get('/', [BooksController::class, 'list']);
 });
 
 // CD or DVD
